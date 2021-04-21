@@ -1,14 +1,3 @@
----
-header-includes:
-   - \usepackage{xcolor}
-   - \hypersetup{colorlinks = true}
-   - \usepackage{float}
-   - \floatplacement{figure}{H}
-output:
-  pdf_document: default
-  html_document: default
----
-
 # Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
