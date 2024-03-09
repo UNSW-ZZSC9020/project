@@ -11,7 +11,7 @@ Complete the information below regarding your group.
 ### Group members and zIDs
 - Member 1 (zID1) - Group leader
 - Karunya Sankar Kumar (z5339860) - role
-- Kiara Zientrich (zID3) - role
+- Kiara Zentrich (zID3) - role
 - Santhosh Ban (zID4) - role
 - Mathew Fraser (zID5) - role
 
