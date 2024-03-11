@@ -9,11 +9,9 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Member 1 (z5135363) - Doug Smithers
+- Member 2 (z3478832) - Tom Bernstein
+- Member 3 (z5350306) - Daniel Sartor
 
 ### Brief project description
 
