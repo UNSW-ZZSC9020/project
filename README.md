@@ -9,11 +9,10 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Karunya Sankar Kumar (z5339860) - role
-- Kiara Zentrich (zID3) - role
-- Santhosh Ban (z5441817) - role
-- Mathew Fraser (zID5) - role
+- Karunya Sankar Kumar (z5339860)
+- Kiara Zentrich (z5382804)
+- Santhosh Ban (z5441817)
+- Mathew Fraser (z5433663)
 
 ### Brief project description
 
