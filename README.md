@@ -11,7 +11,7 @@ Complete the information below regarding your group.
 ### Group members and zIDs
 - Karunya Sankar Kumar (z5339860)
 - Kiara Zentrich (z5382804)
-- Santhosh Ban (z5441817)
+- Santosh Ban (z5441817)
 - Mathew Fraser (z5433663)
 
 ### Brief project description
