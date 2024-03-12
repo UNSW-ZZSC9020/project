@@ -1,0 +1,28 @@
+Notes: those are the notes from the meetings we have as a group in reverse chronological order.
+
+2024-03-12: The introduction
+
+- Initial moodle post by sonit
+    - []  1. Watch Welcome Webinar 
+    - [x] 2. check your group and members in your team. 
+    - [x]  "data" directory on GitHub project repository https://github.com/UNSW-ZZSC9020/project . 
+        - I forked it and added the lecturers
+        - What are you Github accounts?
+    - [x]  4. Teaching staff GitHub username 
+    - [ ]  5. Have a look at the dataset(s) 
+        - high level definition of the project
+        - research questions you can answer from the dataset.
+    - [x]  6. Add members name in the README file. 
+        - [] project description 
+        - other relevant details in the README file 
+    IMPORTANT
+    - [ ]  7. As a team, work towards Assessment 1 Part A: Group Project Plan
+        - Deadline: Week 2, 19 March 2024 (Tuesday) 5pm.
+    - [ ]  8. As an individual team member, complete Assessment 1 Part B: Individual Implementation Checklist.
+        -  deadline: Week 2, 19 March 2024 (Tuesday) 5pm.
+    - [ ]  9. "Book a meeting with StaffName" 
+        - Booked for tomorrow 
+    - Colab: https://colab.research.google.com/drive/1Z5YLCVcFDaHITPnBA6T06Fk-VvygChbg?usp=drive_link
+     [7:46 PM] Andrew Ryan
+    How does the integration of renewable energy sources affect electricity demand forecasting accuracy, and what are the implications for energy grid management and resource allocation?
+ 
