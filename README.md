@@ -12,7 +12,7 @@ Complete the information below regarding your group.
 ### Group members and zIDs
 - Chadi Abi Fadel (z5442788) - role
 - Joshua Evans (z5409600) - role
-- Bernard Lo (zID3) - role
+- Bernard Lo (z3464235) - role
 
 ### Brief project description
 
