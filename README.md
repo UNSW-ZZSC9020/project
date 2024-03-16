@@ -13,6 +13,7 @@ Complete the information below regarding your group.
 - Chadi Abi Fadel (z5442788) - role
 - Joshua Evans (z5409600) - role
 - Bernard Lo (z3464235) - role
+- Andrew Ryan (z2251397) - role
 
 ### Brief project description
 
