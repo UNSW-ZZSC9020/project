@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group G
+# ZZSC9020 Data Science Project group G - Watt's Up Down Unda
 
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
