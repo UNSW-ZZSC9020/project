@@ -10,14 +10,19 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Chadi Abi Fadel (z5442788) - role
-- Joshua Evans (z5409600) - role
-- Bernard Lo (z3464235) - role
-- Andrew Ryan (z2251397) - role
+- Chadi Abi Fadel (z5442788) - Software Development
+- Joshua Evans (z5409600) - Report Writer / communication specialist
+- Bernard Lo (z3464235) - Data Analyst
+- Andrew Ryan (z2251397) - Project Manager
 
 ### Brief project description
 
-Describe your project in one paragraph.
+How does the integration of renewable energy features affect electricity demand forecasting accuracy.
+Specifically does including the features, 'solar generation capacity' (domestic and residential), and 'solar radiation' improve the forecasting accuracy of electricity demand compared with just using temperature alone. In effect, we will attempt to conduct the below hypothesis test for a number of different modelling approaches.
+ 
+1.	Null Hypothesis: Temperature data alone is sufficient to reliably forecast electricity demand
+2.	Alternative Hypothesis: Including the additional features of  'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand
+
 
 ## Repository structure
 
