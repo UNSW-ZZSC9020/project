@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
+# Welcome to ZZSC9020 GitHub repository for group J
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
 
@@ -9,11 +9,10 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Member 1 Kedar Viswanathan (z5345069) - Group leader
+- Member 2 Partha Das (z5388973) - Literature Research lead
+- Member 3 Siyi Chen (z5347249) - Data Analyst and Modeler
+- Member 4 Udayan Chelvaratnam (z5043038) - Modeller
 
 ### Brief project description
 
