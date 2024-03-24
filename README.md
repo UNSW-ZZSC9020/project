@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
+# Welcome to ZZSC9020 GitHub repository for group [GROUP-B]
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
 
@@ -9,15 +9,14 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Karunya Sankar Kumar (z5339860)
+- Kiara Zentrich (z5382804)
+- Santosh Ban (z5441817)
+- Mathew Fraser (z5433663)
 
 ### Brief project description
 
-Describe your project in one paragraph.
+This project is designed to develop sophisticated analytical models and methods for forecasting electricity demand, supporting decision-making and strategic planning for entities within the energy sector. The analysis will employ historical electricity demand data, temperature records, and previous forecasts from various regions, aiming to produce not only precise demand predictions but also probabilistic outcomes to enhance understanding. Additionally, it will create synthetic data to depict potential future scenarios, aiding in the robust testing of these models and offering insights into the historical demand trends. The successful implementation of this project is expected to lead to enhanced forecasting accuracy, improved scenario-based planning with synthetic data, more effective operational decision-making, and superior risk management. The overarching aim is to establish an advanced analytical framework that elucidates the intricate interplay among demand, climatic conditions, economic indicators, and other significant factors, thereby offering substantial support to the broader energy sector.
 
 ## Repository structure
 
