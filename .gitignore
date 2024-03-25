@@ -2,3 +2,8 @@ data/*
 *.DS_Store*
 *.ipynb_checkpoints*
 figure_dir.txt
+.vscode
+.vscode
+.vscode/settings.json
+poetry.lock
+pyproject.toml
