@@ -1,13 +1,15 @@
 ---
-title: "A Data Science Approach to Forecast Electricity Consumption in Australia"
-team: 22
-session: Term 1, 2021
-coursecode: MATH0000
+title: "Exploring the Impacts of Residential And Commercial Solar Power Production on Grid Demand"
+team: Group G – Watt’s Up Down Under
+session: Hexamester 2, 2024
+coursecode: ZZSC9020
 author: 
-  - "John Student (z123456), "
-  - "Jim Student2 (zID), "
-  - "Jack Student3 (zID)." 
-date: "25/07/2020"
+- Bernard Lo (z3464235)
+- Andrew Ryan (z2251397)
+- Chadi Abi Fadel (z5442788)
+- Joshua Evans (z5409600)
+
+date: "23/04/2024"
 Acknowledgements: 
   - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
   - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
