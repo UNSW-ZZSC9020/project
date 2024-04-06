@@ -5,3 +5,4 @@ data/Australia/b/forecastdemand_sa.csv
 
 # Chadi ignores
 extracted_zips/
+data/PV_Data/raw_data/unzipped_data/combined_data.csv
