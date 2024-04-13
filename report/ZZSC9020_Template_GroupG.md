@@ -42,6 +42,7 @@ csl: university-of-south-wales-harvard.csl
 
 # Introduction {.label:s-intro}
 
+There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
 This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands.
 
 \bigskip
@@ -54,6 +55,7 @@ We suggest you organise your report using the following chapters but, depending 
 
 # Literature Review
 
+For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
 Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/
 
 \bigskip
