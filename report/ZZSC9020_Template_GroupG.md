@@ -50,6 +50,7 @@ There is a well known relationship with the TESTING
 There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
 This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands.
 
+
 \bigskip
 
 Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio).
@@ -77,15 +78,17 @@ R and Python of course are great software for Data Science. Sometimes, you might
 Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!
 
 ## Description of the Data
-
+Bernard to complete
 How are the data stored? What are the sizes of the data files? How many files? etc.
 
-## Pre-processing Steps
 
+
+## Pre-processing Steps
+Andrew Ryan to complete
 What did you have to do to transform the data so that they become useable?
 
 ## Data Cleaning
-
+Andrew Ryan to complete
 How did you deal with missing data? etc. 
 
 ## Assumptions
