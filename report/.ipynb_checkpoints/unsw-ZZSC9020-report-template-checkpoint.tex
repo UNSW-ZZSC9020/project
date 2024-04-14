@@ -1,0 +1,418 @@
+\documentclass[mstat,12pt]{unswthesis}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% OK...Now we get to some actual input.  The first part sets up
+% the title etc that will appear on the front page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Capstone Project by Team 22\\[0.5cm]A Data Science Approach to
+Forecast Electricity Consumption in Australia}
+
+\authornameonly{John Student (z123456), Jim Student2 (zID), Jack
+Student3 (zID). }
+
+\author{\Authornameonly}
+
+\copyrightfalse
+\figurespagefalse
+\tablespagefalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  And now the document begins
+%  The \beforepreface and \afterpreface commands puts the
+%  contents page etc in
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{header.tex}
+
+\begin{document}
+
+\beforepreface
+
+%\afterpage{\blankpage}
+
+% plagiarism
+
+\prefacesection{Plagiarism statement}
+
+\vskip 2pc \noindent I declare that this thesis is my
+own work, except where acknowledged, and has not been submitted for
+academic credit elsewhere. 
+
+\vskip 2pc  \noindent I acknowledge that the assessor of this
+thesis may, for the purpose of assessing it:
+\begin{itemize}
+\item Reproduce it and provide a copy to another member of the University; and/or,
+\item Communicate a copy of it to a plagiarism checking service (which may then retain a copy of it on its database for the purpose of future plagiarism checking).
+\end{itemize}
+
+\vskip 2pc \noindent I certify that I have read and understood the University Rules in
+respect of Student Academic Misconduct, and am aware of any potential plagiarism penalties which may 
+apply.\vspace{24pt}
+
+\vskip 2pc \noindent By signing 
+this declaration I am
+agreeing to the statements and conditions above.
+\vskip 2pc \noindent
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+\vskip 1pc
+
+%\afterpage{\blankpage}
+
+% Acknowledgements are optional
+
+
+\prefacesection{Acknowledgements}
+
+{\bigskip}By far the greatest thanks must go to my supervisor for the
+guidance, care and support they provided.\\[1cm] Thanks must also go to
+Emily, Michelle, John and Alex who helped by proof-reading the document
+in the final stages of preparation.\\[1cm] Although I have not lived
+with them for a number of years, my family also deserve many thanks for
+their encouragement. Thanks go to Robert Taggart for allowing his thesis
+style to be shamelessly copied.\\[1cm] 
+
+{\bigskip\bigskip\bigskip\noindent} 25/07/2020.
+
+%\afterpage{\blankpage}
+
+% Abstract
+
+\prefacesection{Abstract}
+
+The image below gives you some hint about how to write a good abstract.
+
+\par
+
+\bigskip \includegraphics[width=10cm,height=10cm]{good-abstract.png}
+
+%\afterpage{\blankpage}
+
+
+\afterpreface
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Now we can start on the first chapter
+% Within chapters we have sections, subsections and so forth
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\afterpage{\blankpage}
+
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+This R Markdown template can be used for the ZZSC9020 course report. You
+can incorporate R (R Core Team, 2017) chunks and Python chunks that will
+be run on the fly. You can incorporate \LaTeX~commands.
+
+\bigskip
+
+Before submitting the last version of your report, you might want to use
+\url{https://overleaf.com} to collaborate with other members of your
+team directly on the \LaTeX~version of this document (which is a
+byproduct you get when you Knit it from studio).
+
+\bigskip
+
+We suggest you organise your report using the following chapters but,
+depending on your own project, nothing prevents you to have a different
+organisation.
+
+\hypertarget{literature-review}{%
+\chapter{Literature Review}\label{literature-review}}
+
+Here are a few references that can be useful: (Xie et al., 2018) and
+(Lafaye de Micheaux et al., 2013). See also
+\url{https://bookdown.org/yihui/rmarkdown-cookbook/}
+
+\bigskip
+
+In order to incorporate your own references in this report, we strongly
+advise you use BibTeX. Your references then needs to be recorded in the
+file \texttt{references.bib}.
+
+\hypertarget{material-and-methods}{%
+\chapter{Material and Methods}\label{material-and-methods}}
+
+\hypertarget{software}{%
+\section{Software}\label{software}}
+
+R and Python of course are great software for Data Science. Sometimes,
+you might want to use \texttt{bash} utilities such as \texttt{awk} or
+\texttt{sed}.
+
+Of course, to ensure reproducibility, you should use something like
+\texttt{Git} and RMarkdown (or a Jupyter Notebook). Do \textbf{not} use
+Word!
+
+\hypertarget{description-of-the-data}{%
+\section{Description of the Data}\label{description-of-the-data}}
+
+How are the data stored? What are the sizes of the data files? How many
+files? etc.
+
+\hypertarget{pre-processing-steps}{%
+\section{Pre-processing Steps}\label{pre-processing-steps}}
+
+What did you have to do to transform the data so that they become
+useable?
+
+\hypertarget{data-cleaning}{%
+\section{Data Cleaning}\label{data-cleaning}}
+
+How did you deal with missing data? etc.
+
+\hypertarget{assumptions}{%
+\section{Assumptions}\label{assumptions}}
+
+What assumptions are you making on the data?
+
+\hypertarget{modelling-methods}{%
+\section{Modelling Methods}\label{modelling-methods}}
+
+\hypertarget{exploratory-data-analysis}{%
+\chapter{Exploratory Data Analysis}\label{exploratory-data-analysis}}
+
+This is where you explore your data using histograms, scatterplots,
+boxplots, numerical summaries, etc.
+
+\hypertarget{using-r}{%
+\section{Using R}\label{using-r}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(cars, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#5975a4"}\NormalTok{, }\StringTok{"\#cc8963"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\hypertarget{using-python}{%
+\section{Using Python}\label{using-python}}
+
+See
+\url{https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html}
+for more details.
+
+\bigskip
+
+You need to install the R package \texttt{reticulate}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Python can be used with MATHxxxx!"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Python can be used with MATHxxxx!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ sys}
+\BuiltInTok{print}\NormalTok{(sys.version)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3.6.13 (default, Feb 19 2021, 05:17:09) [MSC v.1916 64 bit (AMD64)]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\NormalTok{np.random.seed(}\DecValTok{1}\NormalTok{)}
+\NormalTok{np.random.normal(}\FloatTok{0.0}\NormalTok{, }\FloatTok{1.0}\NormalTok{, size}\OperatorTok{=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
+##        -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\NormalTok{df}\OperatorTok{=}\NormalTok{pd.DataFrame([[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{], [}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{], [}\DecValTok{4}\NormalTok{, }\DecValTok{3}\NormalTok{], [}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]])}
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ df.columns:}
+\NormalTok{    ax}\OperatorTok{=}\NormalTok{plt.subplot(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,i}\OperatorTok{+}\DecValTok{1}\NormalTok{) }
+\NormalTok{    df[[i]].plot(ax}\OperatorTok{=}\NormalTok{ax)}
+    \BuiltInTok{print}\NormalTok{(i)}
+
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{analysis-and-results}{%
+\chapter{Analysis and Results}\label{analysis-and-results}}
+
+\hypertarget{a-first-model}{%
+\section{A First Model}\label{a-first-model}}
+
+Having a very simple model is always good so that you can benchmark any
+result you would obtain with a more elaborate model.
+
+\bigskip
+
+For example, one can use the linear regression model
+
+\[
+Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
+\] where it is assumed that the \(\epsilon_i\)'s are i.i.d.~\(N(0,1)\).
+
+\hypertarget{discussion}{%
+\chapter{Discussion}\label{discussion}}
+
+Put the results you got in the previous chapter in perspective with
+respect to the problem studied.
+
+\hypertarget{conclusion-and-further-issues}{%
+\chapter{Conclusion and Further
+Issues}\label{conclusion-and-further-issues}}
+
+What are the main conclusions? What are your recommendations for the
+``client''? What further analysis could be done in the future?
+
+A figure:
+
+\begin{figure}
+\centering
+\includegraphics[width=6cm,height=2cm]{unsw-logo.png}
+\caption{A caption \label{myfigure}}
+\end{figure}
+
+In the text, see Figure \ref{myfigure}.
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Lafaye2013}{}}%
+Lafaye de Micheaux, P., Drouilhet, R. and Liquet, B. (2013) \emph{The
+{R} software: Fundamentals of programming and statistical analysis}.
+Springer New York. Available at:
+\url{https://books.google.fr/books?id=Ji-8BAAAQBAJ}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R}{}}%
+R Core Team (2017) \emph{{R}: A language and environment for statistical
+computing}. Vienna, Austria: R Foundation for Statistical Computing.
+Available at: \url{https://www.R-project.org/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Xie2018}{}}%
+Xie, Y., Allaire, J.J. and Grolemund, G. (2018) \emph{R markdown, the
+definitive guide}. Chapman; Hall/CRC. Available at:
+\url{https://bookdown.org/yihui/rmarkdown/}.
+
+\end{CSLReferences}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\hypertarget{appendix}{%
+\chapter*{Appendix}\label{appendix}}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\hypertarget{codes}{%
+\section*{\texorpdfstring{\textbf{Codes}}{Codes}}\label{codes}}
+\addcontentsline{toc}{section}{\textbf{Codes}}
+
+Add you codes here.
+
+\hypertarget{tables}{%
+\section*{\texorpdfstring{\textbf{Tables}}{Tables}}\label{tables}}
+\addcontentsline{toc}{section}{\textbf{Tables}}
+
+If you have tables, you can add them here.
+
+Use \url{https://www.tablesgenerator.com/markdown_tables} to crete very
+simple markdown tables, otherwise use \LaTeX.
+
+\begin{longtable}[]{@{}lcr@{}}
+\toprule
+Tables & Are & Cool \\
+\midrule
+\endhead
+col 1 is & left-aligned & \$1600 \\
+col 2 is & centered & \$12 \\
+col 3 is & right-aligned & \$1 \\
+\bottomrule
+\end{longtable}
+
+
+
+
+
+
+
+\end{document}
+
