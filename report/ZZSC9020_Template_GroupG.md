@@ -36,9 +36,9 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-<!--- We can comment out a piece of text with these seperators
-![Figure 1: Duplicate Check for Victoria ](duplicate_check_victoria-1.png)
---->
+Here is a test of an image
+![Test cat in suit](img/cat_caviar.jpg)
+
 _Template text is in italics_
 # Abstract
 
