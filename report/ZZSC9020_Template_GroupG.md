@@ -48,18 +48,15 @@ There is a well-known relationship between electricity demand and temperature in
 
 # Introduction {.label:s-intro}
 
-There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
+Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
 
+There is a fundamental relationship between energy demand and external ambient temperature. Looking at the historic energy demand in the country, the energy demand is proportional to the external ambient temperature as the temperature dictates whether residential customers will require heating or air conditioning for comfortable living conditions. Forecasting energy demand is important for energy suppliers as it optimises profit by preventing under or over-production. In a competitive market, forecasting energy demand is essential for predicting electricity pricing and demand.  
 
-_This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands._
+Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses: 
 
+ Null Hypothesis: Temperature data alone is sufficient to reliably forecast electricity demand 
 
-_Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio)._
-
-
-
-_We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation._
-
+Alternative Hypothesis: Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand (TBC)
 # Literature Review
 
 For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
