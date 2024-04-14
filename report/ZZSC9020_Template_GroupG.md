@@ -68,8 +68,19 @@ _Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See
 
 # Material and Methods
 
-## Software
+A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
+## Loading the given dataset
+**Chadi to complete**
+Python was used to extract, transform and to load the data (ETL) into our notebook for further Exploratory Data Analysis (EDA) and modelling.
+Unzipping programmatically ensures the repeatability of the data extraction process while ensuring that no human errors were introduced in the process as the number of files grows
+- unzip
+-
 
+## Refactoring and simplifying the code
+**Chadi to complete**
+
+## Scraping PV data
+**Chadi to complete**
 
 _R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`._
 
