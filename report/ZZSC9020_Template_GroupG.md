@@ -36,8 +36,10 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
+<!--- We can comment out a piece of text with these seperators
 ![Figure 1: Duplicate Check for Victoria ](duplicate_check_victoria-1.png)
-
+--->
+_Template text is in italics_
 # Abstract
 
 There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage.  
@@ -47,34 +49,31 @@ There is a well-known relationship between electricity demand and temperature in
 # Introduction {.label:s-intro}
 
 There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
-This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands.
 
 
-\bigskip
+_This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands._
 
-Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio).
 
-\bigskip
+_Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio)._
 
-We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation.
+
+
+_We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation._
 
 # Literature Review
 
 For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
-Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/
-
-\bigskip
-
-In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`.
+_Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/. In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`._
 
 
 # Material and Methods
 
 ## Software
 
-R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`.
 
-Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!
+_R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`._
+
+_Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!_
 
 ## Description of the Data
 Bernard to complete
@@ -90,7 +89,9 @@ Step 1:Unzip the files and import the data
 Steo 2: Check for duplicate data records
 Step 2:visualise
 
+<!---
 ![alt text](duplicate_check_victoria-1.png)
+--->
 
 
 ## Data Cleaning
@@ -114,15 +115,16 @@ This is where you explore your data using histograms, scatterplots, boxplots, nu
 boxplot(cars, col = c("#5975a4", "#cc8963"))
 ```
 
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
+<!--
+![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf) --> 
 
 ## Using Python {.fragile}
 
-See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
+<!-- See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
 
 \bigskip
 
-You need to install the R package `reticulate`.
+You need to install the R package `reticulate`. -->
 
 
 ```python
