@@ -36,16 +36,12 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-
+![Figure 1: Duplicate Check for Victoria ](duplicate_check_victoria-1.png)
 
 # Abstract
 
 There is a well known relationship with the TESTING
-
-
 ## Josh is testing editing the MD File here
-
-# Josh is testing Jupyter HERE
 
 # Introduction {.label:s-intro}
 
@@ -89,6 +85,13 @@ How are the data stored? What are the sizes of the data files? How many files? e
 Andrew Ryan to complete
 What did you have to do to transform the data so that they become useable?
 
+Step 1:Unzip the files and import the data
+Steo 2: Check for duplicate data records
+Step 2:visualise
+
+![alt text](duplicate_check_victoria-1.png)
+
+
 ## Data Cleaning
 Andrew Ryan to complete
 How did you deal with missing data? etc. 
@@ -122,6 +125,26 @@ You need to install the R package `reticulate`.
 
 
 ```python
+# Key Libraries Used
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import xgboost as xgb
+color_pal = sns.color_palette()
+import time
+
+from sklearn.base import clone
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, StackingRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.neural_network import MLPRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.model_selection import train_test_split
+
 print("Python can be used with MATHxxxx!")
 ```
 
