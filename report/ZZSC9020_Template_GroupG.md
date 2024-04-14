@@ -61,7 +61,6 @@ Alternative Hypothesis: Including the additional features of 'solar generation c
 In order to test the hypotheses, the team would require more dataset, e.g. solar power generation data and public holidays, etc. These datasets are not provided and are significantly related to our hypotheses. From the project plan, the team has chosen LSTM as the main method for modelling. 2 models will then be built and compared in order to test if the hypotheses we listed above is valid. 
 
 Since the data used only ranges from 2017 to 2021, hence there are limitation in terms of accuracy for the model. Moreover, we are only specifically including solar power generation but no other renewable energy sources, this may also affect the accuracy of the final result. 
-![image](https://github.com/QuietInnovator/UNSW-capstone-group-g/assets/162994253/8258c3da-1171-4b75-ab49-60ade22e7670)
 
 # Literature Review
 
