@@ -44,8 +44,6 @@ _Template text is in italics_
 
 There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage.  
 
-## Josh is testing editing the MD File here
-
 # Introduction
 
 Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
@@ -54,9 +52,10 @@ There is a fundamental relationship between energy demand and external ambient t
 
 Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses: 
 
- Null Hypothesis: Temperature data alone is sufficient to reliably forecast electricity demand 
+**Null Hypothesis** ($H_0$): Temperature data alone is sufficient to reliably forecast electricity demand.
 
-Alternative Hypothesis: Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
+**Alternative Hypothesis** ($H_1$): Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
+
 
 In order to test the hypotheses, the team would require more dataset, e.g. solar power generation data and public holidays, etc. These datasets are not provided and are significantly related to our hypotheses. From the project plan, the team has chosen LSTM as the main method for modelling. 2 models will then be built and compared in order to test if the hypotheses we listed above is valid. 
 
@@ -145,7 +144,7 @@ Each model has been chosen based on its potential to effectively handle the char
 
 ## Description of Each Model
 
-1. Basic Linear Regression Model
+**1. Basic Linear Regression Model**
 
 Model Overview:
 Linear regression is a foundational statistical method used for modeling the relationship between a dependent variable and one or more independent variables by fitting a linear equation to observed data. The equation for a linear regression line is typically in the form:
@@ -165,7 +164,7 @@ This model is well-suited for cases where the relationship between variables is 
 Rationale for Inclusion:
 The basic Linear Regression model is included in this study due to its effectiveness in providing a clear and straightforward understanding of the influences of different predictors on electricity demand. It serves as a fundamental benchmark for evaluating more complex models. The model's simplicity and interpretability are particularly valuable for initial exploratory analyses, where understanding the direct linear impact of individual factors—such as temperature, time of day, and economic indicators—on electricity demand is crucial. 
 
-2. Neural Network Model (MLP)
+**2. Neural Network Model (MLP)**
 
 Model Overview:
 The Multi-Layer Perceptron (MLP) is a type of neural network known for its capability to model complex, non-linear relationships through its multiple layers and neurons. MLPs are widely used in pattern recognition, forecasting, and classification tasks where the relationships between variables are not easily discernible or are highly non-linear [@Nielsen2015].
@@ -190,7 +189,7 @@ This is the forward propagation mechanism. Learning in MLPs involves adjusting $
 Rationale for Inclusion:
 The MLP model is included in this project to leverage its ability to capture intricate patterns in the data that simpler models might miss. The non-linear dynamics of electricity demand, influenced by numerous factors such as economic activity, unpredictable weather conditions, and changes in consumer behaviour, make MLP a suitable choice. 
 
-3. Stacked Model
+**3. Stacked Model**
 
 Model Overview:
 A stacked model is an ensemble technique that combines the predictions from multiple individual models to produce a final output. The stacking method involves training a meta-model to synthesise the outputs of the base models into a single prediction, aiming to reduce bias and variance. In this specific application, the stacked model includes Generalised Boosted Models (GBM), Linear Regression, and a Multi-Layer Perceptron (MLP). Each base model independently processes the input data and makes predictions which are then used as inputs for the meta-model [@Wolpert1992].
@@ -221,7 +220,7 @@ Linear Regression provides clear insights into the linear relationships and is h
 MLP, with its deep learning capabilities, is good at at identifying patterns and dependencies in large datasets that might be non-linear or hidden.
 By stacking these models, we aim to mitigate the individual weaknesses of each model and enhance prediction stability. The meta-model, a simpler model like linear regression, is trained on the predictions of the base models, ensuring that the final predictions are not just a simple average but a  weighted combination that considers how each model performs in various scenarios. 
 
-4. Long Short-Term Memory (LSTM) Model
+**4. Long Short-Term Memory (LSTM) Model**
 
 Model Overview:
 Long Short-Term Memory (LSTM) models are a kind of Recurrent Neural Network (RNN) particularly well-suited to classifying, processing, and predicting time series data given time lags of unknown duration between important events. Unlike standard feedforward neural networks, LSTMs have feedback connections that allow them to process not just individual data points, but entire sequences of data [@Hochreiter1997]. This feature makes them ideal for tasks where context from the input data is crucial, such as speech recognition, language modeling, and, importantly, time-series forecasting like electricity demand.
@@ -261,6 +260,42 @@ Rationale for Inclusion:
 The decision to include an LSTM model in this study stems from its proven capability in handling sequential data with dependencies over time, which is a common characteristic of electricity usage data [@Huang2016]. Electricity demand forecasting involves understanding patterns that unfold over time, influenced by factors such as weather, time of day, and economic conditions. Traditional models often struggle with capturing these temporal dynamics effectively, especially when the sequences have long time dependencies.
 
 LSTMs are designed to overcome the vanishing gradient problem that can occur with standard RNNs in the training process, allowing them to learn from data where important events are separated by long time lags. This capability is critical for accurately predicting electricity demand where previous consumption patterns and external factors like weather conditions can significantly influence future demand.
+
+# Feature Engineering
+
+Feature engineering was a fundamental step in the data preprocessing pipeline that significantly enhanced model performance. By transforming raw data into new features, our models signficantly improved performance over the baseline. 
+
+**Engineered Features:**
+
+1. Cooling Degree Days (CDD) Feature:
+
+Description: The 'Cooling' feature represents the Cooling Degree Days, calculated as the number of degrees where the temperature is above a certain threshold (24°C here), indicating the energy demand for cooling.
+
+Justification: This feature is essential in Australia where air conditioning is widely used. A temperature above 24°C would typically result in increased electricity usage for cooling, making this a relevant predictor for demand forecasting.
+
+2. Heating Degree Days (HDD) Feature:
+
+Description: The 'Heating' feature represents the Heating Degree Days, calculated as the number of degrees where the temperature is below a certain threshold (20°C here), indicating the energy demand for heating.
+
+Justification: Similar to CDD, HDD accounts for additional energy demand for heating when the temperature drops below a comfortable threshold, a key consideration for accurate demand prediction in cooler seasons.
+
+3. Weekend Indicator Feature:
+   
+Description: The 'is_weekend' binary feature indicates whether a given date falls on a weekend.
+
+Justification: Electricity patterns often differ on weekends due to changes in commercial activity and personal routines. Recognising weekends can help the model adjust its forecasts accordingly.
+
+4. Seasonal Feature:
+   
+Description: The 'season' feature categorizes dates into seasons ('Summer', 'Autumn', 'Winter', 'Spring') based on the month.
+
+Justification: Seasonal variations significantly affect energy consumption due to weather-related changes in heating and cooling needs. This categorization aligns with Australia's distinct seasons, which correspond to varying energy usage profiles throughout the year.
+
+5. Public Holiday Feature:
+   
+Description: A binary feature derived from the 'public_holidays' dataset, indicating whether a date is a public holiday.
+
+Justification: Public holidays usually mean a reduction in commercial activity and can affect residential electricity consumption patterns. Including this feature helps in predicting atypical demand associated with holidays.
 
 
 # Exploratory Data Analysis
