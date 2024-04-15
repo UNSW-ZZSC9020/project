@@ -36,24 +36,43 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-Here is a test of an image
-![Test cat in suit](img/cat_caviar.jpg)
+![Figure 1: Duplicate Check for Victoria ](duplicate_check_victoria-1.png)
 
-_Template text is in italics_
 # Abstract
 
+<<<<<<< HEAD
+There is a well known relationship with the TESTING
+## Josh is testing editing the MD File here
+=======
 There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage.  
 
 # Introduction
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
 
+<<<<<<< HEAD
+# Introduction {.label:s-intro}
+
+There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
+This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands.
+=======
 Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
 
-There is a fundamental relationship between energy demand and external ambient temperature. Looking at the historic energy demand in the country, the energy demand is proportional to the external ambient temperature as the temperature dictates whether residential customers will require heating or air conditioning for comfortable living conditions. Forecasting energy demand is important for energy suppliers as it optimises profit by preventing under or over-production. In a competitive market, forecasting energy demand is essential for predicting electricity pricing and demand.  
 
-Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses: 
+\bigskip
 
+<<<<<<< HEAD
+Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio).
+=======
 **Null Hypothesis** ($H_0$): Temperature data alone is sufficient to reliably forecast electricity demand.
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
 
+<<<<<<< HEAD
+\bigskip
+
+We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation.
+
+=======
 **Alternative Hypothesis** ($H_1$): Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
 
 
@@ -61,31 +80,24 @@ In order to test the hypotheses, the team would require more dataset, e.g. solar
 
 Since the data used only ranges from 2017 to 2021, hence there are limitation in terms of accuracy for the model. Moreover, we are only specifically including solar power generation but no other renewable energy sources, this may also affect the accuracy of the final result. 
 
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
 # Literature Review
 
 For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
-_Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/. In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`._
+Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/
+
+\bigskip
+
+In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`.
 
 
 # Material and Methods
 
-A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
-## Loading the given dataset
-**Chadi to complete**
-Python was used to extract, transform and to load the data (ETL) into our notebook for further Exploratory Data Analysis (EDA) and modelling.
-Unzipping programmatically ensures the repeatability of the data extraction process while ensuring that no human errors were introduced in the process as the number of files grows
-- unzip
--
+## Software
 
-## Refactoring and simplifying the code
-**Chadi to complete**
+R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`.
 
-## Scraping PV data
-**Chadi to complete**
-
-_R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`._
-
-_Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!_
+Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!
 
 ## Description of the Data
 
@@ -115,18 +127,21 @@ The dataset contains public holiday of each state in Australia from 2009 to 2022
 Andrew Ryan to complete
 What did you have to do to transform the data so that they become useable?
 
-Step 1:Unzip the files and import the data
+Step 1: Unzip the files and import the data
 Steo 2: Check for duplicate data records
-Step 2:visualise
+Step 3: Visualise
+Step 4: Convert DATETIME to correct format
+Step 5: Merge regional data on DATETIME Field
+Step 6: Check Merge
+Step 7: Further data exploration and visualisation
 
-<!---
-![alt text](duplicate_check_victoria-1.png)
---->
+
+![alt text](Duplicates_vic.png)
 
 
 ## Data Cleaning
 Andrew Ryan to complete
-How did you deal with missing data? etc. 
+Merging the data on DATETIME significantly reduce the size of the dataset for modelling
 
 ## Assumptions
 
@@ -314,16 +329,15 @@ This is where you explore your data using histograms, scatterplots, boxplots, nu
 boxplot(cars, col = c("#5975a4", "#cc8963"))
 ```
 
-<!--
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf) --> 
+![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 ## Using Python {.fragile}
 
-<!-- See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
+See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
 
 \bigskip
 
-You need to install the R package `reticulate`. -->
+You need to install the R package `reticulate`.
 
 
 ```python
