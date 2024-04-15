@@ -130,6 +130,10 @@ What assumptions are you making on the data?
 
 ## Modelling Methods
 
+In this section, we present the modelling methods employed to forecast the total electricity demand in the NEM. Accurate forecasting of electricity demand is critical for optimising grid management and planning, ensuring reliability and efficiency in energy supply. Given the complexity of the factors influencing electricity consumption, multiple modelling approaches have been utilised to capture various patterns and dependencies in the data.
+
+
+
 # Exploratory Data Analysis
 
 This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
