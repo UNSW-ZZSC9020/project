@@ -167,7 +167,7 @@ duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 The results for each region are plotted here:
 
 ### Victoria
-![Duplicate Check Victoria](img/duplicate_check_vic.png)
+![Duplicate Check Victoria](img/duplicate_check_vic.png)\
 
 ### South Australia
 ![Duplicate Check South Australia: ](img/duplicate_check_SA.png)
@@ -369,10 +369,13 @@ Andrew to Complete
 
 This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
 
-A histogram of temperature data for each of the three regions is provided below.
+A histogram of temperature data for each of the three regions is provided below:
 
 ![Temperature Histogram: ](img/temp_histogram.png)
 
+A comparison of total demand by state is shwon below:
+
+![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
 
 ## Using R {.fragile}
