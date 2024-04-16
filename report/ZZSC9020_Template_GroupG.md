@@ -45,15 +45,44 @@ _Template text is in italics_
 There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage. Notably, the LSTM model outperformed existing models on Queensland data.
 
 # Introduction
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
 
+<<<<<<< HEAD
+# Introduction {.label:s-intro}
+
+<<<<<<< HEAD
 Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
+=======
+There is a well known relationship between temperature and electricity demand. We are interested to find out whether how solar panel affect the demand. 
+This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R [@R] chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX\ commands.
+=======
+Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
+>>>>>>> 363ed5ab7855230cf325451a1a055e6639023065
 
 There is a fundamental relationship between energy demand and external ambient temperature. Looking at the historic energy demand in the country, the energy demand is proportional to the external ambient temperature as the temperature dictates whether residential customers will require heating or air conditioning for comfortable living conditions. Forecasting energy demand is important for energy suppliers as it optimises profit by preventing under or over-production. In a competitive market, forecasting energy demand is essential for predicting electricity pricing and demand.  
 
 Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses: 
 
+<<<<<<< HEAD
+ Null Hypothesis: Temperature data alone is sufficient to reliably forecast electricity demand 
+=======
+<<<<<<< HEAD
+Before submitting the last version of your report, you might want to use https://overleaf.com to collaborate with other members of your team directly on the \LaTeX\ version of this document (which is a byproduct you get when you Knit it from studio).
+=======
 **Null Hypothesis** ($H_0$): Temperature data alone is sufficient to reliably forecast electricity demand.
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
+>>>>>>> 363ed5ab7855230cf325451a1a055e6639023065
 
+<<<<<<< HEAD
+Alternative Hypothesis: Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand (TBC)
+=======
+<<<<<<< HEAD
+\bigskip
+
+We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation.
+
+=======
 **Alternative Hypothesis** ($H_1$): Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
 
 
@@ -61,6 +90,8 @@ In order to test the hypotheses, the team would require more dataset, e.g. solar
 
 Since the data used only ranges from 2017 to 2021, hence there are limitation in terms of accuracy for the model. Moreover, we are only specifically including solar power generation but no other renewable energy sources, this may also affect the accuracy of the final result. 
 
+>>>>>>> b929f9189b4919fb17c03c91aa7e081635296638
+>>>>>>> 363ed5ab7855230cf325451a1a055e6639023065
 # Literature Review
 
       project plan litterature review on Machine Learning models (change them as you see fit)
@@ -189,20 +220,42 @@ The dataset contains public holiday of each state in Australia from 2009 to 2022
 **Description of the rooftop PV data**
 ## Pre-processing Steps
 Andrew Ryan to complete
-What did you have to do to transform the data so that they become useable?
+The key steps we followed to prepare the data for processing can be summarised as follows:
 
-Step 1:Unzip the files and import the data
-Steo 2: Check for duplicate data records
-Step 2:visualise
+**1. Unzip the files and import the data**
 
-<!---
-![alt text](duplicate_check_victoria-1.png)
---->
+**2. Check for duplicate data records**
 
+Duplicates where checked for each of the regional datasets by running
+an example of the code used to check and count duplicates is:
 
-## Data Cleaning
-Andrew Ryan to complete
-How did you deal with missing data? etc. 
+```python
+duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
+```
+The results for each region are plotted here:
+
+### Victoria
+![Duplicate Check Victoria](img/duplicate_check_vic.png)\
+
+### South Australia
+![Duplicate Check South Australia: ](img/duplicate_check_SA.png)
+
+### Queensland
+![Duplicate Check South Australia: ](img/duplicate_check_QLD.png)
+
+**3. Handling Missing Values** 
+
+**4. Checking for outliers**
+
+**5. Convert DATETIME to correct format**
+
+The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in datetime function. IN the case of temperature_qld, the format was different, and this require manual intervention per the code below.
+
+```python
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+```
+**6. Merge regional data on DATETIME Fields**
+Merging the data on DATETIME significantly reduce the size of the dataset for modelling
 
 ## Assumptions
 
@@ -380,8 +433,18 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 
 # Exploratory Data Analysis
+Andrew to Complete
 
 This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
+
+A histogram of temperature data for each of the three regions is provided below:
+
+![Temperature Histogram: ](img/temp_histogram.png)
+
+A comparison of total demand by state is shwon below:
+
+![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
+
 
 ## Using R {.fragile}
 
