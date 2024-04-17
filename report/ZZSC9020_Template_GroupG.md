@@ -36,8 +36,6 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-Here is a test of an image
-![Test cat in suit](img/cat_caviar.jpg)
 
 _Template text is in italics_
 # Abstract
@@ -219,20 +217,66 @@ The dataset contains public holiday of each state in Australia from 2009 to 2022
 ## Description of Scraped Rooftop PV Data
 **Description of the rooftop PV data**
 ## Pre-processing Steps
-Andrew Ryan to complete
-The key steps we followed to prepare the data for processing can be summarised as follows:
+
+The key steps we followed to prepare the data for processing can be broadly grouped into five key categories as follows
 
 **1. Unzip the files and import the data**
 
-**2. Check for duplicate data records**
+The data scraping and unzipping procures are described in detail above given the detailed approach used to collect the PV data.
+Once the data was ready it was then converted in dataframes using the code below.  
 
-Duplicates where checked for each of the regional datasets by running
-an example of the code used to check and count duplicates is:
+```python
+temperature_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_vic.csv")
+temperature_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_qld.csv")
+temperature_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_sa.csv")
+forecastdemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_vic.csv")
+forecastdemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_qld.csv")
+forecastdemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_sa.csv")
+totaldemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_vic.csv")
+totaldemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_qld.csv")
+totaldemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_sa.csv")
+```
+
+**1. Check what sort of data is contained**
+This was achieved by running the following python queries across each of the dataframes:
+
+
+#Temperature SA:
+```python
+# Column names
+print("Column names for temperature_sa:")
+print(temperature_sa.columns.tolist())
+
+# Data types
+print("\nData types for temperature_sa:")
+print(temperature_sa.dtypes)
+
+# Summary statistics
+print("\nSummary statistics for temperature_sa:")
+print(temperature_sa.describe())
+```
+
+This exploration showed that a DATETIME column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were 
+
+
+**2. Convert DATETIME to correct format**
+
+The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
+
+```python
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+```
+
+**3. Check for duplicate data records**
+
+Duplicates where checked for each of the regional datasets by running the '.duplicated' function from the Pandas library in python applied only to the 'DATETIME' column. duplicate values were expected to exist in other columns. 
+
+An example of the code used to check and count duplicates is:
 
 ```python
 duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 ```
-The results for each region are plotted here:
+Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
 
 ### Victoria
 ![Duplicate Check Victoria](img/duplicate_check_vic.png)\
@@ -241,21 +285,69 @@ The results for each region are plotted here:
 ![Duplicate Check South Australia: ](img/duplicate_check_SA.png)
 
 ### Queensland
-![Duplicate Check South Australia: ](img/duplicate_check_QLD.png)
+![Duplicate Check South Australia: ](img/duplicate_check_QLD.png
+
+Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
+
+<img src="img/Forecast_DemandDuplicates.jpg" alt="Forecast_DemandDuplicates" width="600">
+
+The source of the duplicate was found to be that the forecast demand files were updated with new demand estimates from time to time. These demand estimates provided an updated set of demand forecasts for the same forecast time horizon. 
+
+Counting these duplicates revealed that for 73,836 unique values for estimating the ForecastDemand estimates, with an average time between each estimate of approximately 30 minutes.
+So likely a computer model re-estimated forecast demand every 30 minutes and generated a new estimate for the value of Forecast Demand for that period.
+
+Duplicates of other field values were expected given that the data types and context, so no duplicate checking was completed on these fields.
+
+**4. Drop Duplicates**
+
+To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
+
+```python
+forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates(subset='DATETIME', keep='last')
+```
+
+This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
+ 
+```python
+forecastdemand_qld.describe()
+```
+
+![Forecast_DemandDuplicates: ](img/QLD_ForecastDemand_DuplicatesRemoved.jpg)
+
+
+**4. Merge Dataframes by Region**
+
+### Inspect Time Horizons
+Prior to merging on the DATETIME field, further exploration of the time horizons covered by each data sets was conducted with the results shown below.
+It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 2010 to March 2021, or a bit more than 11 years.
+
+Merging on DATETIME will naturally reduce this dataset back the smallest data range common to all three datasets.
+I.e. exclude approxiamtely 7 years of data  from Jan 2010, to Jan 2017.
+
+It was decided the size of the remaining the dataset, with 30 minute data over more than 4 years was more than sufficient given for training a model, particularly given the computational advantages with the smaller dataset. Furthermore, collecting PV data back to 2010, became a further challenge.
+
+<img src="img/DataFrameTimeHorizons.jpg" alt="DataFrameTimeHorizons.jpg" width="300">
+
+
+
 
 **3. Handling Missing Values** 
 
 **4. Checking for outliers**
 
-**5. Convert DATETIME to correct format**
 
-The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in datetime function. IN the case of temperature_qld, the format was different, and this require manual intervention per the code below.
 
-```python
-temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
-```
 **6. Merge regional data on DATETIME Fields**
 Merging the data on DATETIME significantly reduce the size of the dataset for modelling
+
+```python
+qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
+qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
+```
+
+--Andrew to Complete above still ---
+
+
 
 ## Assumptions
 
@@ -445,6 +537,7 @@ A comparison of total demand by state is shwon below:
 
 ![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
+--Andrew to Complete above still ---
 
 ## Using R {.fragile}
 
