@@ -255,13 +255,15 @@ duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
 
 ### Victoria
-![Duplicate Check Victoria](img/duplicate_check_vic.png)\
+<img src="img/duplicate_check_vic.png" alt="duplicate_check_vic" width="400">
+
 
 ### South Australia
-![Duplicate Check South Australia: ](img/duplicate_check_SA.png)
+<img src="img/duplicate_check_SA.png" alt="duplicate_check_sa" width="400">
 
 ### Queensland
-![Duplicate Check South Australia: ](img/duplicate_check_QLD.png
+
+<img src="img/duplicate_check_QLD.png" alt="duplicate_check_vic" width="400">
 
 Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
 
@@ -291,11 +293,11 @@ forecastdemand_qld.describe()
 ![Forecast_DemandDuplicates: ](img/QLD_ForecastDemand_DuplicatesRemoved.jpg)
 
 
-**4. Merge Dataframes by Region**
+**5. Merge Dataframes by Region**
 
 ### Inspect Time Horizons
 Prior to merging on the DATETIME field, further exploration of the time horizons covered by each data sets was conducted with the results shown below.
-It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 2010 to March 2021, or a bit more than 11 years.
+It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 1, 2010 to March 19, 2021, or a bit more than 11 years.
 
 Merging on DATETIME will naturally reduce this dataset back the smallest data range common to all three datasets.
 I.e. exclude approxiamtely 7 years of data  from Jan 2010, to Jan 2017.
@@ -304,16 +306,31 @@ It was decided the size of the remaining the dataset, with 30 minute data over m
 
 <img src="img/DataFrameTimeHorizons.jpg" alt="DataFrameTimeHorizons.jpg" width="300">
 
+### Merge into QLD, SA and VIC dataframes
+
+The 3 individual dataframes for each region were then merged into a single combined dataframe for each region.
+1) temperature_qld
+2) totaldemand_qld
+3) forecastdemand_qld
+
+The below code was used to complete a two step 'inner join' to create a single file.
+
+```python
+qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
+qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
+```
 
 
-
-**3. Handling Missing Values** 
-
-**4. Checking for outliers**
+**6. Handling Missing Values** 
+Missing values were routinely checked in all dataframes during import and initial checking. Once the datafrmes were merged, a final check for missing values in each of the 3 dataframes was completed using the following python command. This showed there were no missing values in any of the dataframes.
 
 
+```python
+total_missing_sa = sa_df.isnull().sum().sum()
+print("Total missing values SA:", total_missing_sa)
+```
 
-**6. Merge regional data on DATETIME Fields**
+**5. Merge regional data on DATETIME Fields**
 Merging the data on DATETIME significantly reduce the size of the dataset for modelling
 
 ```python
@@ -321,13 +338,22 @@ qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
 qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
 ```
 
---Andrew to Complete above still ---
+**6. Checking for outliers**
 
+Boxplots were generated for the key fields of interest being TEMPERATURE, TOTALDEMAND and FORECASTDEMAND.
+Observing these plots shown below (for QLD), it can be seen that temperature range is as expected, from a little above zero to slightly above 40.
+Furthermore TOTALDEMAND and FORECASTDEMAND are similar, which is epxcted, and there are no outliers, beyond what would normally be expected.
+
+![QLD Outlier Box Plots: ](img/OutlierBoxPlots.jpg)
+
+Histograms for the same fields further support this outlier analysis.
+
+![QLD Histograms: ](img/Histogram.jpg)
 
 
 ## Assumptions
 
-What assumptions are you making on the data?
+The assumprions made on the data is that it is accurate and reliable. This is in addition to the assumptions about data type discussion in the previous sections.
 
 # Modelling 
 
@@ -501,104 +527,56 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 
 # Exploratory Data Analysis
-Andrew to Complete
 
-This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
+Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD is the hottest, following by South Australia and Victoria.
 
-A histogram of temperature data for each of the three regions is provided below:
+![Temperature Histogram: ](img/Hist_Temperature.jpg)
 
-![Temperature Histogram: ](img/temp_histogram.png)
+A comparison of total demand by state is shown below:
 
-A comparison of total demand by state is shwon below:
+![Temperature Histogram: ](img/Hist_TotalDemand.jpg)
+
+
+## Relationship Between Time of Day and Power Demand ##
+Looking at the relationship between time of day, and power demand starts to show some more interesting trends.
+Plotting the first 10 days of January 2010, we can see some correlation throughout the day for each region with demand typically peaking around midday, with lowest demand seen very early in the mornings.
 
 ![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
---Andrew to Complete above still ---
+## Relationship Between Temperature and Demand ##
 
-## Using R {.fragile}
+We know from the literature review that temperature is a strong driver of power demand. Filtering for different times of the day shows this relationship in an xy scatter plot for 6am, noon and 6pm. We can see that the relationships at these times of days differ, as evidenced by the shape of the relationship.
 
+![Temp_vs_Demand_combined: ](img/Temp_vs_Demand_combined.jpg)
 
-```r
-boxplot(cars, col = c("#5975a4", "#cc8963"))
-```
+Exploring this further, and looking at  at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
 
-<!--
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf) --> 
+Presumably as temperature moves further from this point, and the need for air conditioning or heating increase, so too does power demand.
 
-## Using Python {.fragile}
+![Temp_vs_Demand_6pm: ](img/Temp_vs_Demand_6pm.jpg)
 
-<!-- See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
-
-\bigskip
-
-You need to install the R package `reticulate`. -->
+The relationship at midday is more linear in form, with average temperatures more around the 25 degree mark, and less of a requirement for heating as temperatures do not fall as far.
 
 
-```python
-# Key Libraries Used
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import xgboost as xgb
-color_pal = sns.color_palette()
-import time
+![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
 
-from sklearn.base import clone
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, StackingRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.neural_network import MLPRegressor
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.model_selection import train_test_split
-
-print("Python can be used with MATHxxxx!")
-```
-
-```
-## Python can be used with MATHxxxx!
-```
-
-```python
-import sys
-print(sys.version)
-```
-
-```
-## 3.6.13 (default, Feb 19 2021, 05:17:09) [MSC v.1916 64 bit (AMD64)]
-```
+looking at 6am, we can see thata somewhat inverse relationship to 6pm, but with 
 
 
-
-```python
-import numpy as np
-np.random.seed(1)
-np.random.normal(0.0, 1.0, size=10)
-```
-
-```
-## array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
-##        -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])
-```
+![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_6am.jpg)
 
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-df=pd.DataFrame([[1, 2], [3, 4], [4, 3], [2, 3]])
-fig = plt.figure(figsize=(4, 4))
-for i in df.columns:
-    ax=plt.subplot(2,1,i+1) 
-    df[[i]].plot(ax=ax)
-    print(i)
+Looking at the Victoria data, we can see a much strong response to demand as temperature decreases in the both the morning, but particularly the evening.
 
-plt.show()
-```
+![TTemp_vs_Demand_combined_VIC: ](img/Temp_vs_Demand_combined_VIC.jpg)
 
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+## South Australia and Victoria ##
+
+In South Australia, the trends are much less obvious, with demand generally higher in the evening, but with this trend much less driven by temperature.
+
+![TTemp_vs_Demand_combined_SA: ](img/Temp_vs_Demand_combined_SA.jpg)
+
+
 
 
 # Analysis and Results
