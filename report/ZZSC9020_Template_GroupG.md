@@ -588,7 +588,8 @@ where it is assumed that the $\epsilon_i$'s are i.i.d.\ $N(0,1)$.
 
 # Discussion
 
-Put the results you got in the previous chapter in perspective with respect to the problem studied.
+From the data analysis above, we can see that there are some interesting insights. From the results it demonstrated that the prediction is more accurate when we included rooftop solar panel power production into the dataset. This is true for all states that we analyzed, (Victoria, South Australia, and Queensland). That being said, the accuracy of the prediction varies from state to state.
+
 
 # Conclusion and Further Issues {.label:ccl}
 
