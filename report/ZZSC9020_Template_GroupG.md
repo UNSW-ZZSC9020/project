@@ -77,10 +77,15 @@ Similarly, research from Pablo de Olavide University in Spain conducted by Torre
 
       Ref: Torres, J. F. and Martínez-Álvarez, F. and Troncoso, A., "A DEEP LSTM network for the Spanish electricity consumption forecasting," Neural Computing and Applications, 2022, pp. 10533–10545, doi: 10.1007/s00521-021-06773-2. 
 
+Other than LSTM, the team would also like to compare the results of using LSTM and CNN modeling. Some research team used CNN as a method to predict short and long-term that ranges from 7 to 60 days, with demand data from 2003 to 2020, where 14 years’ worth of data was used for training and validation purposes and the rest of them for testing. The team was able to achieve results with a 0.992 r squared value and a mean absolute error of 0.025 from the CNN model. (Kang, Lim, Tayara, Chong, 2020) Several other studies have shown that by combining both LSTM and CNN technique into their modeling can also provide a better result than solely just ultilising one of them as shown in the research done by Kim and Cho in 2019, Chung and Jang in 2022. (Kim, Cho, 2019) (Chung, Jang, 2022)
 
-For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
-_Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/. In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`._
+Both techniques provided confidence that they are suitable for our purpose for integrating solar panel power production into electricity demand forecasting as shown by the researches done above. 
 
+      Ref: Kang, T., Lim, D.Y., Tayara, H. and Chong, K.T. (2020). Forecasting of Power Demands Using Deep Learning. Applied Sciences, [online] 10(20), p.7241. doi:https://doi.org/10.3390/app10207241. 
+      
+      Ref: Kim, T.-Y. and Cho, S.-B. (2019). Predicting residential energy consumption using CNN-LSTM neural networks. Energy, 182, pp.72–81. doi:https://doi.org/10.1016/j.energy.2019.05.230.
+
+      Ref: Chung, J. and Jang, B. (2022). Accurate prediction of electricity consumption using a hybrid CNN-LSTM model based on multivariable data. PLOS ONE, 17(11), p.e0278071. doi:https://doi.org/10.1371/journal.pone.0278071.
 
 A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
 # Loading the Data
