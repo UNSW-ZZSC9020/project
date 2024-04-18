@@ -36,8 +36,6 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-Here is a test of an image
-![Test cat in suit](img/cat_caviar.jpg)
 
 _Template text is in italics_
 # Abstract
@@ -65,13 +63,19 @@ Since the data used only ranges from 2017 to 2021, hence there are limitation in
 # Literature Review
 
       project plan litterature review on Machine Learning models (change them as you see fit)
-For machine learning methods, LSTMs can be used effectively in energy demand forecasting, as demonstrated by the research conducted by Abumohsen, Owda, and Owda (Abumohsen, Owda, & Owda, 2023). Their study, which compares LSTM networks with other deep learning models like Gated Recurrent Unit (“GRU”) and traditional Recurrent Neural Network’s (“RNNs”), highlights the potential of these techniques in capturing the complex temporal dependencies of energy consumption data. This research high lights the importance of hyperparameter tuning and model optimisation in improving forecasting accuracy, which will play an important role in the success of our project. This study validates the effectiveness of LSTM networks in predicting energy demand and suggests that with the right model configuration and parameter settings, LSTMs can significantly aid electricity suppliers and regulators in operational planning, cost reduction, and grid stability.
+From the previous literature review written in the project plan. The team has chosen to use convolutional neural network modeling and long short-term memory model as we believe these models will provide the best results compared to other models. We decided to conduct more literature review as the previous one was not sufficient in terms of breadth and depth.  
+
+We have learnt that LSTMs can be used effectively in energy demand forecasting, as demonstrated by the research conducted by Abumohsen, Owda, and Owda  (Abumohsen, Owda, & Owda, 2023). Their study, which compares LSTM networks with other deep learning models like Gated Recurrent Unit (“GRU”) and traditional Recurrent Neural Network’s (“RNNs”), highlights the potential of these techniques in capturing the complex temporal dependencies of energy consumption data. This research highlights the importance of hyperparameter tuning and model optimisation in improving forecasting accuracy, which will play an important role in the success of our project. This study validates the effectiveness of LSTM networks in predicting energy demand and suggests that with the right model configuration and parameter settings, LSTMs can significantly aid electricity suppliers and regulators in operational planning, cost reduction, and grid stability. 
 
       Ref: 4. Abumohsen, M.; Owda, A.Y.; Owda, M. Electrical Load Forecasting Using LSTM, GRU, and RNN Algorithms. Energies 2023, 16, 2283. https://doi.org/10.3390/en16052283
 
-Exploring LSTM further, the study by Daniel L. Marino, Kasun Amarasinghe, and Milos Manic delves into the application of Long Short-Term Memory (LSTM) networks for building energy load forecasting. This research, conducted at Virginia Commonwealth University, evaluates two LSTM configurations: the conventional model and a novel Sequence to Sequence (S2S) architecture, tested against residential electricity consumption data. The findings reveal that the standard LSTM is effective for hourly data but falls short with minute-by-minute analysis. Conversely, the S2S model excels in both scenarios, showcasing its potential for improving energy management in smart grid environments. The comparative success against other deep learning methods underscores the significance of this approach.
+Another study by Daniel L. Marino, Kasun Amarasinghe, and Milos Manic delves into the application of Long Short-Term Memory (LSTM) networks for building energy load forecasting. This research, conducted at Virginia Commonwealth University, evaluates two LSTM configurations: the conventional model and a novel Sequence to Sequence (S2S) architecture, tested against residential electricity consumption data. The findings reveal that the standard LSTM is effective for hourly data but falls short with minute-by-minute analysis. Conversely, the S2S model excels in both scenarios, showcasing its potential for improving energy management in smart grid environments. The comparative success against other deep learning methods underscores the significance of this approach. 
    
       Ref: K. Amarasinghe, D. L. Marino and M. Manic, "Deep neural networks for energy load forecasting," 2017 IEEE 26th International Symposium on Industrial Electronics (ISIE), Edinburgh, UK, 2017, pp. 1483-1488, doi: 10.1109/ISIE.2017.8001465. keywords: {Load forecasting;Machine learning;Buildings;Artificial neural networks;Computer architecture;Forecasting;Deep Learning;Deep Neural Networks;Convolutional Neural Networks;Building Energy;Energy;Artificial Neural Networks},
+
+Similarly, research from Pablo de Olavide University in Spain conducted by Torres, Martinez-Alverez and Troncoso also utilized LSTM model to predict the electricity demand in the next 4-hour window. They used an algorithm called coronavirus optimization algorithm (CVOA) to select the best hyperparameter for the LSTM model. Subsequently, nine and a half years of electricity demand dataset in 15-minute interval was fed into the model, and comparing to traditional methods, they were able to achieve an error rate of less than 1.5% (Torres, Martinez-Alverez, Troncoso 2022) Again, this research proofs that LSTM models is suitable for processing time-series data and gives our team confidence in building a model with high accuracy.  
+
+      Ref: Torres, J. F. and Martínez-Álvarez, F. and Troncoso, A., "A DEEP LSTM network for the Spanish electricity consumption forecasting," Neural Computing and Applications, 2022, pp. 10533–10545, doi: 10.1007/s00521-021-06773-2. 
 
 
 For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
@@ -189,20 +193,66 @@ The dataset contains public holiday of each state in Australia from 2009 to 2022
 
 _Todo__
 ## Pre-processing Steps
-Andrew Ryan to complete
-The key steps we followed to prepare the data for processing can be summarised as follows:
+
+The key steps we followed to prepare the data for processing can be broadly grouped into five key categories as follows
 
 **1. Unzip the files and import the data**
 
-**2. Check for duplicate data records**
+The data scraping and unzipping procures are described in detail above given the detailed approach used to collect the PV data.
+Once the data was ready it was then converted in dataframes using the code below.  
 
-Duplicates where checked for each of the regional datasets by running
-an example of the code used to check and count duplicates is:
+```python
+temperature_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_vic.csv")
+temperature_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_qld.csv")
+temperature_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_sa.csv")
+forecastdemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_vic.csv")
+forecastdemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_qld.csv")
+forecastdemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_sa.csv")
+totaldemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_vic.csv")
+totaldemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_qld.csv")
+totaldemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_sa.csv")
+```
+
+**1. Check what sort of data is contained**
+This was achieved by running the following python queries across each of the dataframes:
+
+
+#Temperature SA:
+```python
+# Column names
+print("Column names for temperature_sa:")
+print(temperature_sa.columns.tolist())
+
+# Data types
+print("\nData types for temperature_sa:")
+print(temperature_sa.dtypes)
+
+# Summary statistics
+print("\nSummary statistics for temperature_sa:")
+print(temperature_sa.describe())
+```
+
+This exploration showed that a DATETIME column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were 
+
+
+**2. Convert DATETIME to correct format**
+
+The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
+
+```python
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+```
+
+**3. Check for duplicate data records**
+
+Duplicates where checked for each of the regional datasets by running the '.duplicated' function from the Pandas library in python applied only to the 'DATETIME' column. duplicate values were expected to exist in other columns. 
+
+An example of the code used to check and count duplicates is:
 
 ```python
 duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 ```
-The results for each region are plotted here:
+Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
 
 ### Victoria
 ![Duplicate Check Victoria](img/duplicate_check_vic.png)\
@@ -211,21 +261,69 @@ The results for each region are plotted here:
 ![Duplicate Check South Australia: ](img/duplicate_check_SA.png)
 
 ### Queensland
-![Duplicate Check South Australia: ](img/duplicate_check_QLD.png)
+![Duplicate Check South Australia: ](img/duplicate_check_QLD.png
+
+Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
+
+<img src="img/Forecast_DemandDuplicates.jpg" alt="Forecast_DemandDuplicates" width="600">
+
+The source of the duplicate was found to be that the forecast demand files were updated with new demand estimates from time to time. These demand estimates provided an updated set of demand forecasts for the same forecast time horizon. 
+
+Counting these duplicates revealed that for 73,836 unique values for estimating the ForecastDemand estimates, with an average time between each estimate of approximately 30 minutes.
+So likely a computer model re-estimated forecast demand every 30 minutes and generated a new estimate for the value of Forecast Demand for that period.
+
+Duplicates of other field values were expected given that the data types and context, so no duplicate checking was completed on these fields.
+
+**4. Drop Duplicates**
+
+To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
+
+```python
+forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates(subset='DATETIME', keep='last')
+```
+
+This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
+ 
+```python
+forecastdemand_qld.describe()
+```
+
+![Forecast_DemandDuplicates: ](img/QLD_ForecastDemand_DuplicatesRemoved.jpg)
+
+
+**4. Merge Dataframes by Region**
+
+### Inspect Time Horizons
+Prior to merging on the DATETIME field, further exploration of the time horizons covered by each data sets was conducted with the results shown below.
+It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 2010 to March 2021, or a bit more than 11 years.
+
+Merging on DATETIME will naturally reduce this dataset back the smallest data range common to all three datasets.
+I.e. exclude approxiamtely 7 years of data  from Jan 2010, to Jan 2017.
+
+It was decided the size of the remaining the dataset, with 30 minute data over more than 4 years was more than sufficient given for training a model, particularly given the computational advantages with the smaller dataset. Furthermore, collecting PV data back to 2010, became a further challenge.
+
+<img src="img/DataFrameTimeHorizons.jpg" alt="DataFrameTimeHorizons.jpg" width="300">
+
+
+
 
 **3. Handling Missing Values** 
 
 **4. Checking for outliers**
 
-**5. Convert DATETIME to correct format**
 
-The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in datetime function. IN the case of temperature_qld, the format was different, and this require manual intervention per the code below.
 
-```python
-temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
-```
 **6. Merge regional data on DATETIME Fields**
 Merging the data on DATETIME significantly reduce the size of the dataset for modelling
+
+```python
+qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
+qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
+```
+
+--Andrew to Complete above still ---
+
+
 
 ## Assumptions
 
@@ -415,6 +513,7 @@ A comparison of total demand by state is shwon below:
 
 ![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
+--Andrew to Complete above still ---
 
 ## Using R {.fragile}
 
