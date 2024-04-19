@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Impacts of Residential And Commercial Solar Power Production on Grid Demand"
+title: "Exploring the Impacts of Residential And Solar Power Production on Grid Demand"
 team: Group G – Watt’s Up Down Under
 session: Hexamester 2, 2024
 coursecode: ZZSC9020
@@ -14,7 +14,7 @@ Acknowledgements:
 - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
 - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
 - "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
-Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip "
+Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
 output:
   pdf_document:
     template: template.tex
@@ -37,10 +37,9 @@ bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
 
-_Template text is in italics_
 # Abstract
 
-There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage. Notably, the LSTM model outperformed existing models on Queensland data.
+There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using  neural network (NN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both NN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over NN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage. Notably, the LSTM model outperformed existing models on Queensland data.
 
 
 # Introduction {.label:s-intro}
@@ -75,9 +74,13 @@ Other than LSTM, the team would also like to compare the results of using LSTM a
 Both techniques provided confidence that they are suitable for our purpose for integrating solar panel power production into electricity demand forecasting as shown by the researches done above. 
 
 A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
+
 # Loading the Data
+
 ## Loading the given dataset
+
 ### Initial Code
+
 Python was used to extract, transform and to load the data (ETL) into our notebook for further Exploratory Data Analysis (EDA) and modelling.
 Unzipping programmatically ensures the repeatability of the data extraction process while ensuring that no human errors were introduced in the process as the number of files grows
 
@@ -89,6 +92,7 @@ After unzipping the given data, it's time to import them with pandas into a dict
 The function first initializes an empty dictionary to store the DataFrames. It then walks through each directory and subdirectory within the provided base directory, identifying all CSV files. For each CSV file found, the function constructs the full file path, reads the file into a DataFrame using pd.read_csv, and adds it to the dictionary with a key derived from the file name. The function returns this dictionary, making it easy to access each DataFrame by its unique key.
 
 The function was called with base_directory set to '../extracted_zips', pointing to the directory containing the folders with CSV files after the data extraction process. This directory was used to populate a dictionary dataframes_dict with DataFrames, allowing for automated and organized access to the data contained within each CSV file.
+
 ### Refactoring and simplifying the code
 
 After establishing the data ingestion steps, a refactoring step was applied to simplify the code seen in the notebook and to focus on the subsequent modelling. This step ensures that the loading steps are abstracted, and the focus would only be targeted to the models created, increasing efficiency in testing the methods.
@@ -108,7 +112,9 @@ wup.extract_all_zips(source_directory, destination_directory)
 The following functions were written in the module. They use the Don't Repeat Yourself (DRY) paradigm for reusability and cover the data loading and an early EDA, which will be discussed in a subsequent section.
 
 `watts_up`:
+
 - `wup.extract_all_zips(source_dir, dest_dir)`: Extracts all ZIP files from a specified source directory to a destination directory, creating the destination if it doesn't exist.
+  
 - `wup.create_dataframes_dict(base_directory)`: Creates a dictionary of DataFrames from CSV files found in subdirectories of a base directory, keyed by CSV file names.
 - `wup.display_dataframes(dataframes)`: Displays basic information and the first few rows for each DataFrame in a given dictionary of DataFrames.
 - `wup.organize_and_print_dataframes(dataframes_dict)`: Organizes DataFrames by state based on naming conventions and prints out each DataFrame's name under its corresponding state.
@@ -122,17 +128,21 @@ The following functions were written in the module. They use the Don't Repeat Yo
 
 ## Loading PV data
 
-An extra rooftop PV dataset was needed for the analysis. This dataset needs to be scraped from the following link: https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/ .
+An extra rooftop PV dataset was needed for the analysis. This dataset needs to be scraped from the following link: https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/.
+
 ### Website Reconnaissance
+
 To write the code, let's first explore the structure of the website.
 
 Rooftop PV data is split into years.
+
 ![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-1.png)
 
 And when we access a year, we get a more granular view of the months.:
+
 ![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-2.png)
 
-In this project, we are interested in the data between 2017 and 2023
+For the puposes of this project, we are interested in the data between 2017 and 2023
 
 ### Python code to download
 For the project, Python's `requests` library was used to automate the retrieval of ZIP files containing the data from the web. The URLs were constructed dynamically for each month of each year within the specified range, adhering to the naming convention and directory structure observed on the website. The file names were prefixed and suffixed appropriately to match the naming format provided by the site.
@@ -194,15 +204,15 @@ The data scraping and unzipping procures are described in detail above given the
 Once the data was ready it was then converted in dataframes using the code below.  
 
 ```python
-temperature_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_vic.csv")
-temperature_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_qld.csv")
-temperature_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_sa.csv")
-forecastdemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_vic.csv")
-forecastdemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_qld.csv")
-forecastdemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_sa.csv")
-totaldemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_vic.csv")
-totaldemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_qld.csv")
-totaldemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_sa.csv")
+temperature_vic = pd.read_csv("../Data/temperature_vic.csv")
+temperature_qld = pd.read_csv("../Data/temperature_qld.csv")
+temperature_sa = pd.read_csv("C:../Data/temperature_sa.csv")
+forecastdemand_vic = pd.read_csv("../Data/forecastdemand_vic.csv")
+forecastdemand_qld = pd.read_csv("../Data/forecastdemand_qld.csv")
+forecastdemand_sa = pd.read_csv("../Data/forecastdemand_sa.csv")
+totaldemand_vic = pd.read_csv("../Data/totaldemand_vic.csv")
+totaldemand_qld = pd.read_csv("../Data/totaldemand_qld.csv")
+totaldemand_sa = pd.read_csv("../Data/totaldemand_sa.csv")
 ```
 
 **1. Check what sort of data is contained**
@@ -232,7 +242,8 @@ This exploration showed that a DATETIME column existed in each dataset, but was 
 The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
 
 ```python
-temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') 
+# This date format is different
 ```
 
 **3. Check for duplicate data records**
@@ -247,15 +258,16 @@ duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
 
 ### Victoria
-<img src="img/duplicate_check_vic.png" alt="duplicate_check_vic" width="400">
 
+![Duplicate check VIC: ](img/duplicate_check_vic.png)
 
 ### South Australia
-<img src="img/duplicate_check_SA.png" alt="duplicate_check_sa" width="400">
+
+![Duplicate check SA: ](img/duplicate_check_SA.png)
 
 ### Queensland
 
-<img src="img/duplicate_check_QLD.png" alt="duplicate_check_vic" width="400">
+![Duplicate check QLD: ](img/duplicate_check_QLD.png)
 
 Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
 
@@ -273,7 +285,8 @@ Duplicates of other field values were expected given that the data types and con
 To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
 
 ```python
-forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates(subset='DATETIME', keep='last')
+forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates
+(subset='DATETIME', keep='last')
 ```
 
 This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
@@ -520,7 +533,7 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 # Exploratory Data Analysis
 
-Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD is the hottest, following by South Australia and Victoria.
+Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD and South Australia are the hottest, followed by Victoria.
 
 ![Temperature Histogram: ](img/Hist_Temperature.jpg)
 
@@ -541,35 +554,29 @@ We know from the literature review that temperature is a strong driver of power 
 
 ![Temp_vs_Demand_combined: ](img/Temp_vs_Demand_combined.jpg)
 
-Exploring this further, and looking at  at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
+Exploring this further, and looking at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
 
 Presumably as temperature moves further from this point, and the need for air conditioning or heating increase, so too does power demand.
 
 ![Temp_vs_Demand_6pm: ](img/Temp_vs_Demand_6pm.jpg)
 
-The relationship at midday is more linear in form, with average temperatures more around the 25 degree mark, and less of a requirement for heating as temperatures do not fall as far.
-
+The relationship at midday is more linear in form, with average temperatures close to 25 degrees, and therefore less of a requirement for heating, and possibly less people at home turning on air conditioners than in the evening.
 
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
 
-looking at 6am, we can see thata somewhat inverse relationship to 6pm, but with 
-
+looking at 6am, we can see a somewhat similar concave relationship to 6pm, but with more variability. This is 
 
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_6am.jpg)
 
+## South Australia and Victoria ##
 
-Looking at the Victoria data, we can see a much strong response to demand as temperature decreases in the both the morning, but particularly the evening.
+Looking at the Victoria data, we can see a stronger response to demand as temperature decreases in the both the morning, but particularly the evening.
 
 ![TTemp_vs_Demand_combined_VIC: ](img/Temp_vs_Demand_combined_VIC.jpg)
-
-## South Australia and Victoria ##
 
 In South Australia, the trends are much less obvious, with demand generally higher in the evening, but with this trend much less driven by temperature.
 
 ![TTemp_vs_Demand_combined_SA: ](img/Temp_vs_Demand_combined_SA.jpg)
-
-
-
 
 # Analysis and Results
 
@@ -604,7 +611,6 @@ These findings provide a strong basis to reject the null hypothesis $ H_0 $, and
 
 <center> Table 1: Raw Results of each Model with and without solar as a feature</center>
 
-<br>
 
 | Model             | MSE         |   RMSE |    MAE |     R2 |
 |:------------------|:------------|-------:|-------:|-------:|
@@ -615,21 +621,18 @@ These findings provide a strong basis to reject the null hypothesis $ H_0 $, and
 
 <center> Table 2: Delta between models with and without solar as a feature</center>
 
-<br>
+
 
 Below, the first set of visualisations comprises a series of bar charts that provide an overview of the performance of various predictive models. Each chart represents a key metric used to evaluate the models, such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the coefficient of determination ($R^2$). These models include the solar variable. 
 
 ![MAE Across Models: ](img/mae_comparison_across_models.jpg)
 
-<br>
 
 ![MSE Across Models: ](img/mse_comparison_across_models.jpg)
 
-<br>
 
 ![R2 Across Models: ](img/r2_comparison_across_models.jpg)
 
-<br>
 
 ![RMSE Across Models: ](img/rmse_comparison_across_models.jpg)
 
@@ -637,18 +640,20 @@ Following the histograms, the analysis transitions to a series of line plots,  t
 
 ![MLP In June: ](img/mlp-prediction_june_2020.jpg)
 
-<br>
 
 ![LSTM In June: ](img/lstm-prediction_june_2020.jpg)
 
-<br>
 
 ![Lin Reg Model in June: ](img/lin-reg-prediction_june_2020.jpg)
 
-<br>
 
 ![Stacked Model In June: ](img/stacked-prediction_june_2020.jpg)
 
+# Discussion 
+
+From the data analysis above, we can see that there are some interesting insights. From the results, it demonstrated that the prediction is more accurate when we included rooftop solar panel power production into the dataset. This is true for all states that we analyzed, (Victoria, South Australia, and Queensland). That being said, the accuracy of the prediction varies from state to state. The Queensland model that was used for proof of concept showed a high R-squared value and low error with or without solar power as one of the engineered features. The R-squared value for LSTM model with solar feature and without is 0.9739 and 0.9662 respectively. The LSTM model with solar feature has a slightly higher R-squared value but this still shows that both models have a very high accuracy. Looking at other modeling techniques, all models with solar features outperformed the models without, in terms of r-squared value and error. Again, proofing the alternative hypothesis is correct.
+
+The same behavior can be observed on other states as well. The modeling on Victoria and South Australia also shows better results by implementing solar power production into the model. R-squared value for Victoria model with and without solar power production are 0.9067 and 0.9033 respectively. Moreover, the solar model also has a lower error when compared. However, the improvement is marginal when compared to the improvement shown on the Queensland model. South Australia also showed an R-square value improvement of 0.0578 when compared and an improvement on RMSE and MAE, but it is worth noting that the R-squared value for both models on South Australia is low when compared to Queensland and Victoria. The best R-squared value for South Australia model is only at 0.7818 which is not sufficient for commercial demand forecasting. It is possible that more features are required in order to make the model more accurate. South Australia has a much lower population when compared to Queensland and Victoria and hence has a lower demand, further research will need to be conducted to find the cause. 
 
 # Conclusion and Further Issues {.label:ccl}
 
