@@ -11,9 +11,7 @@ author:
 
 date: "23/04/2024"
 Acknowledgements: 
-  - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
-  - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
-  - "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
+  - "
 Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
 output:
   pdf_document:
@@ -36,62 +34,133 @@ output:
 bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
-Here is a test of an image
-![Test cat in suit](img/cat_caviar.jpg)
 
 _Template text is in italics_
 # Abstract
 
-There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage.  
-
-# Introduction
-
-Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand. 
-
-There is a fundamental relationship between energy demand and external ambient temperature. Looking at the historic energy demand in the country, the energy demand is proportional to the external ambient temperature as the temperature dictates whether residential customers will require heating or air conditioning for comfortable living conditions. Forecasting energy demand is important for energy suppliers as it optimises profit by preventing under or over-production. In a competitive market, forecasting energy demand is essential for predicting electricity pricing and demand.  
-
-Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses: 
-
-**Null Hypothesis** ($H_0$): Temperature data alone is sufficient to reliably forecast electricity demand.
-
-**Alternative Hypothesis** ($H_1$): Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
+There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage. Notably, the LSTM model outperformed existing models on Queensland data.
 
 
-In order to test the hypotheses, the team would require more dataset, e.g. solar power generation data and public holidays, etc. These datasets are not provided and are significantly related to our hypotheses. From the project plan, the team has chosen LSTM as the main method for modelling. 2 models will then be built and compared in order to test if the hypotheses we listed above is valid. 
+# Introduction {.label:s-intro}
+
+Electricity has become increasingly vital in our modern world, with per capita energy consumption more than doubling from 1978 to 2019, signaling a substantial shift in energy use patterns (World Bank, 2023). This surge is propelled not just by the global transition to electric vehicles, which promise to replace internal combustion engines, but also by other factors such as digitalisation, technological advancements, and the electrification of industries and home heating systems that once relied on fossil fuels. Additionally, the push towards sustainability has spurred the adoption of electrically powered technologies and the integration of renewable energy sources into the grid, further driving up electricity demand.
+
+
+There is a fundamental relationship between energy demand and external ambient temperature. Looking at the historic energy demand in the country, the energy demand is proportional to the external ambient temperature as the temperature dictates whether residential customers will require heating or air conditioning for comfortable living conditions. Forecasting energy demand is important for energy suppliers as it optimises profit by preventing under or over-production. In a competitive market, forecasting energy demand is essential for predicting electricity pricing and demand.
+
+Recalling from our project plan, our research question was to find out whether including commercial and residential solar energy production improves the energy demand forecasting accuracy. From this, we have come up with two hypotheses:
+
+- **Null Hypothesis** ($H_0$): Temperature data alone is sufficient to reliably forecast electricity demand
+
+- **Alternative Hypothesis** ($H_1$): Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
+
+In order to test the hypotheses, the team would require additional datasets, such as solar power generation data and public holidays. These datasets are not provided and are significantly related to our hypotheses. From the project plan, the team has chosen LSTM as the main method for modelling. Two models will then be built and compared in order to test if the hypotheses we listed above is valid.
 
 Since the data used only ranges from 2017 to 2021, hence there are limitation in terms of accuracy for the model. Moreover, we are only specifically including solar power generation but no other renewable energy sources, this may also affect the accuracy of the final result. 
 
 # Literature Review
 
-For the purpose of analysis our dataset, we have ultilised CNN and LSTM technique for analysis electricty demand. 
-_Here are a few references that can be useful: [@Xie2018] and [@Lafaye2013]. See also https://bookdown.org/yihui/rmarkdown-cookbook/. In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`._
+From the previous literature review written in the project plan. The team has chosen to use convolutional neural network modeling and long short-term memory model as we believe these models will provide the best results compared to other models. We decided to conduct more literature review as the previous one was not sufficient in terms of breadth and depth.  
 
+We have learnt that LSTMs can be used effectively in energy demand forecasting, as demonstrated by the research conducted by Abumohsen, Owda, and Owda  [@Abumohsen_Owda_Owda_2023]. Their study, which compares LSTM networks with other deep learning models like Gated Recurrent Unit (“GRU”) and traditional Recurrent Neural Network’s (“RNNs”), highlights the potential of these techniques in capturing the complex temporal dependencies of energy consumption data. This research highlights the importance of hyperparameter tuning and model optimisation in improving forecasting accuracy, which will play an important role in the success of our project. This study validates the effectiveness of LSTM networks in predicting energy demand and suggests that with the right model configuration and parameter settings, LSTMs can significantly aid electricity suppliers and regulators in operational planning, cost reduction, and grid stability. 
 
-# Material and Methods
+Another study by Daniel L. Marino, Kasun Amarasinghe, and Milos Manic delves into the application of Long Short-Term Memory (LSTM) networks for building energy load forecasting. This research, conducted at Virginia Commonwealth University, evaluates two LSTM configurations: the conventional model and a novel Sequence to Sequence (S2S) architecture, tested against residential electricity consumption data. The findings reveal that the standard LSTM is effective for hourly data but falls short with minute-by-minute analysis. Conversely, the S2S model excels in both scenarios, showcasing its potential for improving energy management in smart grid environments. The comparative success against other deep learning methods underscores the significance of this approach[@Amarasinghe_Marino_Manic_2017]. 
+   
+Similarly, research from Pablo de Olavide University in Spain conducted by Torres, Martinez-Alverez and Troncoso also utilized LSTM model to predict the electricity demand in the next 4-hour window. They used an algorithm called coronavirus optimization algorithm (CVOA) to select the best hyperparameter for the LSTM model. Subsequently, nine and a half years of electricity demand dataset in 15-minute interval was fed into the model, and comparing to traditional methods, they were able to achieve an error rate of less than 1.5% [@Torres_Martínez-Álvarez_Troncoso_2022] Again, this research proofs that LSTM models is suitable for processing time-series data and gives our team confidence in building a model with high accuracy.  
+
+Other than LSTM, the team would also like to compare the results of using LSTM and CNN modeling. Some research team used CNN as a method to predict short and long-term that ranges from 7 to 60 days, with demand data from 2003 to 2020, where 14 years’ worth of data was used for training and validation purposes and the rest of them for testing. The team was able to achieve results with a 0.992 r squared value and a mean absolute error of 0.025 from the CNN model.[@Kang_Lim_Tayara_Chong_2020] Several other studies have shown that by combining both LSTM and CNN technique into their modeling can also provide a better result than solely just ultilising one of them as shown in the research done by Kim and Cho in 2019, Chung and Jang in 2022. [@Kim_Cho_2019][@Chung_Jang_2022]
+
+Both techniques provided confidence that they are suitable for our purpose for integrating solar panel power production into electricity demand forecasting as shown by the researches done above. 
 
 A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
+# Loading the Data
 ## Loading the given dataset
-**Chadi to complete**
+### Initial Code
 Python was used to extract, transform and to load the data (ETL) into our notebook for further Exploratory Data Analysis (EDA) and modelling.
 Unzipping programmatically ensures the repeatability of the data extraction process while ensuring that no human errors were introduced in the process as the number of files grows
-- unzip
--
 
-## Refactoring and simplifying the code
-**Chadi to complete**
+To unzip the data, the `os` and the `zipfile` libraries were used. The `os` library was utilized to create and verify the existence of directories, and to walk through the directory structure of the source folder, identifying ZIP files. The `zipfile` library was employed to open and extract these ZIP files. The function `extract_all_zips` was defined to automate the extraction process. It accepts two parameters: `source_dir`, which specifies the directory containing the ZIP files, and `dest_dir`, the directory where the contents of the ZIP files are to be extracted. The function first ensures that the destination directory exists, creating it if necessary. It then iterates over all files in the source directory and its subdirectories, checks for files ending with '.zip', and extracts them into the specified destination directory. This function was called with relative paths to the source directory (`'../data/Australia'`) and the destination directory (`'../extracted_zips'`) as arguments to process and extract ZIP files located in the specified source directory.
 
-## Scraping PV data
-**Chadi to complete**
 
-_R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`._
+After unzipping the given data, it's time to import them with pandas into a dictionary for automated access. This is achieved by using a function create_dataframes_dict, which iterates through a specified base directory to find and read all CSV files into pandas DataFrames. Each DataFrame is then stored in a dictionary with keys uniquely identifying each file based on its name, without the extension, and potentially incorporating its directory name.
 
-_Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!_
+The function first initializes an empty dictionary to store the DataFrames. It then walks through each directory and subdirectory within the provided base directory, identifying all CSV files. For each CSV file found, the function constructs the full file path, reads the file into a DataFrame using pd.read_csv, and adds it to the dictionary with a key derived from the file name. The function returns this dictionary, making it easy to access each DataFrame by its unique key.
 
-## Description of the Data
+The function was called with base_directory set to '../extracted_zips', pointing to the directory containing the folders with CSV files after the data extraction process. This directory was used to populate a dictionary dataframes_dict with DataFrames, allowing for automated and organized access to the data contained within each CSV file.
+### Refactoring and simplifying the code
 
-**General Overview**
+After establishing the data ingestion steps, a refactoring step was applied to simplify the code seen in the notebook and to focus on the subsequent modelling. This step ensures that the loading steps are abstracted, and the focus would only be targeted to the models created, increasing efficiency in testing the methods.
 
-The data that the team will be examining is stored as CSV files in Github. It includes independent variables such as the date of the year, the location and recorded temperature; and dependent variables such as the total demand and the forecasted demand.  In total, we are dealing with 13 million, which can be considered as a large dataset. The data is a time series which can introduce more complexity in the model. This complexity, together with the size of the data are uan indicator that the usage of GPUs to accelerate the training of our model. Tools such as Google Colab Pro provide this service. 
+The module `watts_up.py` was created, and placed in a folder `src` in the same repository of the notebook; and is imported into the notebook using the following line:
+```python
+import src.watts_up as wup
+```
+
+The codes for different tasks were placed in python methods. This simplified the interface we have in our notebook. For instance, when extracting zips, the needed libraries and functions were encapsulated in a single function that would do all the required steps to unznip, and would only need the source directory and the destination directory. This simplified the needed code from around 15 lines to the following 3 lines:
+```python
+source_directory = '../data/Australia'
+destination_directory = '../extracted_zips'
+wup.extract_all_zips(source_directory, destination_directory)
+```
+
+The following functions were written in the module. They use the Don't Repeat Yourself (DRY) paradigm for reusability and cover the data loading and an early EDA, which will be discussed in a subsequent section.
+
+`watts_up`:
+- `wup.extract_all_zips(source_dir, dest_dir)`: Extracts all ZIP files from a specified source directory to a destination directory, creating the destination if it doesn't exist.
+- `wup.create_dataframes_dict(base_directory)`: Creates a dictionary of DataFrames from CSV files found in subdirectories of a base directory, keyed by CSV file names.
+- `wup.display_dataframes(dataframes)`: Displays basic information and the first few rows for each DataFrame in a given dictionary of DataFrames.
+- `wup.organize_and_print_dataframes(dataframes_dict)`: Organizes DataFrames by state based on naming conventions and prints out each DataFrame's name under its corresponding state.
+- `wup.get_dataframe_from_state(data_by_state, state, dataframe_key)`: Retrieves a specific DataFrame from a nested dictionary structure based on state and DataFrame key.
+- `wup.convert_columns_to_datetime(df, columns)`: Converts specified columns of a DataFrame to datetime format if they exist.
+- `wup.convert_df_columns_to_datetime(data_by_state, columns_to_convert)`: Applies datetime conversion to specified columns across all DataFrames within a nested dictionary structure.
+- `wup.check_column_conversion(df, column_name)`: Checks if a specific column in a DataFrame has been successfully converted to a datetime object.
+- `wup.check_datetime_conversions(data_by_state, columns)`: Verifies and prints whether specified columns in each DataFrame within a nested dictionary have been successfully converted to datetime objects.
+- `wup.print_missing_values_summary(data_by_state)`: Prints a summary of missing values for each DataFrame within a nested dictionary structure, categorized by state.
+- `wup.plot_column_distributions(data_by_state, columns)`: Plots the distribution of specified columns for each DataFrame within a nested dictionary structure, categorized by state.
+
+## Loading PV data
+
+An extra rooftop PV dataset was needed for the analysis. This dataset needs to be scraped from the following link: https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/ .
+### Website Reconnaissance
+To write the code, let's first explore the structure of the website.
+
+Rooftop PV data is split into years.
+![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-1.png)
+
+And when we access a year, we get a more granular view of the months.:
+![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-2.png)
+
+In this project, we are interested in the data between 2017 and 2023
+
+### Python code to download
+For the project, Python's `requests` library was used to automate the retrieval of ZIP files containing the data from the web. The URLs were constructed dynamically for each month of each year within the specified range, adhering to the naming convention and directory structure observed on the website. The file names were prefixed and suffixed appropriately to match the naming format provided by the site.
+
+A `download_file(url, path)` function was defined to manage the HTTP request for each file's URL. If the server responded positively, the content was written to a local file in a pre-determined directory, ensuring the preservation of the data structure. This function printed out the status of each download attempt, helping track progress and identify any issues. The main block of the code iterated over each year and month, constructed the full URL for the corresponding data file, and called the `download_file` function to perform the download.
+
+The `Path` object from the `pathlib` library specified the directory for storing the downloaded files and ensured that the necessary directories existed. The code was initiated with a loop over the specified range of years and months, systematically downloading each file to the local system, thereby automating the process of data collection for analysis or further processing. The completion of all downloads was confirmed with a final print statement.
+
+### Unzipping
+A further step leading to the loading of the data into a pandas dataframe for analysis involved unzipping the files and storing them into an organized folder structure. The Python `zipfile` library was used to manage the extraction of ZIP files, while the `pathlib` library took care of file path operations. The code specified a directory containing the ZIP files and created a target directory for the unzipped data, ensuring it existed before proceeding with unzipping. A loop was implemented to iterate over each ZIP file found in the specified directory. For each file, the `zipfile.ZipFile(file,'r')` method was invoked to open the ZIP file in read mode, and contents were extracted into the designated unzipped directory. Each successful extraction was acknowledged with a print statement indicating the file's name and the destination of the unzipped content.
+
+### Loading Into `pandas` Dataframes
+Now that the unzipped files were in place, it was time to load them, and pandas was used for this purpose. The Python script utilized the `pathlib` and `pandas` libraries to facilitate file management and data manipulation. Initially, the script identified all CSV files in the designated directory, storing the paths to these files in a list. If no CSV files were found, the script printed a notification message.
+
+Once the file paths were established, the script loaded the first CSV file to establish a baseline for the column structure using pandas' `read_csv` function with the `header=1` parameter, which specified that the second row of the file should be treated as the header. The columns from this initial file were stored and printed.
+
+The script then iterated over the remaining CSV files in the list, loading each one to compare its column structure against the baseline. If a file's column structure did not match the baseline, a flag was set to false, and a message was printed indicating which file differed. Finally, the script checked the flag to determine if all files had a consistent column structure, and appropriate messages were printed based on this check. This process ensured that all data files were compatible in terms of their structure before any further data processing or analysis was performed.
+
+### Combining into one Dataframe
+Our final step before analysis was to have a combined CSV. Using Python's `pandas` library and the `pathlib` module, the script performed this integration. First, it searched through the specified directory to find all CSV files, reading each one into a separate DataFrame. The `header=1` parameter was used to ensure the second row of each file was used as the header.
+
+After all individual DataFrames were created and stored in a list, the script combined them into a single DataFrame using `pandas.concat`, with the `ignore_index=True` option to reset the index in the resulting DataFrame. This approach ensured that the data from each file was seamlessly appended without any index overlap.
+
+The combined DataFrame was then saved back to disk as a new CSV file in the same directory as the original files, ensuring all data was consolidated in one accessible location. The path for the new combined CSV was constructed using the `pathlib` module to maintain consistency with file handling operations. The completion of this task was confirmed with a print statement that indicated the location of the saved combined CSV file, marking the readiness of the data for subsequent analysis steps.
+
+# Describing the Data
+## Description of the Github Data
+**General Overview The Github Data**
+
+The given data that the team will be examining is stored as CSV files in Github. It includes independent variables such as the date of the year, the location and recorded temperature; and dependent variables such as the total demand and the forecasted demand.  In total, we are dealing with 13 million, which can be considered as a large dataset. The data is a time series which can introduce more complexity in the model. This complexity, together with the size of the data are uan indicator that the usage of GPUs to accelerate the training of our model. Tools such as Google Colab Pro provide this service. 
 
 **Dataset: totaldemand_nsw.csv, totaldemand_vic.csv, totaldemand_qld.csv, totaldemand_sa.csv, totaldemand_tas.csv1** 
 
@@ -101,33 +170,182 @@ This dataset contains the total energy demand around Australia from 2010 to Marc
 
 This dataset records the temperature data from across Australia from 2010 to March 2021. Do note that this set of data only records the temperature from one location in the state. The temperature listed in the dataset will be used to predict the demand in the next 1 to 5 years and how solar panels affects the total demand. Again, this dataset has the same shortcomings with the previous dataset as the data included in the 2021 is only up to March, hence for the purpose of our research, the year of 2021 will be omitted as well. Another shortcoming is that the temperatures recorded in QLD and in SA are identical. This might be due to a an error with data storage and loading.   
 
+**Dataset: combined_df_grouped_sorted.csv**
 
-How are the data stored? What are the sizes of the data files? How many files? etc.
+The dataset contains the rooftop Photovoltaic (PV) output from the state of Queensland, New South Wales, Tasmania, and Victoria from 2017 to 2022. It was made up with monthly PV outdata data downloaded from AEMO and combined using python. Please note that this dataset only records the output in one location of each state. The dataset records the PV output in 30-minute intervals. This dataset will be used for predicting the energy demand along with using temperature data listed from above. This dataset was sourced from AEMO on their website. The csv file is around 12.2MB and contains around 420,000 lines of data. 
 
+**Dataset: Aus_public_hols_2009-2022-1.csv**
 
+The dataset contains public holiday of each state in Australia from 2009 to 2022. Since the demand during weekends and publics holidays are usually higher than a working day, by implementing the public holidays to the model will help improves its accuracy. The size of the file is around 41KB and contains around 650 lines of data. This dataset is also stored on Github for easy access.
 
+## Description of Scraped Rooftop PV Data
+**Description of the rooftop PV data**
+
+_Todo__
 ## Pre-processing Steps
-Andrew Ryan to complete
-What did you have to do to transform the data so that they become useable?
 
-Step 1:Unzip the files and import the data
-Steo 2: Check for duplicate data records
-Step 2:visualise
+The key steps we followed to prepare the data for processing can be broadly grouped into five key categories as follows
 
-<!---
-![alt text](duplicate_check_victoria-1.png)
---->
+**1. Unzip the files and import the data**
+
+The data scraping and unzipping procures are described in detail above given the detailed approach used to collect the PV data.
+Once the data was ready it was then converted in dataframes using the code below.  
+
+```python
+temperature_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_vic.csv")
+temperature_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_qld.csv")
+temperature_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_sa.csv")
+forecastdemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_vic.csv")
+forecastdemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_qld.csv")
+forecastdemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_sa.csv")
+totaldemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_vic.csv")
+totaldemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_qld.csv")
+totaldemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_sa.csv")
+```
+
+**1. Check what sort of data is contained**
+This was achieved by running the following python queries across each of the dataframes:
 
 
-## Data Cleaning
-Andrew Ryan to complete
-How did you deal with missing data? etc. 
+#Temperature SA:
+```python
+# Column names
+print("Column names for temperature_sa:")
+print(temperature_sa.columns.tolist())
+
+# Data types
+print("\nData types for temperature_sa:")
+print(temperature_sa.dtypes)
+
+# Summary statistics
+print("\nSummary statistics for temperature_sa:")
+print(temperature_sa.describe())
+```
+
+This exploration showed that a DATETIME column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were 
+
+
+**2. Convert DATETIME to correct format**
+
+The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
+
+```python
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+```
+
+**3. Check for duplicate data records**
+
+Duplicates where checked for each of the regional datasets by running the '.duplicated' function from the Pandas library in python applied only to the 'DATETIME' column. duplicate values were expected to exist in other columns. 
+
+An example of the code used to check and count duplicates is:
+
+```python
+duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
+```
+Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
+
+### Victoria
+<img src="img/duplicate_check_vic.png" alt="duplicate_check_vic" width="400">
+
+
+### South Australia
+<img src="img/duplicate_check_SA.png" alt="duplicate_check_sa" width="400">
+
+### Queensland
+
+<img src="img/duplicate_check_QLD.png" alt="duplicate_check_vic" width="400">
+
+Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
+
+<img src="img/Forecast_DemandDuplicates.jpg" alt="Forecast_DemandDuplicates" width="600">
+
+The source of the duplicate was found to be that the forecast demand files were updated with new demand estimates from time to time. These demand estimates provided an updated set of demand forecasts for the same forecast time horizon. 
+
+Counting these duplicates revealed that for 73,836 unique values for estimating the ForecastDemand estimates, with an average time between each estimate of approximately 30 minutes.
+So likely a computer model re-estimated forecast demand every 30 minutes and generated a new estimate for the value of Forecast Demand for that period.
+
+Duplicates of other field values were expected given that the data types and context, so no duplicate checking was completed on these fields.
+
+**4. Drop Duplicates**
+
+To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
+
+```python
+forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates(subset='DATETIME', keep='last')
+```
+
+This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
+ 
+```python
+forecastdemand_qld.describe()
+```
+
+![Forecast_DemandDuplicates: ](img/QLD_ForecastDemand_DuplicatesRemoved.jpg)
+
+
+**5. Merge Dataframes by Region**
+
+### Inspect Time Horizons
+Prior to merging on the DATETIME field, further exploration of the time horizons covered by each data sets was conducted with the results shown below.
+It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 1, 2010 to March 19, 2021, or a bit more than 11 years.
+
+Merging on DATETIME will naturally reduce this dataset back the smallest data range common to all three datasets.
+I.e. exclude approxiamtely 7 years of data  from Jan 2010, to Jan 2017.
+
+It was decided the size of the remaining the dataset, with 30 minute data over more than 4 years was more than sufficient given for training a model, particularly given the computational advantages with the smaller dataset. Furthermore, collecting PV data back to 2010, became a further challenge.
+
+<img src="img/DataFrameTimeHorizons.jpg" alt="DataFrameTimeHorizons.jpg" width="300">
+
+### Merge into QLD, SA and VIC dataframes
+
+The 3 individual dataframes for each region were then merged into a single combined dataframe for each region.
+1) temperature_qld
+2) totaldemand_qld
+3) forecastdemand_qld
+
+The below code was used to complete a two step 'inner join' to create a single file.
+
+```python
+qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
+qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
+```
+
+
+**6. Handling Missing Values** 
+Missing values were routinely checked in all dataframes during import and initial checking. Once the datafrmes were merged, a final check for missing values in each of the 3 dataframes was completed using the following python command. This showed there were no missing values in any of the dataframes.
+
+
+```python
+total_missing_sa = sa_df.isnull().sum().sum()
+print("Total missing values SA:", total_missing_sa)
+```
+
+**5. Merge regional data on DATETIME Fields**
+Merging the data on DATETIME significantly reduce the size of the dataset for modelling
+
+```python
+qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
+qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
+```
+
+**6. Checking for outliers**
+
+Boxplots were generated for the key fields of interest being TEMPERATURE, TOTALDEMAND and FORECASTDEMAND.
+Observing these plots shown below (for QLD), it can be seen that temperature range is as expected, from a little above zero to slightly above 40.
+Furthermore TOTALDEMAND and FORECASTDEMAND are similar, which is epxcted, and there are no outliers, beyond what would normally be expected.
+
+![QLD Outlier Box Plots: ](img/OutlierBoxPlots.jpg)
+
+Histograms for the same fields further support this outlier analysis.
+
+![QLD Histograms: ](img/Histogram.jpg)
+
 
 ## Assumptions
 
-What assumptions are you making on the data?
+The assumprions made on the data is that it is accurate and reliable. This is in addition to the assumptions about data type discussion in the previous sections.
 
-## Modelling 
+# Modelling 
 
 ## Introduction to Modelling Methods
 
@@ -300,122 +518,154 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 # Exploratory Data Analysis
 
-This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
+Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD is the hottest, following by South Australia and Victoria.
 
-## Using R {.fragile}
+![Temperature Histogram: ](img/Hist_Temperature.jpg)
 
+A comparison of total demand by state is shown below:
 
-```r
-boxplot(cars, col = c("#5975a4", "#cc8963"))
-```
-
-<!--
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-1-1.pdf) --> 
-
-## Using Python {.fragile}
-
-<!-- See https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html for more details.
-
-\bigskip
-
-You need to install the R package `reticulate`. -->
+![Temperature Histogram: ](img/Hist_TotalDemand.jpg)
 
 
-```python
-# Key Libraries Used
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import xgboost as xgb
-color_pal = sns.color_palette()
-import time
+## Relationship Between Time of Day and Power Demand ##
+Looking at the relationship between time of day, and power demand starts to show some more interesting trends.
+Plotting the first 10 days of January 2010, we can see some correlation throughout the day for each region with demand typically peaking around midday, with lowest demand seen very early in the mornings.
 
-from sklearn.base import clone
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, StackingRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.neural_network import MLPRegressor
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.model_selection import train_test_split
+![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
-print("Python can be used with MATHxxxx!")
-```
+## Relationship Between Temperature and Demand ##
 
-```
-## Python can be used with MATHxxxx!
-```
+We know from the literature review that temperature is a strong driver of power demand. Filtering for different times of the day shows this relationship in an xy scatter plot for 6am, noon and 6pm. We can see that the relationships at these times of days differ, as evidenced by the shape of the relationship.
 
-```python
-import sys
-print(sys.version)
-```
+![Temp_vs_Demand_combined: ](img/Temp_vs_Demand_combined.jpg)
 
-```
-## 3.6.13 (default, Feb 19 2021, 05:17:09) [MSC v.1916 64 bit (AMD64)]
-```
+Exploring this further, and looking at  at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
+
+Presumably as temperature moves further from this point, and the need for air conditioning or heating increase, so too does power demand.
+
+![Temp_vs_Demand_6pm: ](img/Temp_vs_Demand_6pm.jpg)
+
+The relationship at midday is more linear in form, with average temperatures more around the 25 degree mark, and less of a requirement for heating as temperatures do not fall as far.
 
 
+![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
 
-```python
-import numpy as np
-np.random.seed(1)
-np.random.normal(0.0, 1.0, size=10)
-```
-
-```
-## array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
-##        -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])
-```
+looking at 6am, we can see thata somewhat inverse relationship to 6pm, but with 
 
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-df=pd.DataFrame([[1, 2], [3, 4], [4, 3], [2, 3]])
-fig = plt.figure(figsize=(4, 4))
-for i in df.columns:
-    ax=plt.subplot(2,1,i+1) 
-    df[[i]].plot(ax=ax)
-    print(i)
+![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_6am.jpg)
 
-plt.show()
-```
 
-![](unsw-ZZSC9020-report-template_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+Looking at the Victoria data, we can see a much strong response to demand as temperature decreases in the both the morning, but particularly the evening.
+
+![TTemp_vs_Demand_combined_VIC: ](img/Temp_vs_Demand_combined_VIC.jpg)
+
+## South Australia and Victoria ##
+
+In South Australia, the trends are much less obvious, with demand generally higher in the evening, but with this trend much less driven by temperature.
+
+![TTemp_vs_Demand_combined_SA: ](img/Temp_vs_Demand_combined_SA.jpg)
+
+
 
 
 # Analysis and Results
 
-## A First Model
+In our analysis, we focused on modeling the Queensland dataset to forecast electricity demand, based on the hypothesis that temperature data alone may be a sufficient predictor. This hypothesis was articulated as the null hypothesis:
 
-Having a very simple model is always good so that you can benchmark any result you would obtain with a more elaborate model.
+- **Null Hypothesis** $( H_0 )\$: Temperature data alone is sufficient to reliably forecast electricity demand.
 
-\bigskip
+Our alternative hypothesis considered the inclusion of additional features:
 
-For example, one can use the linear regression model
+- **Alternative Hypothesis** $( H_1 )\$: Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
 
-$$
-Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
-$$
-where it is assumed that the $\epsilon_i$'s are i.i.d.\ $N(0,1)$.
+The study centered on the Queensland dataset as a proof of concept, with the intention to later replicate the methodology across other states. The performance of various models was evaluated, spanning from Linear Regression to more sophisticated approaches like MLP, LSTM, and Stacked Models, with the comparison being drawn between models leveraging only temperature data versus those incorporating engineered features.
 
-# Discussion
+The results, presented in the below tables, indicated a clear narrative: models augmented with engineered features outperformed their simpler counterparts across all metrics—MSE, RMSE, MAE, and $ R^2 $. The significant improvements in predictive accuracy and model fitness are evidenced by lower error rates and higher $ R^2 $ values.
 
-Put the results you got in the previous chapter in perspective with respect to the problem studied.
+Further analysis into the specific impact of solar features, as reflected in the deltas shown in the second table, suggests a substantial performance degradation when these features are excluded. For instance, excluding solar features from the Linear Regression model resulted in an MSE increase of over 103,000, underscoring the importance of these predictors.
+
+These findings provide a strong basis to reject the null hypothesis $ H_0 $, and support the alternative hypothesis $ H_1 $. The integration of solar-related features has proven to be more than marginally beneficial—it is a significant enhancement to the accuracy of electricity demand forecasting. With the success of this proof of concept in Queensland, our methodology is poised to be replicated across other states, potentially increasing the precision of electricity demand forecasts.
+
+
+| Model                                                     | MSE        |   RMSE |    MAE |     R2 |
+|:----------------------------------------------------------|:-----------|-------:|-------:|-------:|
+| Linear Regression                                         | 649,170.19 | 805.71 | 657.72 | 0.1878 |
+| Linear Regression with Engineered Features                | 239,856.55 | 489.75 | 395.37 | 0.6947 |
+| MLP with Engineered Features                              | 26,901.46  | 164.02 | 118.09 | 0.9658 |
+| LSTM with Engineered Features                             | 20,508.91  | 143.21 | 103.19 | 0.9739 |
+| Stacked Model with Engineered Features                    | 26,980.73  | 164.26 | 118.28 | 0.9657 |
+| Linear Regression with Engineered Features - Except Solar | 342,977.48 | 585.64 | 466.78 | 0.5634 |
+| MLP with Engineered Features - Except Solar               | 45,649.33  | 213.66 | 152.13 | 0.9419 |
+| LSTM with Engineered Features - Except Solar              | 26,551.94  | 162.95 | 117.26 | 0.9662 |
+| Stacked Model with Engineered Features - Except Solar     | 45,511.44  | 213.33 | 151.54 | 0.9421 |
+
+<center> Table 1: Raw Results of each Model with and without solar as a feature</center>
+
+<br>
+
+| Model             | MSE         |   RMSE |    MAE |     R2 |
+|:------------------|:------------|-------:|-------:|-------:|
+| Linear Regression | -103,120.93 | -95.89 | -71.41 | 0.1313 |
+| MLP               | -18,747.87  | -49.64 | -34.03 | 0.0239 |
+| LSTM              | -6,043.03   | -19.74 | -14.07 | 0.0077 |
+| Stacked Model     | -18,530.71  | -49.08 | -33.26 | 0.0236 |
+
+<center> Table 2: Delta between models with and without solar as a feature</center>
+
+<br>
+
+Below, the first set of visualisations comprises a series of bar charts that provide an overview of the performance of various predictive models. Each chart represents a key metric used to evaluate the models, such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the coefficient of determination ($R^2$). These models include the solar variable. 
+
+![MAE Across Models: ](img/mae_comparison_across_models.jpg)
+
+<br>
+
+![MSE Across Models: ](img/mse_comparison_across_models.jpg)
+
+<br>
+
+![R2 Across Models: ](img/r2_comparison_across_models.jpg)
+
+<br>
+
+![RMSE Across Models: ](img/rmse_comparison_across_models.jpg)
+
+Following the histograms, the analysis transitions to a series of line plots,  tracing the performance of each individual model against the actual recorded electricity demand. The temporal snapshot chosen for this comparison is a randomly selected week in June—a period likely to exhibit significant variation in electricity usage patterns due to seasonal factors. 
+
+![MLP In June: ](img/mlp-prediction_june_2020.jpg)
+
+<br>
+
+![LSTM In June: ](img/lstm-prediction_june_2020.jpg)
+
+<br>
+
+![Lin Reg Model in June: ](img/lin-reg-prediction_june_2020.jpg)
+
+<br>
+
+![Stacked Model In June: ](img/stacked-prediction_june_2020.jpg)
+
 
 # Conclusion and Further Issues {.label:ccl}
 
-What are the main conclusions? What are your recommendations for the "client"? What further analysis could be done in the future?
+As we conclude our study, we observe that the incorporation of engineered features, particularly those related to solar data, has markedly improved the predictive performance of all evaluated models. The enhanced models have shown a significant increase in accuracy across all key metrics, including MSE, RMSE, MAE, and the coefficient of determination ($R^2$).
 
-A figure:
+To further refine the predictive capabilities, we suggest the following potential new engineered data features:
 
-![A caption \label{myfigure}](unsw-logo.png){width="6cm" height="2cm"}
+1. **Behavioral Adjustments**: Incorporating data on school holidays and other public events that typically see a shift in electricity usage patterns.
+2. **Household Efficiency Metrics**: Integrating data on energy efficiency improvements within households, such as the adoption of energy-efficient appliances and systems.
+3. **Population Growth Projections**: Utilising demographic and urban planning data to adjust forecasts according to expected changes in population density and growth.
+4. **Electric Vehicle Uptake**: Factoring in the increase in electric vehicle (EV) usage, which significantly impacts electricity demand due to charging requirements.
 
-In the text, see Figure \ref{myfigure}.
+For future analysis, several avenues could be explored:
+
+1. **Expansion of Feature Set**: Investigating additional environmental, economic, and behavioral factors in addition to the above that could further refine the predictive models.
+2. **Longer Time Frame**: Extending the analysis to include a broader range of data over more recent years to validate the models against more varied conditions.
+3. **Real-Time Analysis**: Developing a framework for real-time data analysis to enable dynamic forecasting that can adapt to rapid changes in demand patterns.
+
+These initiatives could provide deeper insights and drive the evolution of forecasting methodologies to meet the complex demands of modern energy management systems.
 
 
 # References {-}
@@ -433,15 +683,7 @@ Add you codes here.
 
 ## **Tables** {-}
 
-If you have tables, you can add them here.
 
-Use https://www.tablesgenerator.com/markdown_tables to crete very simple markdown tables, otherwise use \LaTeX.
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
 
 
 

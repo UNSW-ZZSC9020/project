@@ -11,9 +11,7 @@ author:
 
 date: "23/04/2024"
 Acknowledgements: 
-  - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
-  - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
-  - "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
+  - "
 Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
 output:
   pdf_document:
@@ -573,33 +571,101 @@ In South Australia, the trends are much less obvious, with demand generally high
 
 # Analysis and Results
 
-## A First Model
+In our analysis, we focused on modeling the Queensland dataset to forecast electricity demand, based on the hypothesis that temperature data alone may be a sufficient predictor. This hypothesis was articulated as the null hypothesis:
 
-Having a very simple model is always good so that you can benchmark any result you would obtain with a more elaborate model.
+- **Null Hypothesis** $( H_0 )\$: Temperature data alone is sufficient to reliably forecast electricity demand.
 
-\bigskip
+Our alternative hypothesis considered the inclusion of additional features:
 
-For example, one can use the linear regression model
+- **Alternative Hypothesis** $( H_1 )\$: Including the additional features of 'solar generation capacity' and/or 'solar radiation' improves the estimate of electricity demand.
 
-$$
-Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
-$$
-where it is assumed that the $\epsilon_i$'s are i.i.d.\ $N(0,1)$.
+The study centered on the Queensland dataset as a proof of concept, with the intention to later replicate the methodology across other states. The performance of various models was evaluated, spanning from Linear Regression to more sophisticated approaches like MLP, LSTM, and Stacked Models, with the comparison being drawn between models leveraging only temperature data versus those incorporating engineered features.
 
-# Discussion
+The results, presented in the below tables, indicated a clear narrative: models augmented with engineered features outperformed their simpler counterparts across all metrics—MSE, RMSE, MAE, and $ R^2 $. The significant improvements in predictive accuracy and model fitness are evidenced by lower error rates and higher $ R^2 $ values.
 
-From the data analysis above, we can see that there are some interesting insights. From the results it demonstrated that the prediction is more accurate when we included rooftop solar panel power production into the dataset. This is true for all states that we analyzed, (Victoria, South Australia, and Queensland). That being said, the accuracy of the prediction varies from state to state.
+Further analysis into the specific impact of solar features, as reflected in the deltas shown in the second table, suggests a substantial performance degradation when these features are excluded. For instance, excluding solar features from the Linear Regression model resulted in an MSE increase of over 103,000, underscoring the importance of these predictors.
+
+These findings provide a strong basis to reject the null hypothesis $ H_0 $, and support the alternative hypothesis $ H_1 $. The integration of solar-related features has proven to be more than marginally beneficial—it is a significant enhancement to the accuracy of electricity demand forecasting. With the success of this proof of concept in Queensland, our methodology is poised to be replicated across other states, potentially increasing the precision of electricity demand forecasts.
+
+
+| Model                                                     | MSE        |   RMSE |    MAE |     R2 |
+|:----------------------------------------------------------|:-----------|-------:|-------:|-------:|
+| Linear Regression                                         | 649,170.19 | 805.71 | 657.72 | 0.1878 |
+| Linear Regression with Engineered Features                | 239,856.55 | 489.75 | 395.37 | 0.6947 |
+| MLP with Engineered Features                              | 26,901.46  | 164.02 | 118.09 | 0.9658 |
+| LSTM with Engineered Features                             | 20,508.91  | 143.21 | 103.19 | 0.9739 |
+| Stacked Model with Engineered Features                    | 26,980.73  | 164.26 | 118.28 | 0.9657 |
+| Linear Regression with Engineered Features - Except Solar | 342,977.48 | 585.64 | 466.78 | 0.5634 |
+| MLP with Engineered Features - Except Solar               | 45,649.33  | 213.66 | 152.13 | 0.9419 |
+| LSTM with Engineered Features - Except Solar              | 26,551.94  | 162.95 | 117.26 | 0.9662 |
+| Stacked Model with Engineered Features - Except Solar     | 45,511.44  | 213.33 | 151.54 | 0.9421 |
+
+<center> Table 1: Raw Results of each Model with and without solar as a feature</center>
+
+<br>
+
+| Model             | MSE         |   RMSE |    MAE |     R2 |
+|:------------------|:------------|-------:|-------:|-------:|
+| Linear Regression | -103,120.93 | -95.89 | -71.41 | 0.1313 |
+| MLP               | -18,747.87  | -49.64 | -34.03 | 0.0239 |
+| LSTM              | -6,043.03   | -19.74 | -14.07 | 0.0077 |
+| Stacked Model     | -18,530.71  | -49.08 | -33.26 | 0.0236 |
+
+<center> Table 2: Delta between models with and without solar as a feature</center>
+
+<br>
+
+Below, the first set of visualisations comprises a series of bar charts that provide an overview of the performance of various predictive models. Each chart represents a key metric used to evaluate the models, such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the coefficient of determination ($R^2$). These models include the solar variable. 
+
+![MAE Across Models: ](img/mae_comparison_across_models.jpg)
+
+<br>
+
+![MSE Across Models: ](img/mse_comparison_across_models.jpg)
+
+<br>
+
+![R2 Across Models: ](img/r2_comparison_across_models.jpg)
+
+<br>
+
+![RMSE Across Models: ](img/rmse_comparison_across_models.jpg)
+
+Following the histograms, the analysis transitions to a series of line plots,  tracing the performance of each individual model against the actual recorded electricity demand. The temporal snapshot chosen for this comparison is a randomly selected week in June—a period likely to exhibit significant variation in electricity usage patterns due to seasonal factors. 
+
+![MLP In June: ](img/mlp-prediction_june_2020.jpg)
+
+<br>
+
+![LSTM In June: ](img/lstm-prediction_june_2020.jpg)
+
+<br>
+
+![Lin Reg Model in June: ](img/lin-reg-prediction_june_2020.jpg)
+
+<br>
+
+![Stacked Model In June: ](img/stacked-prediction_june_2020.jpg)
 
 
 # Conclusion and Further Issues {.label:ccl}
 
-What are the main conclusions? What are your recommendations for the "client"? What further analysis could be done in the future?
+As we conclude our study, we observe that the incorporation of engineered features, particularly those related to solar data, has markedly improved the predictive performance of all evaluated models. The enhanced models have shown a significant increase in accuracy across all key metrics, including MSE, RMSE, MAE, and the coefficient of determination ($R^2$).
 
-A figure:
+To further refine the predictive capabilities, we suggest the following potential new engineered data features:
 
-![A caption \label{myfigure}](unsw-logo.png){width="6cm" height="2cm"}
+1. **Behavioral Adjustments**: Incorporating data on school holidays and other public events that typically see a shift in electricity usage patterns.
+2. **Household Efficiency Metrics**: Integrating data on energy efficiency improvements within households, such as the adoption of energy-efficient appliances and systems.
+3. **Population Growth Projections**: Utilising demographic and urban planning data to adjust forecasts according to expected changes in population density and growth.
+4. **Electric Vehicle Uptake**: Factoring in the increase in electric vehicle (EV) usage, which significantly impacts electricity demand due to charging requirements.
 
-In the text, see Figure \ref{myfigure}.
+For future analysis, several avenues could be explored:
+
+1. **Expansion of Feature Set**: Investigating additional environmental, economic, and behavioral factors in addition to the above that could further refine the predictive models.
+2. **Longer Time Frame**: Extending the analysis to include a broader range of data over more recent years to validate the models against more varied conditions.
+3. **Real-Time Analysis**: Developing a framework for real-time data analysis to enable dynamic forecasting that can adapt to rapid changes in demand patterns.
+
+These initiatives could provide deeper insights and drive the evolution of forecasting methodologies to meet the complex demands of modern energy management systems.
 
 
 # References {-}
@@ -617,15 +683,7 @@ Add you codes here.
 
 ## **Tables** {-}
 
-If you have tables, you can add them here.
 
-Use https://www.tablesgenerator.com/markdown_tables to crete very simple markdown tables, otherwise use \LaTeX.
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
 
 
 
