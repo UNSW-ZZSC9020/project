@@ -11,8 +11,10 @@ author:
 
 date: "23/04/2024"
 Acknowledgements: 
-  - "
-Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
+- "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
+- "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
+- "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
+Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip "
 output:
   pdf_document:
     template: template.tex
