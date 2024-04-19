@@ -204,15 +204,15 @@ The data scraping and unzipping procures are described in detail above given the
 Once the data was ready it was then converted in dataframes using the code below.  
 
 ```python
-temperature_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_vic.csv")
-temperature_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_qld.csv")
-temperature_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/temperature_sa.csv")
-forecastdemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_vic.csv")
-forecastdemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_qld.csv")
-forecastdemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/forecastdemand_sa.csv")
-totaldemand_vic = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_vic.csv")
-totaldemand_qld = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_qld.csv")
-totaldemand_sa = pd.read_csv("C:/Users/aryan2/Assessment Data/totaldemand_sa.csv")
+temperature_vic = pd.read_csv("../Data/temperature_vic.csv")
+temperature_qld = pd.read_csv("../Data/temperature_qld.csv")
+temperature_sa = pd.read_csv("C:../Data/temperature_sa.csv")
+forecastdemand_vic = pd.read_csv("../Data/forecastdemand_vic.csv")
+forecastdemand_qld = pd.read_csv("../Data/forecastdemand_qld.csv")
+forecastdemand_sa = pd.read_csv("../Data/forecastdemand_sa.csv")
+totaldemand_vic = pd.read_csv("../Data/totaldemand_vic.csv")
+totaldemand_qld = pd.read_csv("../Data/totaldemand_qld.csv")
+totaldemand_sa = pd.read_csv("../Data/totaldemand_sa.csv")
 ```
 
 **1. Check what sort of data is contained**
@@ -242,7 +242,8 @@ This exploration showed that a DATETIME column existed in each dataset, but was 
 The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
 
 ```python
-temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') # This date format is different
+temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') 
+# This date format is different
 ```
 
 **3. Check for duplicate data records**
@@ -257,15 +258,16 @@ duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
 
 ### Victoria
-<img src="img/duplicate_check_vic.png" alt="duplicate_check_vic" width="400">
 
+![Duplicate check VIC: ](img/duplicate_check_vic.png)
 
 ### South Australia
-<img src="img/duplicate_check_SA.png" alt="duplicate_check_sa" width="400">
+
+![Duplicate check SA: ](img/duplicate_check_SA.png)
 
 ### Queensland
 
-<img src="img/duplicate_check_QLD.png" alt="duplicate_check_vic" width="400">
+![Duplicate check QLD: ](img/duplicate_check_QLD.png)
 
 Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
 
@@ -283,7 +285,8 @@ Duplicates of other field values were expected given that the data types and con
 To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
 
 ```python
-forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates(subset='DATETIME', keep='last')
+forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates
+(subset='DATETIME', keep='last')
 ```
 
 This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
@@ -530,7 +533,7 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 # Exploratory Data Analysis
 
-Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD is the hottest, following by South Australia and Victoria.
+Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD and South Australia are the hottest, followed by Victoria.
 
 ![Temperature Histogram: ](img/Hist_Temperature.jpg)
 
@@ -551,35 +554,29 @@ We know from the literature review that temperature is a strong driver of power 
 
 ![Temp_vs_Demand_combined: ](img/Temp_vs_Demand_combined.jpg)
 
-Exploring this further, and looking at  at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
+Exploring this further, and looking at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
 
 Presumably as temperature moves further from this point, and the need for air conditioning or heating increase, so too does power demand.
 
 ![Temp_vs_Demand_6pm: ](img/Temp_vs_Demand_6pm.jpg)
 
-The relationship at midday is more linear in form, with average temperatures more around the 25 degree mark, and less of a requirement for heating as temperatures do not fall as far.
-
+The relationship at midday is more linear in form, with average temperatures close to 25 degrees, and therefore less of a requirement for heating, and possibly less people at home turning on air conditioners than in the evening.
 
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
 
-looking at 6am, we can see thata somewhat inverse relationship to 6pm, but with 
-
+looking at 6am, we can see a somewhat similar concave relationship to 6pm, but with more variability. This is 
 
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_6am.jpg)
 
+## South Australia and Victoria ##
 
-Looking at the Victoria data, we can see a much strong response to demand as temperature decreases in the both the morning, but particularly the evening.
+Looking at the Victoria data, we can see a stronger response to demand as temperature decreases in the both the morning, but particularly the evening.
 
 ![TTemp_vs_Demand_combined_VIC: ](img/Temp_vs_Demand_combined_VIC.jpg)
-
-## South Australia and Victoria ##
 
 In South Australia, the trends are much less obvious, with demand generally higher in the evening, but with this trend much less driven by temperature.
 
 ![TTemp_vs_Demand_combined_SA: ](img/Temp_vs_Demand_combined_SA.jpg)
-
-
-
 
 # Analysis and Results
 
