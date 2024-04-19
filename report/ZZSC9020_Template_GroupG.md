@@ -649,6 +649,11 @@ Following the histograms, the analysis transitions to a series of line plots,  t
 
 ![Stacked Model In June: ](img/stacked-prediction_june_2020.jpg)
 
+# Discussion 
+
+From the data analysis above, we can see that there are some interesting insights. From the results, it demonstrated that the prediction is more accurate when we included rooftop solar panel power production into the dataset. This is true for all states that we analyzed, (Victoria, South Australia, and Queensland). That being said, the accuracy of the prediction varies from state to state. The Queensland model that was used for proof of concept showed a high R-squared value and low error with or without solar power as one of the engineered features. The R-squared value for LSTM model with solar feature and without is 0.9739 and 0.9662 respectively. The LSTM model with solar feature has a slightly higher R-squared value but this still shows that both models have a very high accuracy. Looking at other modeling techniques, all models with solar features outperformed the models without, in terms of r-squared value and error. Again, proofing the alternative hypothesis is correct.
+
+The same behavior can be observed on other states as well. The modeling on Victoria and South Australia also shows better results by implementing solar power production into the model. R-squared value for Victoria model with and without solar power production are 0.9067 and 0.9033 respectively. Moreover, the solar model also has a lower error when compared. However, the improvement is marginal when compared to the improvement shown on the Queensland model. South Australia also showed an R-square value improvement of 0.0578 when compared and an improvement on RMSE and MAE, but it is worth noting that the R-squared value for both models on South Australia is low when compared to Queensland and Victoria. The best R-squared value for South Australia model is only at 0.7818 which is not sufficient for commercial demand forecasting. It is possible that more features are required in order to make the model more accurate. South Australia has a much lower population when compared to Queensland and Victoria and hence has a lower demand, further research will need to be conducted to find the cause. 
 
 # Conclusion and Further Issues {.label:ccl}
 
