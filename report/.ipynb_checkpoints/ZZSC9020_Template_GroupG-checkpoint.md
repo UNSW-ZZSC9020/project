@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Impacts of Residential And Commercial Solar Power Production on Grid Demand"
+title: "Exploring the Impacts of Residential And Solar Power Production on Grid Demand"
 team: Group G – Watt’s Up Down Under
 session: Hexamester 2, 2024
 coursecode: ZZSC9020
@@ -37,7 +37,6 @@ bibliography: references.bib
 csl: university-of-south-wales-harvard.csl
 ---
 
-_Template text is in italics_
 # Abstract
 
 There is a well-known relationship between electricity demand and temperature in the electricity industry, most commercial power suppliers use temperature to forecast energy demand. More and more Australian homes are considering adding solar panels as a source of renewable energy, the team is interested in whether adding solar power as another variable will improve the accuracy of the model that is currently being used. By using convolutional neural network (CNN) and long short-term memory (LSTM) models, we improved the accuracy of the energy forecasting by implementing the solar power output dataset along with the temperature dataset that were originally used. Using temperature and solar power datasets from 2017 to 2021, the team concluded that both CNN and LSTM modelling techniques provided more accurate energy forecasting and comparing both models, LSTM is the superior model over CNN. The findings from this experiment suggested that energy providers should consider implementing datasets from various renewable sources to improve its modelling accuracy in order to improve energy pricing and reduce wastage. Notably, the LSTM model outperformed existing models on Queensland data.
@@ -604,7 +603,6 @@ These findings provide a strong basis to reject the null hypothesis $ H_0 $, and
 
 <center> Table 1: Raw Results of each Model with and without solar as a feature</center>
 
-<br>
 
 | Model             | MSE         |   RMSE |    MAE |     R2 |
 |:------------------|:------------|-------:|-------:|-------:|
@@ -615,21 +613,18 @@ These findings provide a strong basis to reject the null hypothesis $ H_0 $, and
 
 <center> Table 2: Delta between models with and without solar as a feature</center>
 
-<br>
+
 
 Below, the first set of visualisations comprises a series of bar charts that provide an overview of the performance of various predictive models. Each chart represents a key metric used to evaluate the models, such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the coefficient of determination ($R^2$). These models include the solar variable. 
 
 ![MAE Across Models: ](img/mae_comparison_across_models.jpg)
 
-<br>
 
 ![MSE Across Models: ](img/mse_comparison_across_models.jpg)
 
-<br>
 
 ![R2 Across Models: ](img/r2_comparison_across_models.jpg)
 
-<br>
 
 ![RMSE Across Models: ](img/rmse_comparison_across_models.jpg)
 
@@ -637,15 +632,12 @@ Following the histograms, the analysis transitions to a series of line plots,  t
 
 ![MLP In June: ](img/mlp-prediction_june_2020.jpg)
 
-<br>
 
 ![LSTM In June: ](img/lstm-prediction_june_2020.jpg)
 
-<br>
 
 ![Lin Reg Model in June: ](img/lin-reg-prediction_june_2020.jpg)
 
-<br>
 
 ![Stacked Model In June: ](img/stacked-prediction_june_2020.jpg)
 
