@@ -141,13 +141,13 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Exploring the Impacts of Residential And Commercial Solar Power Production on Grid Demand},
+  pdftitle={Exploring the Impacts of Residential And Solar Power Production on Grid Demand},
   pdfauthor={Bernard Lo (z3464235); Andrew Ryan (z2251397); Chadi Abi Fadel (z5442788); Joshua Evans (z5409600)},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{Exploring the Impacts of Residential And Commercial Solar Power
-Production on Grid Demand}
+\title{Exploring the Impacts of Residential And Solar Power Production
+on Grid Demand}
 \author{Bernard Lo (z3464235) \and Andrew Ryan (z2251397) \and Chadi Abi
 Fadel (z5442788) \and Joshua Evans (z5409600)}
 \date{23/04/2024}
@@ -167,16 +167,16 @@ use temperature to forecast energy demand. More and more Australian
 homes are considering adding solar panels as a source of renewable
 energy, the team is interested in whether adding solar power as another
 variable will improve the accuracy of the model that is currently being
-used. By using convolutional neural network (CNN) and long short-term
-memory (LSTM) models, we improved the accuracy of the energy forecasting
-by implementing the solar power output dataset along with the
-temperature dataset that were originally used. Using temperature and
-solar power datasets from 2017 to 2021, the team concluded that both CNN
-and LSTM modelling techniques provided more accurate energy forecasting
-and comparing both models, LSTM is the superior model over CNN. The
-findings from this experiment suggested that energy providers should
-consider implementing datasets from various renewable sources to improve
-its modelling accuracy in order to improve energy pricing and reduce
+used. By using neural network (NN) and long short-term memory (LSTM)
+models, we improved the accuracy of the energy forecasting by
+implementing the solar power output dataset along with the temperature
+dataset that were originally used. Using temperature and solar power
+datasets from 2017 to 2021, the team concluded that both NN and LSTM
+modelling techniques provided more accurate energy forecasting and
+comparing both models, LSTM is the superior model over NN. The findings
+from this experiment suggested that energy providers should consider
+implementing datasets from various renewable sources to improve its
+modelling accuracy in order to improve energy pricing and reduce
 wastage. Notably, the LSTM model outperformed existing models on
 Queensland data.
 
@@ -300,12 +300,19 @@ demand forecasting as shown by the researches done above.
 A Jupyter notebook describing the steps taken in our analysis can be
 found in
 \texttt{\textasciitilde{}/report/Wattsup\_energy\_forecast.ipynb}.
-Following is a description. \# Loading the Data \#\# Loading the given
-dataset \#\#\# Initial Code Python was used to extract, transform and to
-load the data (ETL) into our notebook for further Exploratory Data
-Analysis (EDA) and modelling. Unzipping programmatically ensures the
-repeatability of the data extraction process while ensuring that no
-human errors were introduced in the process as the number of files grows
+Following is a description.
+
+\section{Loading the Data}\label{loading-the-data}
+
+\subsection{Loading the given dataset}\label{loading-the-given-dataset}
+
+\subsubsection{Initial Code}\label{initial-code}
+
+Python was used to extract, transform and to load the data (ETL) into
+our notebook for further Exploratory Data Analysis (EDA) and modelling.
+Unzipping programmatically ensures the repeatability of the data
+extraction process while ensuring that no human errors were introduced
+in the process as the number of files grows
 
 To unzip the data, the \texttt{os} and the \texttt{zipfile} libraries
 were used. The \texttt{os} library was utilized to create and verify the
@@ -349,7 +356,10 @@ The function was called with base\_directory set to
 with CSV files after the data extraction process. This directory was
 used to populate a dictionary dataframes\_dict with DataFrames, allowing
 for automated and organized access to the data contained within each CSV
-file. \#\#\# Refactoring and simplifying the code
+file.
+
+\subsubsection{Refactoring and simplifying the
+code}\label{refactoring-and-simplifying-the-code}
 
 After establishing the data ingestion steps, a refactoring step was
 applied to simplify the code seen in the notebook and to focus on the
@@ -388,54 +398,83 @@ Repeat Yourself (DRY) paradigm for reusability and cover the data
 loading and an early EDA, which will be discussed in a subsequent
 section.
 
-\texttt{watts\_up}: -
-\texttt{wup.extract\_all\_zips(source\_dir,\ dest\_dir)}: Extracts all
-ZIP files from a specified source directory to a destination directory,
-creating the destination if it doesn't exist. -
-\texttt{wup.create\_dataframes\_dict(base\_directory)}: Creates a
-dictionary of DataFrames from CSV files found in subdirectories of a
-base directory, keyed by CSV file names. -
-\texttt{wup.display\_dataframes(dataframes)}: Displays basic information
-and the first few rows for each DataFrame in a given dictionary of
-DataFrames. -
-\texttt{wup.organize\_and\_print\_dataframes(dataframes\_dict)}:
-Organizes DataFrames by state based on naming conventions and prints out
-each DataFrame's name under its corresponding state. -
-\texttt{wup.get\_dataframe\_from\_state(data\_by\_state,\ state,\ dataframe\_key)}:
-Retrieves a specific DataFrame from a nested dictionary structure based
-on state and DataFrame key. -
-\texttt{wup.convert\_columns\_to\_datetime(df,\ columns)}: Converts
-specified columns of a DataFrame to datetime format if they exist. -
-\texttt{wup.convert\_df\_columns\_to\_datetime(data\_by\_state,\ columns\_to\_convert)}:
-Applies datetime conversion to specified columns across all DataFrames
-within a nested dictionary structure. -
-\texttt{wup.check\_column\_conversion(df,\ column\_name)}: Checks if a
-specific column in a DataFrame has been successfully converted to a
-datetime object. -
-\texttt{wup.check\_datetime\_conversions(data\_by\_state,\ columns)}:
-Verifies and prints whether specified columns in each DataFrame within a
-nested dictionary have been successfully converted to datetime objects.
-- \texttt{wup.print\_missing\_values\_summary(data\_by\_state)}: Prints
-a summary of missing values for each DataFrame within a nested
-dictionary structure, categorized by state. -
-\texttt{wup.plot\_column\_distributions(data\_by\_state,\ columns)}:
-Plots the distribution of specified columns for each DataFrame within a
-nested dictionary structure, categorized by state.
+\texttt{watts\_up}:
+
+\begin{itemize}
+\item
+  \texttt{wup.extract\_all\_zips(source\_dir,\ dest\_dir)}: Extracts all
+  ZIP files from a specified source directory to a destination
+  directory, creating the destination if it doesn't exist.
+\item
+  \texttt{wup.create\_dataframes\_dict(base\_directory)}: Creates a
+  dictionary of DataFrames from CSV files found in subdirectories of a
+  base directory, keyed by CSV file names.
+\item
+  \texttt{wup.display\_dataframes(dataframes)}: Displays basic
+  information and the first few rows for each DataFrame in a given
+  dictionary of DataFrames.
+\item
+  \texttt{wup.organize\_and\_print\_dataframes(dataframes\_dict)}:
+  Organizes DataFrames by state based on naming conventions and prints
+  out each DataFrame's name under its corresponding state.
+\item
+  \texttt{wup.get\_dataframe\_from\_state(data\_by\_state,\ state,\ dataframe\_key)}:
+  Retrieves a specific DataFrame from a nested dictionary structure
+  based on state and DataFrame key.
+\item
+  \texttt{wup.convert\_columns\_to\_datetime(df,\ columns)}: Converts
+  specified columns of a DataFrame to datetime format if they exist.
+\item
+  \texttt{wup.convert\_df\_columns\_to\_datetime(data\_by\_state,\ columns\_to\_convert)}:
+  Applies datetime conversion to specified columns across all DataFrames
+  within a nested dictionary structure.
+\item
+  \texttt{wup.check\_column\_conversion(df,\ column\_name)}: Checks if a
+  specific column in a DataFrame has been successfully converted to a
+  datetime object.
+\item
+  \texttt{wup.check\_datetime\_conversions(data\_by\_state,\ columns)}:
+  Verifies and prints whether specified columns in each DataFrame within
+  a nested dictionary have been successfully converted to datetime
+  objects.
+\item
+  \texttt{wup.print\_missing\_values\_summary(data\_by\_state)}: Prints
+  a summary of missing values for each DataFrame within a nested
+  dictionary structure, categorized by state.
+\item
+  \texttt{wup.plot\_column\_distributions(data\_by\_state,\ columns)}:
+  Plots the distribution of specified columns for each DataFrame within
+  a nested dictionary structure, categorized by state.
+\end{itemize}
 
 \subsection{Loading PV data}\label{loading-pv-data}
 
 An extra rooftop PV dataset was needed for the analysis. This dataset
 needs to be scraped from the following link:
-https://nemweb.com.au/Data\_Archive/Wholesale\_Electricity/MMSDM/ .
-\#\#\# Website Reconnaissance To write the code, let's first explore the
-structure of the website.
+https://nemweb.com.au/Data\_Archive/Wholesale\_Electricity/MMSDM/.
 
-Rooftop PV data is split into years. \includegraphics{img/nemweb-1.png}
+\subsubsection{Website Reconnaissance}\label{website-reconnaissance}
+
+To write the code, let's first explore the structure of the website.
+
+Rooftop PV data is split into years.
+
+\begin{figure}
+\centering
+\includegraphics{img/nemweb-1.png}
+\caption{Data\_Archive/Wholesale\_Electricity/MMSDM}
+\end{figure}
 
 And when we access a year, we get a more granular view of the months.:
-\includegraphics{img/nemweb-2.png}
 
-In this project, we are interested in the data between 2017 and 2023
+\begin{figure}
+\centering
+\includegraphics{img/nemweb-2.png}
+\caption{Data\_Archive/Wholesale\_Electricity/MMSDM}
+\end{figure}
+
+For the puposes of this project, we are interested in the data between
+2017 and 2023
 
 \subsubsection{Python code to download}\label{python-code-to-download}
 
