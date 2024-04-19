@@ -130,18 +130,6 @@ The following functions were written in the module. They use the Don't Repeat Yo
 
 An extra rooftop PV dataset was needed for the analysis. This dataset needs to be scraped from the following link: https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/.
 
-### Website Reconnaissance
-
-To write the code, let's first explore the structure of the website.
-
-Rooftop PV data is split into years.
-
-![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-1.png)
-
-And when we access a year, we get a more granular view of the months.:
-
-![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-2.png)
-
 For the puposes of this project, we are interested in the data between 2017 and 2023
 
 ### Python code to download
