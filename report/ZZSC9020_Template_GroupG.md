@@ -10,11 +10,11 @@ author:
 - Joshua Evans (z5409600)
 
 date: "20/04/2024"
-Acknowledgements: 
-- "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
-- "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
-- "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
-Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
+# Acknowledgements: 
+# - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
+# - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
+# - "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
+# Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
 output:
   pdf_document:
     template: template.tex
@@ -266,7 +266,7 @@ Plotting the results quickly revealed a significant number of duplicates in the 
 
 ### Victoria
 
-![Duplicate check VIC: ](img/duplicate_check_vic.png)
+![Duplicate check VIC: ](img/duplicate_check_vic.png){width="6cm" height="2cm"}
 
 ### South Australia
 
@@ -336,11 +336,11 @@ print("Total missing values SA:", total_missing_sa)
 
 Boxplots were generated for the key fields of interest, including 'TEMPERATURE', 'TOTALDEMAND', and 'FORECASTDEMAND'. Upon observing these plots (for QLD), it is evident that the temperature range falls within expected values, ranging from a little above zero to slightly above 40 degrees Celsius. Additionally, 'TOTALDEMAND' and 'FORECASTDEMAND' exhibit similar patterns, as expected, and there are no outliers beyond what would normally be expected.
 
-![QLD Outlier Box Plots: ](img/OutlierBoxPlots.jpg)
+![QLD Outlier Box Plots](img/OutlierBoxPlots.jpg){ width=15cm }
 
 Histograms for the same fields further support this outlier analysis.
 
-![QLD Histograms: ](img/Histogram.jpg)
+![QLD Histograms: ](img/Histogram.jpg){ width=15cm }
 
 
 ## Assumptions
@@ -680,21 +680,6 @@ For future analysis, several avenues could be explored:
 
 These initiatives could provide deeper insights and drive the evolution of forecasting methodologies to meet the complex demands of modern energy management systems.
 
-
-# References {-}
-
-<div id="refs"></div>
-
-\bibliographystyle{elsarticle-harv}
-\bibliography{references}
-
-# Appendix {-}
-
-## **Codes** {-}
-
-Add you codes here.
-
-## **Tables** {-}
 
 
 
