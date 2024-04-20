@@ -615,7 +615,12 @@ For future analysis, several avenues could be explored:
 
 These initiatives could provide deeper insights and drive the evolution of forecasting methodologies to meet the complex demands of modern energy management systems.
 
+# References {-}
 
+<div id="refs"></div>
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
 
 
 
