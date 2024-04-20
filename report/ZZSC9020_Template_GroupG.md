@@ -73,7 +73,6 @@ Other than LSTM, the team would also like to compare the results of using LSTM a
 
 Both techniques provided confidence that they are suitable for our purpose for integrating solar panel power production into electricity demand forecasting as shown by the researches done above. 
 
-A Jupyter notebook describing the steps taken in our analysis can be found in `~/report/Wattsup_energy_forecast.ipynb`. Following is a description.
 
 # Loading the Data
 
