@@ -9,7 +9,7 @@ author:
 - Chadi Abi Fadel (z5442788)
 - Joshua Evans (z5409600)
 
-date: "23/04/2024"
+date: "20/04/2024"
 Acknowledgements: 
 - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
 - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
@@ -129,6 +129,7 @@ The following functions were written in the module. They use the Don't Repeat Yo
 ## Loading PV data
 
 An extra rooftop PV dataset was needed for the analysis. This dataset needs to be scraped from the following link: https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/.
+<<<<<<< HEAD
 
 ### Website Reconnaissance
 
@@ -142,6 +143,9 @@ And when we access a year, we get a more granular view of the months.:
 
 ![Data_Archive/Wholesale_Electricity/MMSDM](img/nemweb-2.png)
 
+=======
+
+>>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
 For the puposes of this project, we are interested in the data between 2017 and 2023
 
 ### Python code to download
@@ -196,17 +200,21 @@ The dataset contains public holiday of each state in Australia from 2009 to 2022
 _Todo__
 ## Pre-processing Steps
 
-The key steps we followed to prepare the data for processing can be broadly grouped into five key categories as follows
+The key steps we followed to prepare the data for processing can be broadly grouped into eight sections as follows
 
 **1. Unzip the files and import the data**
 
-The data scraping and unzipping procures are described in detail above given the detailed approach used to collect the PV data.
-Once the data was ready it was then converted in dataframes using the code below.  
+The data scraping and unzipping procedures are described in detail above, including obtaining the additional PV data. Once the data was downloaded, unzipped, and ready, it was then converted into dataframes using the code below.
+ 
 
 ```python
 temperature_vic = pd.read_csv("../Data/temperature_vic.csv")
 temperature_qld = pd.read_csv("../Data/temperature_qld.csv")
+<<<<<<< HEAD
 temperature_sa = pd.read_csv("C:../Data/temperature_sa.csv")
+=======
+temperature_sa = pd.read_csv("../Data/temperature_sa.csv")
+>>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
 forecastdemand_vic = pd.read_csv("../Data/forecastdemand_vic.csv")
 forecastdemand_qld = pd.read_csv("../Data/forecastdemand_qld.csv")
 forecastdemand_sa = pd.read_csv("../Data/forecastdemand_sa.csv")
@@ -215,8 +223,8 @@ totaldemand_qld = pd.read_csv("../Data/totaldemand_qld.csv")
 totaldemand_sa = pd.read_csv("../Data/totaldemand_sa.csv")
 ```
 
-**1. Check what sort of data is contained**
-This was achieved by running the following python queries across each of the dataframes:
+**2. Check what sort of data is contained**
+This was achieved by running the following python queries across each of the dataframes (approach used for South Australian datasets shown below):
 
 
 #Temperature SA:
@@ -234,28 +242,28 @@ print("\nSummary statistics for temperature_sa:")
 print(temperature_sa.describe())
 ```
 
-This exploration showed that a DATETIME column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were 
+This exploration showed that a 'DATETIME' column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were in the same format.
 
 
-**2. Convert DATETIME to correct format**
+**3. Convert DATETIME to correct format**
 
-The DATETIME fields for each of the datasets were reviewed and could be automatically converted using pythons built in 'pd.to_datetime' function. In the case of temperature_qld, the format was different, and required manual intervention per the code below to ensure it converted correctly.
+The DATETIME fields for each of the datasets were reviewed, and they could be automatically converted using Python's built-in 'pd.to_datetime' function. However, in the case of 'temperature_qld', the format was different and required manual intervention, as shown in the code below, to ensure it converted correctly.
 
 ```python
 temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') 
 # This date format is different
 ```
 
-**3. Check for duplicate data records**
+**4. Check for duplicate data records**
 
-Duplicates where checked for each of the regional datasets by running the '.duplicated' function from the Pandas library in python applied only to the 'DATETIME' column. duplicate values were expected to exist in other columns. 
+Duplicates were checked for each of the regional datasets by applying the '.duplicated' function from the Pandas library in Python, specifically to the 'DATETIME' column. Duplicate values were expected to exist in other columns.
 
-An example of the code used to check and count duplicates is:
+An example of the code used to check and count duplicates is as follows:
 
 ```python
 duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
 ```
-Plotting the results quickly showed that there were significant duplicates in the forecast demand dataframe, labelled 'demand_' in the below plots.
+Plotting the results quickly revealed a significant number of duplicates in the forecast demand dataframe, labeled 'demand_' in the plots below.
 
 ### Victoria
 
@@ -269,18 +277,13 @@ Plotting the results quickly showed that there were significant duplicates in th
 
 ![Duplicate check QLD: ](img/duplicate_check_QLD.png)
 
-Looking at these charts it was not clear what the reasons for the duplicates was, so the original csv files were explored in a text editor.
+After examining these charts, it was unclear what caused the duplicates. To investigate further, the original CSV files were inspected in a text editor. It was discovered that the source of the duplicates stemmed from updates to the forecast demand files, which periodically provided new demand estimates for the same forecast time horizon. These updated estimates offered a refreshed set of demand forecasts for the same period.
 
-<img src="img/Forecast_DemandDuplicates.jpg" alt="Forecast_DemandDuplicates" width="600">
+Upon counting these duplicates, it was found that there were 73,836 unique values for estimating the Forecast Demand, with an average time interval between each estimate of approximately 30 minutes. This suggests that a computer model re-estimated forecast demand every 30 minutes, generating a new estimate for the value of Forecast Demand for that period.
 
-The source of the duplicate was found to be that the forecast demand files were updated with new demand estimates from time to time. These demand estimates provided an updated set of demand forecasts for the same forecast time horizon. 
+Given the data types and context, duplicates of other field values were expected, so no duplicate checking was performed on these fields.
 
-Counting these duplicates revealed that for 73,836 unique values for estimating the ForecastDemand estimates, with an average time between each estimate of approximately 30 minutes.
-So likely a computer model re-estimated forecast demand every 30 minutes and generated a new estimate for the value of Forecast Demand for that period.
-
-Duplicates of other field values were expected given that the data types and context, so no duplicate checking was completed on these fields.
-
-**4. Drop Duplicates**
+**5. Drop Duplicates**
 
 To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
 
@@ -289,27 +292,24 @@ forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates
 (subset='DATETIME', keep='last')
 ```
 
-This removed all duplicates enabling merging of the tables on the DATETIME Field. The count of FORECASTDEMAND values for each of the three states (VIC, QLD and SA) are now equal at 73,833 per the image below.
+Removing all duplicates facilitated the merging of the tables based on the DATETIME field. Consequently, the count of FORECASTDEMAND values for each of the three states (VIC, QLD, and SA) is now equal at 73,833.
  
 ```python
 forecastdemand_qld.describe()
 ```
 
-![Forecast_DemandDuplicates: ](img/QLD_ForecastDemand_DuplicatesRemoved.jpg)
-
-
-**5. Merge Dataframes by Region**
+**6. Merge Dataframes by Region**
 
 ### Inspect Time Horizons
 Prior to merging on the DATETIME field, further exploration of the time horizons covered by each data sets was conducted with the results shown below.
-It shows that for each region, Forecast Demand is typically from Jan 1, 2017 to March 19 in 2021, a period of a bit over 4 years. This compares with the temperature and demand data which is typically from Jan 1, 2010 to March 19, 2021, or a bit more than 11 years.
 
-Merging on DATETIME will naturally reduce this dataset back the smallest data range common to all three datasets.
-I.e. exclude approxiamtely 7 years of data  from Jan 2010, to Jan 2017.
+![Data Frame Time Horizon Check: ](img/DataFrameTimeHorizons.jpg)
 
-It was decided the size of the remaining the dataset, with 30 minute data over more than 4 years was more than sufficient given for training a model, particularly given the computational advantages with the smaller dataset. Furthermore, collecting PV data back to 2010, became a further challenge.
+The analysis reveals that for each region, Forecast Demand typically spans from January 1, 2017, to March 19, 2021, covering a period of a bit over 4 years. In comparison, the temperature and demand data typically cover a longer period, from January 1, 2010, to March 19, 2021, totaling a bit more than 11 years.
 
-<img src="img/DataFrameTimeHorizons.jpg" alt="DataFrameTimeHorizons.jpg" width="300">
+Merging the datasets based on DATETIME naturally reduces the dataset to the smallest data range common to all three datasets. This excludes approximately 7 years of data, from January 2010 to January 2017.
+
+Considering the size of the remaining dataset, which consists of 30-minute data over more than 4 years, it was deemed more than sufficient for training a model, especially given the computational advantages with the smaller dataset. Additionally, collecting PV data dating back to 2010 presented further challenges.
 
 ### Merge into QLD, SA and VIC dataframes
 
@@ -325,29 +325,17 @@ qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
 qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
 ```
 
-
-**6. Handling Missing Values** 
-Missing values were routinely checked in all dataframes during import and initial checking. Once the datafrmes were merged, a final check for missing values in each of the 3 dataframes was completed using the following python command. This showed there were no missing values in any of the dataframes.
-
+**7. Handling Missing Values** 
+Missing values were routinely checked in all dataframes during import and initial inspection. After merging the dataframes, a final check for missing values was conducted in each of the three dataframes using the following Python command. This revealed that there were no missing values in any of the dataframes.
 
 ```python
 total_missing_sa = sa_df.isnull().sum().sum()
 print("Total missing values SA:", total_missing_sa)
 ```
 
-**5. Merge regional data on DATETIME Fields**
-Merging the data on DATETIME significantly reduce the size of the dataset for modelling
+**8. Checking for outliers**
 
-```python
-qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
-qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
-```
-
-**6. Checking for outliers**
-
-Boxplots were generated for the key fields of interest being TEMPERATURE, TOTALDEMAND and FORECASTDEMAND.
-Observing these plots shown below (for QLD), it can be seen that temperature range is as expected, from a little above zero to slightly above 40.
-Furthermore TOTALDEMAND and FORECASTDEMAND are similar, which is epxcted, and there are no outliers, beyond what would normally be expected.
+Boxplots were generated for the key fields of interest, including 'TEMPERATURE', 'TOTALDEMAND', and 'FORECASTDEMAND'. Upon observing these plots (for QLD), it is evident that the temperature range falls within expected values, ranging from a little above zero to slightly above 40 degrees Celsius. Additionally, 'TOTALDEMAND' and 'FORECASTDEMAND' exhibit similar patterns, as expected, and there are no outliers beyond what would normally be expected.
 
 ![QLD Outlier Box Plots: ](img/OutlierBoxPlots.jpg)
 
@@ -533,7 +521,11 @@ Justification: Public holidays usually mean a reduction in commercial activity a
 
 # Exploratory Data Analysis
 
+<<<<<<< HEAD
 Starting with initial high level checks, a histogram of temperature data for each of the three regions is provided below. It show intuitively that QLD and South Australia are the hottest, followed by Victoria.
+=======
+Beginning with initial high-level checks, histograms of temperature data for each of the three regions are provided below. It is evident from the histograms that Queensland and South Australia experience higher temperatures compared to Victoria, with Queensland and South Australia being the hottest regions, followed by Victoria.
+>>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
 
 ![Temperature Histogram: ](img/Hist_Temperature.jpg)
 
@@ -543,17 +535,17 @@ A comparison of total demand by state is shown below:
 
 
 ## Relationship Between Time of Day and Power Demand ##
-Looking at the relationship between time of day, and power demand starts to show some more interesting trends.
-Plotting the first 10 days of January 2010, we can see some correlation throughout the day for each region with demand typically peaking around midday, with lowest demand seen very early in the mornings.
+Examining the relationship between time of day and power demand reveals interesting trends. Plotting the first 10 days of January 2010, we observe a consistent correlation throughout the day for each region, with demand typically peaking around midday and reaching its lowest point in the early morning.
 
 ![Total Demand Comparison - 1st 10 days of Jan 2010: ](img/TotalDemand_Jan2010.png)
 
 ## Relationship Between Temperature and Demand ##
 
-We know from the literature review that temperature is a strong driver of power demand. Filtering for different times of the day shows this relationship in an xy scatter plot for 6am, noon and 6pm. We can see that the relationships at these times of days differ, as evidenced by the shape of the relationship.
+We know from the literature review that temperature strongly influences power demand. Filtering for different times of the day reveals this relationship in XY scatter plots for 6 AM, noon, and 6 PM. It's evident that the relationships at these times of day differ, as indicated by the shape of the relationship.
 
 ![Temp_vs_Demand_combined: ](img/Temp_vs_Demand_combined.jpg)
 
+<<<<<<< HEAD
 Exploring this further, and looking at 6pm for QLD we can see a strong concave relationship (non linear) around a low point at close to 21 degrees. 
 
 Presumably as temperature moves further from this point, and the need for air conditioning or heating increase, so too does power demand.
@@ -565,6 +557,17 @@ The relationship at midday is more linear in form, with average temperatures clo
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
 
 looking at 6am, we can see a somewhat similar concave relationship to 6pm, but with more variability. This is 
+=======
+Exploring this further, focusing on 6 PM for Queensland, we observe a strong concave relationship around a low point at close to 21 degrees Celsius. Presumably, as the temperature deviates from this point and the need for air conditioning or heating increases, so does power demand.
+
+![Temp_vs_Demand_6pm: ](img/Temp_vs_Demand_6pm.jpg)
+
+The relationship at midday is more linear in form, with average temperatures close to 25 degrees Celsius. Consequently, there is less of a requirement for heating, and possibly fewer people at home turning on air conditioners than in the evening.
+
+![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_Noon.jpg)
+
+looking at 6am, we can see a somewhat similar concave relationship to 6pm, but with more variability. 
+>>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
 
 ![Temp_vs_Demand_Noon: ](img/Temp_vs_Demand_6am.jpg)
 
@@ -574,7 +577,11 @@ Looking at the Victoria data, we can see a stronger response to demand as temper
 
 ![TTemp_vs_Demand_combined_VIC: ](img/Temp_vs_Demand_combined_VIC.jpg)
 
+<<<<<<< HEAD
 In South Australia, the trends are much less obvious, with demand generally higher in the evening, but with this trend much less driven by temperature.
+=======
+In South Australia, the trends are much less obvious, with demand generally higher in the evening. However, unlike in other regions, this trend is less driven by temperature.
+>>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
 
 ![TTemp_vs_Demand_combined_SA: ](img/Temp_vs_Demand_combined_SA.jpg)
 

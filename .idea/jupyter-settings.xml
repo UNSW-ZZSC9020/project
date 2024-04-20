@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JupyterPersistentConnectionParameters">
+    <option name="knownRemoteServers">
+      <list>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="d29632be7a892774e3e09bb361129d3c602e60bd5d6317ac" />
+          <option name="urlString" value="http://localhost:8888" />
+          <authParams2>
+            <map>
+              <entry key="token" value="d29632be7a892774e3e09bb361129d3c602e60bd5d6317ac" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+      </list>
+    </option>
     <option name="moduleParameters">
       <map>
         <entry key="$PROJECT_DIR$/.idea/UNSW-capstone-group-g.iml">
           <value>
             <JupyterConnectionParameters>
-              <option name="managed" value="true" />
-              <option name="sdkName" value="Python 3.12 (PyCharmLearningProject)" />
+              <option name="authType" value="notebook" />
+              <option name="token" value="d29632be7a892774e3e09bb361129d3c602e60bd5d6317ac" />
+              <option name="urlString" value="http://localhost:8888" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="d29632be7a892774e3e09bb361129d3c602e60bd5d6317ac" />
+                </map>
+              </authParams2>
             </JupyterConnectionParameters>
           </value>
         </entry>
