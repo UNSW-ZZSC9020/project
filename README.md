@@ -16,7 +16,9 @@ Complete the information below regarding your group.
 
 ### Brief project description
 
-This project is designed to develop sophisticated analytical models and methods for forecasting electricity demand, supporting decision-making and strategic planning for entities within the energy sector. The analysis will employ historical electricity demand data, temperature records, and previous forecasts from various regions, aiming to produce not only precise demand predictions but also probabilistic outcomes to enhance understanding. Additionally, it will create synthetic data to depict potential future scenarios, aiding in the robust testing of these models and offering insights into the historical demand trends. The successful implementation of this project is expected to lead to enhanced forecasting accuracy, improved scenario-based planning with synthetic data, more effective operational decision-making, and superior risk management. The overarching aim is to establish an advanced analytical framework that elucidates the intricate interplay among demand, climatic conditions, economic indicators, and other significant factors, thereby offering substantial support to the broader energy sector.
+Transforming the electricity network into a 100% renewable energy scenario is a crucial, but challenging priority in New South Wales (NSW). Achieving this target as soon as possible will result in a greater reduction of potential climate impacts within the region. However, a key concern is whether renewable sources can reliably provide enough electricity to meet NSW demand. The aim of this project is to provide a key environmental advocacy firm in NSW, The Ecological Defenders Office, with evidence-based forecasts to answer the following question: 
+Is the transition to a fully renewable energy-based electricity supply achievable within NSW in the next 10 years? 
+The output from this analysis and modelling will empower the Ecological Defenders Office (EDO) to make informed advocacy and funding decisions. 
 
 ## Repository structure
 
