@@ -10,8 +10,8 @@ author:
 - Joshua Evans (z5409600)
 
 date: "20/04/2024"
-# Acknowledgements: 
-# - "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
+Acknowledgements: 
+- "By far the greatest thanks must go to my supervisor for the guidance, care and support they provided."
 # - "Thanks must also go to Emily, Michelle, John and Alex who helped by proof-reading the document in the final stages of preparation."
 # - "Although I have not lived with them for a number of years, my family also deserve many thanks for their encouragement. Thanks go to Robert Taggart for allowing his thesis style to be shamelessly copied."
 # Abstract: "The image below gives you some hint about how to write a good abstract.\\par  \\bigskip ![](good-abstract.png){width=10cm height=10cm}"
@@ -203,70 +203,26 @@ The key steps we followed to prepare the data for processing can be broadly grou
 
 **1. Unzip the files and import the data**
 
-The data scraping and unzipping procedures are described in detail above, including obtaining the additional PV data. Once the data was downloaded, unzipped, and ready, it was then converted into dataframes using the code below.
- 
-
-```python
-temperature_vic = pd.read_csv("../Data/temperature_vic.csv")
-temperature_qld = pd.read_csv("../Data/temperature_qld.csv")
-<<<<<<< HEAD
-temperature_sa = pd.read_csv("C:../Data/temperature_sa.csv")
-=======
-temperature_sa = pd.read_csv("../Data/temperature_sa.csv")
->>>>>>> 4fd6061ac55237b464961a42b9359505323e5e0c
-forecastdemand_vic = pd.read_csv("../Data/forecastdemand_vic.csv")
-forecastdemand_qld = pd.read_csv("../Data/forecastdemand_qld.csv")
-forecastdemand_sa = pd.read_csv("../Data/forecastdemand_sa.csv")
-totaldemand_vic = pd.read_csv("../Data/totaldemand_vic.csv")
-totaldemand_qld = pd.read_csv("../Data/totaldemand_qld.csv")
-totaldemand_sa = pd.read_csv("../Data/totaldemand_sa.csv")
-```
+The data scraping and unzipping procedures are described in detail above, including obtaining the additional PV data. Once the data was downloaded, unzipped, and ready, it was then converted into dataframes using 'pd.read_csv' python code.
 
 **2. Check what sort of data is contained**
-This was achieved by running the following python queries across each of the dataframes (approach used for South Australian datasets shown below):
-
-
-#Temperature SA:
-```python
-# Column names
-print("Column names for temperature_sa:")
-print(temperature_sa.columns.tolist())
-
-# Data types
-print("\nData types for temperature_sa:")
-print(temperature_sa.dtypes)
-
-# Summary statistics
-print("\nSummary statistics for temperature_sa:")
-print(temperature_sa.describe())
-```
+This was achieved by running tpython queries across each of the dataframes exploring Column names, data types and summary statistics
 
 This exploration showed that a 'DATETIME' column existed in each dataset, but was formatted as object type, rather than data time. Further exploration showed that not all the DATETIME fields were in the same format.
 
-
 **3. Convert DATETIME to correct format**
 
-The DATETIME fields for each of the datasets were reviewed, and they could be automatically converted using Python's built-in 'pd.to_datetime' function. However, in the case of 'temperature_qld', the format was different and required manual intervention, as shown in the code below, to ensure it converted correctly.
-
-```python
-temperature_qld['DATETIME'] = pd.to_datetime(temperature_qld['DATETIME'], format='%d/%m/%Y %H:%M') 
-# This date format is different
-```
+The DATETIME fields for each of the datasets were reviewed, and they could be automatically converted using Python's built-in 'pd.to_datetime' function. However, in the case of 'temperature_qld', the format was different and required manual intervention in the python function 'pd.to_datetime' to set the format to for example: 'format='%d/%m/%Y %H:%M' in the QLD temperature datafr
 
 **4. Check for duplicate data records**
 
 Duplicates were checked for each of the regional datasets by applying the '.duplicated' function from the Pandas library in Python, specifically to the 'DATETIME' column. Duplicate values were expected to exist in other columns.
 
-An example of the code used to check and count duplicates is as follows:
-
-```python
-duplicate_count_demand_vic = forecastdemand_vic.duplicated('DATETIME').sum()
-```
 Plotting the results quickly revealed a significant number of duplicates in the forecast demand dataframe, labeled 'demand_' in the plots below.
 
 ### Victoria
 
-![Duplicate check VIC: ](img/duplicate_check_vic.png){width="6cm" height="2cm"}
+![Duplicate check VIC: ](img/duplicate_check_vic.png)
 
 ### South Australia
 
@@ -284,19 +240,10 @@ Given the data types and context, duplicates of other field values were expected
 
 **5. Drop Duplicates**
 
-To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. The following code was used:
-
-```python
-forecastdemand_qld_no_duplicates = forecastdemand_qld.drop_duplicates
-(subset='DATETIME', keep='last')
-```
+To drop the duplicates, we decided as a team to select the most recent estimate of 'FORECASTDEMAND' and exclude all prior estimates from the dataframe. 
 
 Removing all duplicates facilitated the merging of the tables based on the DATETIME field. Consequently, the count of FORECASTDEMAND values for each of the three states (VIC, QLD, and SA) is now equal at 73,833.
  
-```python
-forecastdemand_qld.describe()
-```
-
 **6. Merge Dataframes by Region**
 
 ### Inspect Time Horizons
@@ -317,20 +264,8 @@ The 3 individual dataframes for each region were then merged into a single combi
 2) totaldemand_qld
 3) forecastdemand_qld
 
-The below code was used to complete a two step 'inner join' to create a single file.
-
-```python
-qld_df = pd.merge(temperature_qld, totaldemand_qld, on='DATETIME', how='inner')
-qld_df = pd.merge(qld_df, forecastdemand_qld, on='DATETIME', how='inner')
-```
-
 **7. Handling Missing Values** 
 Missing values were routinely checked in all dataframes during import and initial inspection. After merging the dataframes, a final check for missing values was conducted in each of the three dataframes using the following Python command. This revealed that there were no missing values in any of the dataframes.
-
-```python
-total_missing_sa = sa_df.isnull().sum().sum()
-print("Total missing values SA:", total_missing_sa)
-```
 
 **8. Checking for outliers**
 
