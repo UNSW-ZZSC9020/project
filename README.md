@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
+# Welcome to ZZSC9020 GitHub repository for group [GROUP-3]
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
 
@@ -9,11 +9,10 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Karim Adham (zID1) 
+- Rishantha Rajakaruna (zID2) 
+- Rushmila Islam (z5456038) 
+
 
 ### Brief project description
 
