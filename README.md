@@ -10,7 +10,7 @@ Complete the information below regarding your group.
 
 ### Group members and zIDs
 - Karim Adham (zID1) 
-- Rishantha Rajakaruna (zID2) 
+- Rishantha Rajakaruna (z5441528) 
 - Rushmila Islam (z5456038) 
 
 
