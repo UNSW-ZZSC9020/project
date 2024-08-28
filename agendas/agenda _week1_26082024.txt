@@ -1,0 +1,43 @@
+Questions: 
+
+Is the individual report definitive in terms of the software we use? 
+
+Do we have to use a new dataset? 
+
+How are we expected distribute workloads?  e.g. one person working on data cleansing, another on model?  
+
+Literature review, what exactly is expected of here? 
+
+Unable to open forecast demand zip file? It has two parts and neither can be opened 
+
+Do we get marks for project management aspects?. I.e. if we use JIRA  
+
+Interactive in moodle does not seem to work in some pages 
+
+ 
+
+ 
+
+ 
+
+Ideas for project:
+
+- Demand Forecast Improvement 
+
+- Impact of Temperature on Demand 
+
+- Seasonal Demand 
+
+- Load shifting to understand peak and off-peak demand 
+
+- Renewable integration 
+
+- Does socio-economic status of a suburb have any influence on electricity demand when temperature fluctuate? 
+
+- Improving short time demand forecasting for the energy market  
+
+- Forecasting on electricity production from renewable energy  
+
+- Electricity demand projections across all the states  
+
+- Electricity price predictions based on historical data  
