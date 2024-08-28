@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-3]
+# Welcome to ZZSC9020 GitHub repository for GROUP-3
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
 
