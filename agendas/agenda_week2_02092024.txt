@@ -1,0 +1,17 @@
+Q: What are next steps? 
+
+Questions about report: 
+
+- Software/ model description in literature review or software description? 
+
+- Team members role 
+
+- Gantt chart or Mind map in the report 
+
+- What if a model chosen does not provide decent results? Can we still describe the approach and potential reasons ? Would we loose marks if the results are not ideal?  
+
+- Would you recommend trying out LSTM model considering time it takes to build 
+
+- Any suggestion for selecting a base model 
+
+- Can we use pretrained model? 
