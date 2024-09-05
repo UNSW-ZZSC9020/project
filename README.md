@@ -9,7 +9,7 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Karim Adham (zID1) 
+- Karim Adham (z5468227)
 - Rishantha Rajakaruna (z5441528) 
 - Rushmila Islam (z5456038) 
 
