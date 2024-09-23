@@ -1,0 +1,151 @@
+---
+title: "A Data Science Approach to Forecast Electricity Consumption in NSW"
+team: 22
+session: Term 5, 2024
+coursecode: MATH0000
+author: 
+  - "John Student (z123456), "
+  - "Jim Student2 (zID), "
+  - "Jack Student3 (zID)." 
+date: "25/07/2020"
+Acknowledgements: "TBW..."
+Abstract: "TBW ..."
+output:
+  pdf_document:
+    template: template.tex
+    md_extensions: +raw_attribute
+    keep_md: true 
+    keep_tex: true 
+    pandoc_args:
+    - --top-level-division="chapter"
+    toc: true
+    toc_depth: 1
+    number_sections: true
+  word_document:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_caption: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+#use_python("/usr/bin/python")
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE)
+```
+
+# Introduction {.label:s-intro}
+
+This R Markdown template can be used for the ZZSC9020 course report. You can incorporate R \cite{R} chunks and Python chunks that will be run on the fly. You can incorporate \LaTeX commands.
+
+\bigskip
+
+Before submitting the last version of your report, you might want to use <https://overleaf.com> to collaborate with other members of your team directly on the \LaTeX version of this document (which is a byproduct you get when you Knit it from studio).
+
+\bigskip
+
+We suggest you organise your report using the following chapters but, depending on your own project, nothing prevents you to have a different organisation.
+
+# Literature Review
+
+Here are a few references that can be useful: \cite{Xie2018} and \cite{Lafaye2013}. See also <https://bookdown.org/yihui/rmarkdown-cookbook/>
+
+\bigskip
+
+In order to incorporate your own references in this report, we strongly advise you use BibTeX. Your references then needs to be recorded in the file `references.bib`.
+
+# Material and Methods
+
+## Software
+
+R and Python of course are great software for Data Science. Sometimes, you might want to use `bash` utilities such as `awk` or `sed`.
+
+Of course, to ensure reproducibility, you should use something like `Git` and RMarkdown (or a Jupyter Notebook). Do **not** use Word!
+
+## Description of the Data
+
+How are the data stored? What are the sizes of the data files? How many files? etc.
+
+## Pre-processing Steps
+
+What did you have to do to transform the data so that they become useable?
+
+## Data Cleaning
+
+How did you deal with missing data? etc.
+
+## Assumptions
+
+What assumptions are you making on the data?
+
+## Modelling Methods
+
+# Exploratory Data Analysis
+
+This is where you explore your data using histograms, scatterplots, boxplots, numerical summaries, etc.
+
+```{python}
+import numpy as np
+np.random.seed(1)
+np.random.normal(0.0, 1.0, size=10)
+```
+
+# Analysis and Results
+
+## A First Model
+
+Having a very simple model is always good so that you can benchmark any result you would obtain with a more elaborate model.
+
+\bigskip
+
+For example, one can use the linear regression model
+
+$$
+Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
+$$ where it is assumed that the $\epsilon_i$'s are i.i.d. $N(0,1)$.
+
+# Discussion
+
+Put the results you got in the previous chapter in perspective with respect to the problem studied.
+
+# Conclusion and Further Issues {.label:ccl}
+
+What are the main conclusions? What are your recommendations for the "client"? What further analysis could be done in the future?
+
+A figure:
+
+```{=tex}
+\begin{figure}[H]
+\includegraphics{unsw-logo.png}
+\caption{A caption}\label{myfigure}
+\end{figure}
+```
+In the text, see Figure \ref{myfigure}.
+
+---
+# References
+---
+
+```{=tex}
+\bibliographystyle{elsarticle-harv} 
+\bibliography{references}
+```
+# Appendix {.unnumbered}
+
+## **Codes** {.unnumbered}
+
+Add you codes here.
+
+## **Tables** {.unnumbered}
+
+If you have tables, you can add them here.
+
+Use <https://www.tablesgenerator.com/markdown_tables> to crete very simple markdown tables, otherwise use \LaTeX.
+
+| Tables   |      Are      |   Cool |
+|----------|:-------------:|-------:|
+| col 1 is | left-aligned  | \$1600 |
+| col 2 is |   centered    |   \$12 |
+| col 3 is | right-aligned |    \$1 |

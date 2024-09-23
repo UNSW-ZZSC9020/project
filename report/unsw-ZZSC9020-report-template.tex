@@ -1,0 +1,305 @@
+\documentclass[mstat,12pt]{unswthesis}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% OK...Now we get to some actual input.  The first part sets up
+% the title etc that will appear on the front page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Capstone Project by Team 22\\[0.5cm]A Data Science Approach to
+Forecast Electricity Consumption in NSW}
+
+\authornameonly{John Student (z123456), Jim Student2 (zID), Jack
+Student3 (zID). }
+
+\author{\Authornameonly}
+
+\copyrightfalse
+\figurespagefalse
+\tablespagefalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  And now the document begins
+%  The \beforepreface and \afterpreface commands puts the
+%  contents page etc in
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{header.tex}
+
+\begin{document}
+
+\beforepreface
+
+%\afterpage{\blankpage}
+
+% plagiarism
+
+\prefacesection{Plagiarism statement}
+
+\vskip 2pc \noindent I declare that this thesis is my
+own work, except where acknowledged, and has not been submitted for
+academic credit elsewhere. 
+
+\vskip 2pc  \noindent I acknowledge that the assessor of this
+thesis may, for the purpose of assessing it:
+\begin{itemize}
+\item Reproduce it and provide a copy to another member of the University; and/or,
+\item Communicate a copy of it to a plagiarism checking service (which may then retain a copy of it on its database for the purpose of future plagiarism checking).
+\end{itemize}
+
+\vskip 2pc \noindent I certify that I have read and understood the University Rules in
+respect of Student Academic Misconduct, and am aware of any potential plagiarism penalties which may 
+apply.\vspace{24pt}
+
+\vskip 2pc \noindent By signing 
+this declaration I am
+agreeing to the statements and conditions above.
+\vskip 2pc \noindent
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signed: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+\vskip 1pc
+
+%\afterpage{\blankpage}
+
+% Acknowledgements are optional
+
+
+\prefacesection{Acknowledgements}
+
+{\bigskip}TBW\ldots{}\\[1cm] 
+
+{\bigskip\bigskip\bigskip\noindent} 25/07/2020.
+
+%\afterpage{\blankpage}
+
+% Abstract
+
+\prefacesection{Abstract}
+
+TBW \ldots{}
+
+%\afterpage{\blankpage}
+
+
+\afterpreface
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Now we can start on the first chapter
+% Within chapters we have sections, subsections and so forth
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\afterpage{\blankpage}
+
+
+\chapter{Introduction}\label{introduction}
+
+This R Markdown template can be used for the ZZSC9020 course report. You
+can incorporate R \cite{R} chunks and Python chunks that will be run on
+the fly. You can incorporate \LaTeX commands.
+
+\bigskip
+
+Before submitting the last version of your report, you might want to use
+\url{https://overleaf.com} to collaborate with other members of your
+team directly on the \LaTeX version of this document (which is a
+byproduct you get when you Knit it from studio).
+
+\bigskip
+
+We suggest you organise your report using the following chapters but,
+depending on your own project, nothing prevents you to have a different
+organisation.
+
+\chapter{Literature Review}\label{literature-review}
+
+Here are a few references that can be useful: \cite{Xie2018} and
+\cite{Lafaye2013}. See also
+\url{https://bookdown.org/yihui/rmarkdown-cookbook/}
+
+\bigskip
+
+In order to incorporate your own references in this report, we strongly
+advise you use BibTeX. Your references then needs to be recorded in the
+file \texttt{references.bib}.
+
+\chapter{Material and Methods}\label{material-and-methods}
+
+\section{Software}\label{software}
+
+R and Python of course are great software for Data Science. Sometimes,
+you might want to use \texttt{bash} utilities such as \texttt{awk} or
+\texttt{sed}.
+
+Of course, to ensure reproducibility, you should use something like
+\texttt{Git} and RMarkdown (or a Jupyter Notebook). Do \textbf{not} use
+Word!
+
+\section{Description of the Data}\label{description-of-the-data}
+
+How are the data stored? What are the sizes of the data files? How many
+files? etc.
+
+\section{Pre-processing Steps}\label{pre-processing-steps}
+
+What did you have to do to transform the data so that they become
+useable?
+
+\section{Data Cleaning}\label{data-cleaning}
+
+How did you deal with missing data? etc.
+
+\section{Assumptions}\label{assumptions}
+
+What assumptions are you making on the data?
+
+\section{Modelling Methods}\label{modelling-methods}
+
+\chapter{Exploratory Data Analysis}\label{exploratory-data-analysis}
+
+This is where you explore your data using histograms, scatterplots,
+boxplots, numerical summaries, etc.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\NormalTok{np.random.seed(}\DecValTok{1}\NormalTok{)}
+\NormalTok{np.random.normal(}\FloatTok{0.0}\NormalTok{, }\FloatTok{1.0}\NormalTok{, size}\OperatorTok{=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
+##        -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])
+\end{verbatim}
+
+\chapter{Analysis and Results}\label{analysis-and-results}
+
+\section{A First Model}\label{a-first-model}
+
+Having a very simple model is always good so that you can benchmark any
+result you would obtain with a more elaborate model.
+
+\bigskip
+
+For example, one can use the linear regression model
+
+\[
+Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
+\] where it is assumed that the \(\epsilon_i\)'s are i.i.d.~\(N(0,1)\).
+
+\chapter{Discussion}\label{discussion}
+
+Put the results you got in the previous chapter in perspective with
+respect to the problem studied.
+
+\chapter{Conclusion and Further
+Issues}\label{conclusion-and-further-issues}
+
+What are the main conclusions? What are your recommendations for the
+``client''? What further analysis could be done in the future?
+
+A figure:
+
+\begin{figure}[H]
+\includegraphics{unsw-logo.png}
+\caption{A caption}\label{myfigure}
+\end{figure}
+
+In the text, see Figure \ref{myfigure}.
+
+\bibliographystyle{elsarticle-harv} 
+\bibliography{references}
+
+\chapter*{Appendix}\label{appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\section*{\texorpdfstring{\textbf{Codes}}{Codes}}\label{codes}
+\addcontentsline{toc}{section}{\textbf{Codes}}
+
+Add you codes here.
+
+\section*{\texorpdfstring{\textbf{Tables}}{Tables}}\label{tables}
+\addcontentsline{toc}{section}{\textbf{Tables}}
+
+If you have tables, you can add them here.
+
+Use \url{https://www.tablesgenerator.com/markdown_tables} to crete very
+simple markdown tables, otherwise use \LaTeX.
+
+\begin{longtable}[]{@{}lcr@{}}
+\toprule\noalign{}
+Tables & Are & Cool \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+col 1 is & left-aligned & \$1600 \\
+col 2 is & centered & \$12 \\
+col 3 is & right-aligned & \$1 \\
+\end{longtable}
+
+
+
+
+
+
+
+\end{document}
+
