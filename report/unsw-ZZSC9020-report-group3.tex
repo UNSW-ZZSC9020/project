@@ -180,31 +180,29 @@ according to \cite{nswEnergyConsumption2021}, meeting most of its local
 demand through state generation. The remaining electricity is purchased
 from other states through the National Electricity Market (NEM).
 Electricity imports enable NSW to manage its supply at the lowest cost
-to consumers. In 2019--20, renewable energy sources provided around 19\%
-of the state's total electricity generation, which is more than four
-times that provided in 2008--09. This does not include energy supplied
-by solar hot water heating, which provided an estimated supply of around
-4.4 PJ in 2019--20, equivalent to 1,222 gigawatt-hours (GWh).
+to consumers. In 2019--20, renewable energy sources accounted for
+approximately 19\% of the state's total electricity generation, a
+significant increase from just over four times the amount in 2008--09.
 
 According to \cite{nsw_epa_2021_energy_consumption} electricity demand
 from the NSW grid is projected to experience a slight decline over the
-next five years before rising once more. The main reason for the decline
-in energy consumption is the lower consumption by the NSW industrial
-sector, particularly the manufacturing industry, since 2012--13. There
-was a noticeable decline in industrial energy consumption following the
-closure of the Kurnell and Clyde petroleum refineries in October 2014,
-but few major changes since then (www.soe.epa.nsw.gov.au. (n.d.)). This
-initial decrease is anticipated to be driven by population growth being
-counterbalanced by enhancements in the energy efficiency of appliances
-and machinery. Furthermore, the growing adoption of rooftop solar panels
-and battery storage systems is expected to further reduce residential
-demand on the electricity grid. However, beyond the five-year mark,
-consumption is forecasted to increase as electric vehicle charging and
-broader electrification begin to significantly impact electricity
-demand. According to NSW Climate and Energy Action. (n.d.) the share of
-solar and wind in NSW's energy mix has more than DOUBLED from 5\% in
-2015 to 12\% in 2019. In the Figure \ref{renewable} we can visualize the
-rapid growth of electricity generation using renewable sources.
+next five years before rising more. As stated in the ariticle the main
+reason for the decline in energy consumption is the lower consumption by
+the NSW industrial sector, particularly the manufacturing industry,
+since 2012--13. Industrial energy consumption saw a marked decline after
+the closure of the Kurnell and Clyde petroleum refineries in October
+2014, with few significant changes observed since then. The decrease is
+expected to be driven by population growth being balanced by
+improvements in the energy efficiency of appliances and machinery. In
+addition, the increasing adoption of rooftop solar panels and battery
+storage systems is anticipated to further lower residential demand on
+the electricity grid. However, beyond the five-year mark, consumption is
+forecasted to increase as electric vehicle charging and broader
+electrification begin to significantly impact electricity demand.
+According to NSW Climate and Energy Action. (n.d.) the share of solar
+and wind in NSW's energy mix has more than DOUBLED from 5\% in 2015 to
+12\% in 2019. In the Figure \ref{renewable} we can visualize the rapid
+growth of electricity generation using renewable sources.
 
 \begin{figure}[H]
 \centering
@@ -236,15 +234,18 @@ forecasts (i.e., forecasts of the mean or median of the future demand
 distribution), and density forecasts (providing estimates of the full
 probability distributions of the possible future values of the demand).
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth, height=10cm]{extreme_temp__au.png}
-\caption{A caption1}\label{extreme}
-\end{figure}
+\section{Factors Affecting Load
+Forecasting}\label{factors-affecting-load-forecasting}
 
 In addition to the basic components of electricity demand forecasting,
 several external factors play a significant role in refining predictions
-and improving accuracy.
+and improving accuracy. Typically, electricity consumption is influenced
+by two factors---1) structural like population growth, economic
+condition, electricity price, etc; and 2) non-structural or random like
+weather condition e.g., air temperature, extreme heat or cold, bushfire,
+flood, etc., building type e.g., multi-storey or free-standing house,
+and adoption of electric vehicles and contributions of renewable energy
+in the power grid, etc.
 
 Temperature is a crucial factor, as it directly influences electricity
 consumption patterns. Extreme temperatures, whether very hot or cold,
@@ -252,6 +253,12 @@ can lead to higher demand for heating or cooling, respectively.
 Forecasts often need to account for temperature variations to predict
 demand more accurately, especially during seasonal extremes or unusual
 weather patterns.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth, height=10cm]{extreme_temp__au.png}
+\caption{A caption1}\label{extreme}
+\end{figure}
 
 As the graph in Figure \ref{extreme} shows the temperature in Australia
 is rising and forecast show that it will continue to rise. According to
@@ -267,14 +274,14 @@ determining the electricity demand. The usage of heating in colder
 nights and cooling system during the hot days directly impacts the
 demand of electricity.
 
-Holidays and weekdays also affect electricity usage. On holidays,
-electricity consumption patterns can differ significantly from regular
-weekdays due to changes in work routines and social activities. For
-instance, public holidays might see a decrease in commercial and
-industrial electricity use, while residential usage could increase due
-to family gatherings and home activities. Understanding these variations
-helps in adjusting forecasts to better reflect the actual demand
-patterns during such periods.
+Holidays and weekdays are also important key factors in load
+forecasting. On holidays, electricity consumption patterns can differ
+significantly from regular weekdays due to changes in work routines and
+social activities. For instance, public holidays might see a decrease in
+commercial and industrial electricity use, while residential usage could
+increase due to family gatherings and home activities. Understanding
+these variations helps in adjusting forecasts to better reflect the
+actual demand patterns during such periods.
 
 Overall, incorporating temperature data and considering holiday effects
 are essential for creating more accurate and reliable electricity demand
@@ -290,28 +297,128 @@ both statistical and probabilistic methods to achieve high accuracy with
 low errors to find the best model. They also considered this problem as
 both deterministic and stochastic to include the influence of the
 external factors that sways the models behaviour at different time
-horizons. At high-level the problem can be classified into four
-forecasting groups -- very short-term (mins to hrs), short-term (days),
-medium-term (months), and long-term (years). Based on the required time
-horizons we can further classify the problem into three broad solution
-domains -- heuristic, statistical or econometric, and probabilistic
-models. Typically, electricity consumption is influenced by two
-factors---1) structural like population growth, economic condition,
-electricity price, etc; and 2) non-structural or random like weather
-condition e.g., air temperature, extreme heat or cold, bushfire, flood,
-etc., building type e.g., multi-storey or free-standing house, and
-adoption of electric vehicles and contributions of renewable energy in
-the power grid, etc. Time series datasets have the unique property of
-dependence on what happened on the past. Therefore, we cannot randomly
-shuffle the order of the data without affecting the trends. With such
-dependency simple regression technique for forecasting can randomly show
-statistical significance even if there is no true correlation, and thus
-suitable for real-world usage. In the following sections, we will
-discuss the popular forecasting models used in the electricity demand
-forecasting domain.
+horizons. As mentioned in \cite{9812604} load forecasting on the basis
+of time horizon, can be classified into four forecasting groups -- VSLTF
+(very short-term (minutes to hours)), STLF (short-term (mitues to
+days)), MTLF (medium-term (days to months)), and LTF (long-term (months
+to years)).
 
-\section{Statistical Models/ Regression
-Methods}\label{statistical-models-regression-methods}
+There are very few methods for VSTLF including genetic algorithm,
+autoregressive moving average models and artificial neural network. STLF
+is utilized for time hardly from minutes to hours. STLF is the important
+source of information for daily operations and it is important for
+system operations {[}36{]}. Researchers are taking more interest to
+design predictive models because STLF can be used to approximate the
+long time load. It is essential to have accurate predict knowledge of
+affecting factors to improve short term model. The relation between
+demand of load and factors is the basic purpose to look for because
+instantaneous demand may be different. For duration of days to months,
+usually MTLF is used for load forecasting {[}37{]}. It becomes popular
+in peak summer or winter. For load duration from few weeks to many
+years, LTLF is considered {[}38{]}. The factors including weather data,
+characteristics of install devices at areas of interest, history of load
+and numbers of customers are accounted in it. The factors of economic
+are taken into account for long period methods of load forecasting.
+
+\ref{load_forecasting_methods}.
+
+Based on the required time horizons we can further classify the problem
+into three broad solution domains -- heuristic, statistical or
+econometric, and probabilistic models. Time series datasets have the
+unique property of dependence on what happened on the past. Therefore,
+we cannot randomly shuffle the order of the data without affecting the
+trends. With such dependency simple regression technique for forecasting
+can randomly show statistical significance even if there is no true
+correlation, and thus suitable for real-world usage. In the following
+sections, we will discuss the popular forecasting models used in the
+electricity demand forecasting domain.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth, height=5cm]{diff_load_forecasting_methods.png}
+\caption{Different load forecasting methods [source: ..]}\label{load_forecasting_methods}
+\end{figure}
+
+\section{Forecasting Models}\label{forecasting-models}
+
+Various techniques have been developed for electricity demand
+forecasting during the past few years. Statistical models are widely
+adopted for the load forecasting problem, which include linear
+regression models, stochastic process models, exponential smoothing and
+ARIMA models. To incorporate the nonlinearity of electricity demand
+series, artificial neural networks (ANNs) have also received substantial
+attentions in load forecasting with good performance reported. Neural
+networks have been shown to have the ability not only to learn the load
+series but also to model an unspecified nonlinear relationship between
+load and weather variables. Recently, machine learning techniques and
+fuzzy logic approaches have also been used for load forecasting or
+classification and achieved relatively good performances.
+
+Techniques such as Artificial Neural Networks (ANNs) and fuzzy logic
+models are often used due to their ability to process non-linear
+patterns in real-time. For very short-term forecasting, methods that can
+capture rapid fluctuations in demand are essential. Additionally,
+autoregressive integrated moving average (ARIMA) models and local fuzzy
+reconstruction can handle time-series data with high frequency, making
+them suitable for forecasting electricity demand in timeframes of
+seconds to minutes. These models perform well in scenarios where the
+primary objective is operational control, such as maintaining grid
+stability or reacting to sudden changes in demand.
+
+For short-term forecasting, covering hours to a few days, models that
+integrate external factors such as weather conditions, time of day, and
+social behaviour become critical. Generalized Additive Models (GAMs) and
+Support Vector Machines (SVMs) are often applied for their ability to
+account for non-linear relationships between demand and influencing
+variables like temperature, day of the week, and holidays. Hybrid
+models, which combine machine learning techniques with statistical
+methods like exponential smoothing or seasonal ARIMA, are also effective
+for this timeframe, as they can capture both the short-term trends and
+seasonal patterns inherent in electricity consumption. \cite{Wang2021}
+highlights that although these traditional techniques such as fuzzy
+linear regression, exponential smoothing, Automatic Regressive Moving
+Average (ARMA) have the advantages of algorithmic simplicity but they
+are not scalable to handle large dataset and model complicated
+relationships. \textbf{RNNs} are commonly used for load forecasting when
+there is a need to model temporal dependencies over shorter sequences.
+They are effective in predicting short-term fluctuations in electricity
+demand, especially when there is a clear trend or pattern over recent
+time intervals, such as hourly or daily demand variations. However,
+traditional RNNs suffer from the vanishing gradient problem, which
+limits their ability to retain information over long time sequences.
+This makes them less effective for capturing long-term dependencies or
+seasonal patterns in electricity consumption. To overcome the
+limitations of RNNs, \textbf{LSTM networks} are often preferred for load
+forecasting, especially when dealing with longer time horizons or when
+it's important to capture both short-term and long-term trends in
+electricity demand. LSTM networks are designed with a memory cell that
+can store information for extended periods, allowing the model to retain
+past information over long time sequences. This makes LSTMs particularly
+effective for \textbf{short-term to medium-term forecasting}, where
+demand patterns depend on both recent trends (such as hourly or daily
+fluctuations) and more distant patterns (such as weekly or seasonal
+cycles). LSTMs are also highly effective when electricity demand is
+influenced by a range of factors, such as weather conditions, time of
+day, and past consumption trends.
+
+Medium-term forecasting, which spans weeks to months, focuses on
+predicting consumption patterns based on broader trends, such as
+seasonal variations, economic cycles, and energy market dynamics.
+Time-series models like SARIMA (Seasonal ARIMA) and Exponential
+Smoothing State Space (ETS) models are widely used for their ability to
+capture seasonal effects and trends. Additionally, machine learning
+techniques like Gradient Boosting Machines (GBM) or Random Forests can
+be leveraged to include more complex interactions between variables,
+such as the effect of emerging technologies like rooftop solar panels.
+These models are crucial for tasks such as planning maintenance or
+scheduling energy generation resources.
+
+For long-term electricity demand forecasting, \textbf{econometric
+models} and \textbf{scenario-based models} are often preferred over
+short-term forecasting methods like neural networks. This is because
+long-term forecasting, which spans months to years, requires capturing
+structural trends, external factors, and macroeconomic indicators that
+influence electricity demand over extended periods.
 
 The simplest form of forecasting is Moving Average (MA) which predicts
 the future values as the average of n previous values. With a larger
@@ -355,8 +462,6 @@ smoothing, Automatic Regressive Moving Average (ARMA) have the
 advantages of algorithmic simplicity but they are not scalable to handle
 large dataset and model complicated relationships.
 
-\section{Machine Learning Methods}\label{machine-learning-methods}
-
 Another approach is to first apply Fourier Transformation (FT) to
 decompose a stationary time series (i.e., removing trends and
 seasonality) from time domain to frequency domain as temporal
@@ -382,4 +487,297 @@ series using statistical methods discussed in the previous subsection,
 we can also apply probabilistic methods like probabilistic regression or
 other machine learning models. In the simplest form to cast a time
 series forecasting as regression we need to first convert the
-observations i.e., samples as 
+observations i.e., samples as independent and identically distributed.
+We can treat the set of time lags over a fixed length sliding window as
+independent feature variables and their succeeding time lag as the
+corresponding target variable to convert the time series into a dataset
+for interpolation using regression. We can also use rolling and seasonal
+rolling time window or Exponentially Weighted Moving Averages (EWMA)
+instead of sliding window \cite{Roberts1959}. This kind of
+transformation using time lags is called time-delay embedding. Another
+approach is to embed time into features so that we can train ML models.
+For instance, timestamps associated with time series can be treated as
+calendar features i.e., time periodicity like year, month, quarter, day,
+hour, minutes, seconds, etc. We can also use the timestamps as
+monotonically increasing integers and treat them collectively as time
+elapsed feature. tsfeatures (??) and tsfresh (??) are two popular
+open-source libraries to extract time series features for ML models. One
+straightforward way is to use Linear regression and estimate using least
+squares to minimise the Mean Squared Errors (MSE)
+\cite{lai2005forecasting}. But multi-collinearity in time series can
+lead to unstable and unreliable regression models due to the high
+correlation between variables caused by trends, seasonality, or lagged
+values. Thus, it's difficult to accurately estimate the coefficients and
+interpret the relationships between variables. Regularization techniques
+like applying L1 and L2 norms e.g., lasso and ridge regressions can help
+address multicollinearity in linear regression by penalising large
+coefficients. However, we cannot capture the non-linear relationships
+within the independent features using a linear model. For example,
+sudden increase in air-conditioning usage after temperature reaches a
+certain threshold.
+
+A common way to capture such non-linear relationship is to use a
+Decision Tree (DT) \cite{Spiliotis2022} and split branches based on
+feature importance such as important time lag moment or seasonal
+rolling. But a DT can easily overfit as it often relies on specific
+feature importances. We can overcome this by using ensemble learning.
+Bagging and Radom Forest are two popular ensemble techniques that use a
+set of DTs as weak learners. Furthermore, we can use Gradient Boosted DT
+(GBDT) technique for sequential learning and its ability to handle
+complex relationships for many time series applications. Popular
+boosting implementations like XGBoost \cite{chen2020novel} and Light
+Gradient Boosting Machine (LightGBM) \cite{salinas2017deepar} employ
+techniques like row and column sampling, and optimised tree growth
+algorithms to reduce training time for large time series dataset and
+improve prediction accuracy.
+
+Now, we shift our focus into forecasting from time series using
+supervised learning models like neural network and deep learning.
+Transforming time series data for supervised learning models requires
+considerations of temporal dependencies and trends. Encoder-Decoder and
+Feed Forward Networks (FNNs) are suitable for fixed-length sequences
+while Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM)
+networks can better handle variable-length sequences and long-term
+dependencies. RNNs address the sequential nature of time series data by
+incorporating a recurrent connection allowing information from previous
+observations to be passed to subsequent ones \cite{Hochreiter1997Long}.
+While RNNs are capable of modelling long-term dependencies they suffer
+from the vanishing gradient problem. LSTMs, a variant of RNNs,
+introduces gates that selectively control the flow of information,
+mitigating the vanishing gradient problem. LSTMs have been successfully
+applied to a wide range of time series tasks including forecasting,
+anomaly detection, and classification \cite{HochreiterSchmidhuber1997}.
+Convolutional Neural Networks (CNNs) originally designed for image
+processing but later have been adapted for time series analysis too.
+CNNs can effectively capture local patterns and dependencies making them
+suitable for time series classification and anomaly detection {[}?{]}.
+Lastly, Attention mechanisms and Transformers can capture global
+dependencies and the importance of different time steps for complex time
+series tasks. Attention mechanisms can model long-range dependencies in
+sequence-to-sequence tasks. Attention allows the model to focus on
+relevant parts of the input sequence when making predictions {[}?{]}.
+Transformers leverage self-attention mechanisms to capture dependencies
+between different time steps in the input sequence. Transformers have
+been shown to outperform RNNs and LSTMs in many sequence modelling tasks
+{[}?{]}.
+
+\section{Challenges to Find the Ideal Electricity Load Forecasting
+Method}\label{challenges-to-find-the-ideal-electricity-load-forecasting-method}
+
+In this study we focus on short-term demand forecasting which is an
+essential instrument in power system planning, operations, and control.
+Many operating decisions are based on load forecasts such as dispatch
+scheduling of generating capacity, reliability analysis, and maintenance
+planning for the generators. Overestimation of electricity demand will
+cause a conservative operation which may lead to overproduction or
+excessive energy purchase. For instance, in \cite{AEMO} AEMO uses a
+monthly regression model based on five years (60 months) of historical
+data. The choice of five years data strikes a balance between ensuring
+that the model considers only relatively recent univariate consumption
+trends and behaviours while being long enough to capture seasonality and
+contain enough multivariate observations to be statistically meaningful.
+Univariate models, while simpler, often struggle to capture complex
+relationships and seasonal patterns in load data. Multivariate models,
+incorporating additional factors like temperature, humidity, and
+economic indicators, can improve accuracy but introduce challenges in
+data collection, preprocessing, and model complexity, thus require
+careful feature engineering. Univariate models use only historical
+demand data to make future predictions, while multivariate models
+consider other variables such as atmospheric variations and calendars
+along with historical demand data in the study of STLF
+\cite{asi6060100}. \cite{wang2016review,chen2015electricity} both
+highlight the limitations of traditional methods and the growing
+interest in advanced hybrid techniques. Therefore, the selection of an
+ideal forecasting method depends on factors such as data availability,
+computational resources, and the desired level of accuracy, making it a
+complex and ongoing research area.
+
+\cite{taylor2009forecasting} develops both univariate and multivariate
+models and stated that the univariate models had good prediction
+capability. In univariate time series models, the historical electricity
+demand data are arranged with correlated past lags to capture the demand
+patterns even when the data are limited. \cite{mcculloch2001forecasting}
+obtains improved accuracy by including the temperature as a variable,
+recognising that weather conditions play a crucial role in forecasting
+performance. \cite{Fan2012} proposes a semi-parametric additive models
+are proposed to estimate the relationships between demand and the driver
+variables. Specifically, the inputs for these models are calendar
+variables, lagged actual demand observations and historical and forecast
+temperature traces for one or more sites in the target power system. The
+proposed methodology has been used to forecast the half-hourly
+electricity demand for up to seven days ahead for power systems in the
+Australian National Electricity Market (NEM). To achieve more efficient
+and accurate load forecasting \cite{Suo} establishes a multi-dimensional
+short-term load forecasting model based on XGBoost.The decision forest
+composed of many decision trees is the final learning model of XGBoost.
+It tries to correct the residual of all the previous weak learners by
+adding new weak learners. When these learners are combined for final
+prediction the accuracy will be higher than that of a single learner.
+The selection of appropriate hyper parameters of XGBoost is directly
+related to the performance of the model but there is no universal and
+scientific method to determine the hyper parameters. In order to reduce
+the randomness and blindness, based on the second search of
+multi-dimensional grids, a method of hyper parameters optimisation is
+proposed. Each hyper parameters combination is attempted in a grid
+traversal manner in turn.
+
+\section{Performance Metrics/ Model
+Evaluations}\label{performance-metrics-model-evaluations}
+
+To check the correctness of the methods used for the prediction of real
+values of load, different criteria are utilized to evaluate the
+techniques of load forecasting. The research of many researchers based
+on statistical metrics to optimize the precision of their model, newly
+developed statistical metrics such as probabilistic load forecasting
+metrics. Due to wide adaptation and extraordinary academic values in
+industry, literature on probabilistic forecasting is still in developing
+phase. The most important static metrics used by researchers are shown
+in table:
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\chapter{Material and Methods}\label{material-and-methods}
+
+\section{Software}\label{software}
+
+R and Python of course are great software for Data Science. Sometimes,
+you might want to use \texttt{bash} utilities such as \texttt{awk} or
+\texttt{sed}.
+
+Of course, to ensure reproducibility, you should use something like
+\texttt{Git} and RMarkdown (or a Jupyter Notebook). Do \textbf{not} use
+Word!
+
+\section{Description of the Data}\label{description-of-the-data}
+
+How are the data stored? What are the sizes of the data files? How many
+files? etc.
+
+\section{Pre-processing Steps}\label{pre-processing-steps}
+
+What did you have to do to transform the data so that they become
+useable?
+
+\section{Data Cleaning}\label{data-cleaning}
+
+How did you deal with missing data? etc.
+
+\section{Assumptions}\label{assumptions}
+
+What assumptions are you making on the data?
+
+\section{Modelling Methods}\label{modelling-methods}
+
+Based on the literature review we in this study we explore the two
+popular model - additive model Prophet by Facebook and another one is
+the machine learning model XGBoost for short term demand forecasting.
+According to our EDA, the demand has high variability during
+peak/off-peak, weekdays, hours of the day and most importantly
+temperature change.
+
+TBW
+
+\chapter{Exploratory Data Analysis}\label{exploratory-data-analysis}
+
+This is where you explore your data using histograms, scatterplots,
+boxplots, numerical summaries, etc.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\NormalTok{np.random.seed(}\DecValTok{1}\NormalTok{)}
+\NormalTok{np.random.normal(}\FloatTok{0.0}\NormalTok{, }\FloatTok{1.0}\NormalTok{, size}\OperatorTok{=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
+##        -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])
+\end{verbatim}
+
+\chapter{Analysis and Results}\label{analysis-and-results}
+
+\section{XGBoost}\label{xgboost}
+
+Having a very simple model is always good so that you can benchmark any
+result you would obtain with a more elaborate model.
+
+\bigskip
+
+For example, one can use the linear regression model
+
+\[
+Y_i = \beta_0 + \beta_1 x_{1i} + \cdots \beta_p x_{pi} + \epsilon_i, \qquad i=1,\ldots,n.
+\] where it is assumed that the \(\epsilon_i\)'s are i.i.d.\(N(0,1)\).
+
+\section{Facebook Prophet}\label{facebook-prophet}
+
+TBW
+
+\chapter{Discussion}\label{discussion}
+
+Put the results you got in the previous chapter in perspective with
+respect to the problem studied.
+
+\chapter{Conclusion and Further
+Issues}\label{conclusion-and-further-issues}
+
+What are the main conclusions? What are your recommendations for the
+``client''? What further analysis could be done in the future?
+
+A figure:
+
+\begin{figure}[H]
+\includegraphics{unsw-logo.png}
+\caption{A caption}\label{myfigure}
+\end{figure}
+
+In the text, see Figure \ref{myfigure}.
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\bibliographystyle{elsarticle-harv} 
+\bibliography{references}
+
+\chapter*{Appendix}\label{appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\section*{\texorpdfstring{\textbf{Codes}}{Codes}}\label{codes}
+\addcontentsline{toc}{section}{\textbf{Codes}}
+
+Add you codes here.
+
+\section*{\texorpdfstring{\textbf{Tables}}{Tables}}\label{tables}
+\addcontentsline{toc}{section}{\textbf{Tables}}
+
+If you have tables, you can add them here.
+
+Use \url{https://www.tablesgenerator.com/markdown_tables} to create very
+simple markdown tables, otherwise use \LaTeX.
+
+\begin{longtable}[]{@{}lcr@{}}
+\toprule\noalign{}
+Tables & Are & Cool \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+col 1 is & left-aligned & \$1200 \\
+col 2 is & centered & \$12 \\
+col 3 is & right-aligned & \$1 \\
+\end{longtable}
+
+
+
+
+
+
+
+\end{document}
+
