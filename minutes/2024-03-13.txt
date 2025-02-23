@@ -1,0 +1,24 @@
+- demand is consistant thru aus, NSW is higher
+- total demand in MW
+- used shape
+- used head, tail, shape
+- 30 minute intervaL for demand, it's variable for the forecasts
+- task: make the dates consistent
+- the question about solar panel is a very good
+    - "how the increase 
+- it's a seasonal pattern,
+
+- use stanndard template
+- gantt chart
+- motivation
+- start from high level goal: why energy is important, why is forcasting is important
+    both over/under estimation are bad
+
+- give a litterature review
+- methods: what methods will we be using? statistical/ machine learning (ex: XGBoost/LSTM for energy load forcasting)/ econometric models for energy load forcasting 
+    use high lelvel: google "satistical methods for energy demand", regression problem.
+- we can google "fithub energy load forcasting with LSTM"
+- Use RNN
+
+- I will read papers on LSTM for energy load forcasting 
+- intro / motivation

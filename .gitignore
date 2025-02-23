@@ -1,0 +1,8 @@
+# Joshua ignores
+data/Australia/a/forecastdemand_vic.csv
+data/Australia/c/forecastdemand_qld.csv
+data/Australia/b/forecastdemand_sa.csv
+
+# Chadi ignores
+extracted_zips/
+data/PV_Data/raw_data/unzipped_data/combined_data.csv
