@@ -1,23 +1,17 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
-
-This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
-
-In this repository, you will find the data to start developing your project. Also, we will use the repository to share code, documentation, data, models and other resources between the group members and course lecturers.
-
-Complete the information below regarding your group.
+# Welcome to ZZSC9020 GitHub repository for Group D
 
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Katelyn Kemp (z5459347) - Group leader
+- David Valido Ramos (z5516338) - Researcher
+- Shanjay Perinpanathan (z5339723) - Researcher
+- Nick Mutton (z5549371) - Coder
+- Senarath Seelanatha (z5595581) - Coder
+- Waseem Alashqar (z5514810) - Coder
 
 ### Brief project description
-
-Describe your project in one paragraph.
+This project took the concepts of a hybrid model to improve AEMO’s short-term electricity demand forecast by incorporating modelling the AEMO forecast errors in a subsequent model and adding these the AEMO’s forecast to produce a more accurate prediction. The project found that for all models tested, modelling the errors improved the accuracy of the short-term forecast improved. 
 
 ## Repository structure
 

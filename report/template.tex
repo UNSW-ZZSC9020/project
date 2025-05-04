@@ -1,0 +1,77 @@
+\documentclass[mstat,12pt]{unswthesis}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% OK...Now we get to some actual input.  The first part sets up
+% the title etc that will appear on the front page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{$title$}
+
+\authornameonly{$for(author)$$author$ $endfor$}
+
+\author{\Authornameonly}
+
+\copyrightfalse
+\figurespagefalse
+\tablespagefalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  And now the document begins
+%  The \beforepreface and \afterpreface commands puts the
+%  contents page etc in
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{header.tex}
+
+
+\begin{document}
+
+\beforepreface
+
+\prefacesection{Abstract}
+
+$Abstract$
+
+\afterpreface
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Now we can start on the first chapter
+% Within chapters we have sections, subsections and so forth
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\afterpage{\blankpage}
+
+
+$body$
+
+
+
+
+
+
+
+\end{document}
+
+
