@@ -1,0 +1,20 @@
+{
+  "run_tag": "lstm_fs3_time_lb48_v1",
+  "lookback": 48,
+  "out_horizon": 48,
+  "n_feats": 4,
+  "feature_names": [
+    "y_lag1",
+    "temp",
+    "sin_hh",
+    "cos_hh"
+  ],
+  "hidden": 64,
+  "lr": 0.001,
+  "batch": 256,
+  "epochs": 80,
+  "best_val_mse": 0.09514909237623215,
+  "weight_mode": "none",
+  "alpha_hot": 1.0,
+  "torch": "2.8.0+cu126"
+}

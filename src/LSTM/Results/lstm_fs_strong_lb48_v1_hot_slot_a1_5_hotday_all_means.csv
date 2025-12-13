@@ -1,0 +1,2 @@
+,MAE_MW,RMSE_MW,MAPE_%,Bias_MW
+lstm_fs_strong_lb48_v1_hot_slot_a1_5 (hotday_all),659.17,893.45,7.28,-369.71

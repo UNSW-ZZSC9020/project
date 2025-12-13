@@ -1,0 +1,2 @@
+,MAE_MW,RMSE_MW,MAPE_%,Bias_MW
+lstm_fs3_time_lb48_v1 (overall_all),384.95,547.96,5.0,106.44

@@ -1,0 +1,2 @@
+,MAE_MW,RMSE_MW,MAPE_%,Bias_MW
+lstm_fs_strong_lb48_v1 (hotday_all),675.39,921.19,7.48,-335.69

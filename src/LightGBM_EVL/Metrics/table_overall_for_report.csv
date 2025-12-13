@@ -1,0 +1,3 @@
+Model,MAE (MW),RMSE (MW),MAPE (%),Bias (MW)
+LightGBM,1154.39,1512.84,13.28,-231.11
+Operator(op_24h_latest),1838.79,2351.93,20.13,-928.11

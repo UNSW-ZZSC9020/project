@@ -1,0 +1,5 @@
+Cohort,Scope,Model,ΔMAE (MW),ΔRMSE (MW),ΔMAPE (pp),ΔBias (MW),%MAE vs Op
+overall_all,Overall,LightGBM,-684.4,-839.09,-6.85,697.0,-37.22
+hotday_all,Overall,LightGBM,-411.77,-544.98,-5.38,-323.75,-22.3
+overall_all,t+48,LightGBM,-1130.66,-1354.82,-11.94,782.99,-63.55
+hotday_all,t+48,LightGBM,-338.84,-314.22,-4.04,105.28,-23.43

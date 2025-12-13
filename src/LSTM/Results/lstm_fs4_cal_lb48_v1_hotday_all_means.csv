@@ -1,0 +1,2 @@
+,MAE_MW,RMSE_MW,MAPE_%,Bias_MW
+lstm_fs4_cal_lb48_v1 (hotday_all),654.37,880.82,7.37,-250.74

@@ -1,0 +1,5 @@
+Unnamed: 0_overall,feature,MAE_MW_overall,RMSE_MW_overall,MAPE_%_overall,Bias_MW_overall,ΔMAE_MW_overall,ΔRMSE_MW_overall,ΔMAPE_%_overall,ΔBias_MW_overall,Unnamed: 0_hotday,MAE_MW_hotday,RMSE_MW_hotday,MAPE_%_hotday,Bias_MW_hotday,ΔMAE_MW_hotday,ΔRMSE_MW_hotday,ΔMAPE_%_hotday,ΔBias_MW_hotday
+0,fs_strong,325.36,468.02,4.12,1.97,0.0,0.0,0.0,0.0,2,675.39,921.19,7.48,-335.69,45.27,73.49,0.42,-85.32
+3,hot_day_a1_5,335.0,477.2,4.29,66.62,9.64,9.18,0.17,64.65,0,630.12,847.7,7.06,-250.37,0.0,0.0,0.0,0.0
+2,hot_day_a2_0,333.19,475.14,4.23,1.57,7.83,7.12,0.11,-0.4,1,649.45,878.57,7.18,-339.6,19.33,30.87,0.12,-89.23
+1,hot_day_a3_0,327.57,472.65,4.14,-11.61,2.21,4.63,0.02,-13.58,3,684.27,943.74,7.52,-401.68,54.15,96.04,0.46,-151.31
