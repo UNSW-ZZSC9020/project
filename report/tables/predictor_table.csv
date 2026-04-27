@@ -1,0 +1,5 @@
+,LOG_DEMAND,TEMPERATURE,TEMP_SQUARED,IS_WEEKEND,DAYOFWEEK,HOUR,lag_1_week,lag_1_year
+SARIMAX,,,,,,,,
+GB,,,,,,,,
+LSTM,,,,,,,,
+PATCHTST,,,,,,,,

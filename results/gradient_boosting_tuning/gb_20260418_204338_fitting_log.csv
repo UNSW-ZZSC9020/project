@@ -1,0 +1,2 @@
+task_id,model_type,rmse,mae,target_col,used_log_target,all_feature_cols,scale,n_estimators,learning_rate,max_depth,horizon,target_lags,target_mas,feature_lags,step_size,seed
+gb_20260418_204338,GradientBoosting,570.738618257676,410.26611876065454,LOG_TOTALDEMAND,True,"['TEMPERATURE', 'TEMP_SQUARED', 'HOUR', 'DAYOFWEEK', 'IS_WEEKEND', 'LOG_TOTALDEMAND_lag_1', 'LOG_TOTALDEMAND_lag_2', 'LOG_TOTALDEMAND_lag_3', 'LOG_TOTALDEMAND_lag_48', 'LOG_TOTALDEMAND_lag_96', 'LOG_TOTALDEMAND_ma_6', 'LOG_TOTALDEMAND_ma_48']",True,1200,0.1,5,720,"[1, 2, 3, 48, 96]","[6, 48]",[],48,57721

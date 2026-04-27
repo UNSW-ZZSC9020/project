@@ -1,0 +1,2 @@
+rmse,mse,mae,total_epochs_run,best_epoch,early_stop_epoch,model_type,target_col,used_log_target,all_feature_cols,scale,horizon,training_size,target_lags,target_mas,feature_lags,step_size,p,d,q,P,D,Q,seasonality_period,enforce_stationarity,enforce_invertibility
+650.7930363559768,423531.5761694318,454.6549647865191,,,,SARIMAX,LOG_TOTALDEMAND,True,"['demand_1_week_ago', 'demand_1_year_ago', 'TEMPERATURE', 'TEMP_SQUARED', 'IS_WEEKEND']",True,336,1440,[],[],[],48,[4],[0],[0],[1],[1],[1],48,True,True

@@ -1,0 +1,23 @@
+Week,Task,Start,Finish
+Week 1,(All) Confirm Team Roles,15/3/2026,17/3/2026
+Week 1,(All) Determine Research Question,15/3/2026,17/3/2026
+Week 1,(All) Consult with Lecturer,17/3/2026,18/3/2026
+Week 1,(All) Review Literature & Dataset Predictor Variables,17/3/2026,20/3/2026
+Week 1,(All) Review Tools & Evaluation Metrics,17/3/2026,20/3/2026
+Week 1,(KKL) Finalize Project Plan,20/3/2026,22/3/2026
+Week 2,(All) General Data Cleaning,22/3/2026,24/3/2026
+Week 2,(All) Exploratory Data Analysis,24/3/2026,26/3/2026
+Week 2,(BC/DHO) Pre-processing: Time Series Regression,26/3/2026,29/3/2026
+Week 2,(BC/DHO) Pre-processing: LSTM,26/3/2026,29/3/2026
+Week 2,(KKL/KY) Pre-processing: Transformer,26/3/2026,29/3/2026
+Week 3,(BC/DHO) Implementation: Time Series Regression,29/3/2026,3/4/2026
+Week 3,(BC/DHO) Implementation: LSTM,29/3/2026,3/4/2026
+Week 3,(KKL/KY) Implementation: Transformer,29/3/2026,3/4/2026
+Week 4,(BC/DHO) Tuning: Time Series Regression,3/4/2026,8/4/2026
+Week 4,(BC/DHO) Tuning: LSTM,3/4/2026,8/4/2026
+Week 4,(KKL/KY) Tuning: Transformer,3/4/2026,8/4/2026
+Week 4,(KKL/KY) Performance Comparison,8/4/2026,12/4/2026
+Week 5,(All) Draft Final Report,12/4/2026,19/4/2026
+Week 6,(BC) Finalize Report & Submission,19/4/2026,22/4/2026
+Week 6,(DHO/KKL) Complete Visual Presentation,22/4/2026,26/4/2026
+Week 7,(All) Recording Presentation & Submission,26/4/2026,28/4/2026

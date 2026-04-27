@@ -1,0 +1,2 @@
+mae,mse,rmse,total_epochs_run,best_epoch,early_stop_epoch,model_type,target_col,used_log_target,all_feature_cols,scale,horizon,lookback,target_lags,target_mas,feature_lags,step_size,variate,patch_len,stride,d_model,num_encoder_layers,num_attention_heads,dim_ff,dropout,dropout_head_fc,use_norm,activation,learning_rate,seed
+310.05755656984724,216963.491306279,465.79339980969996,55,48,55,patchtst,LOG_TOTALDEMAND,True,"['TEMPERATURE', 'TEMP_SQUARED', 'IS_WEEKEND', 'demand_1_year_ago']",True,48,720,[],[],[],48,MS,16,8,128,3,16,256,0.0,0.0,True,gelu,5e-06,17320
