@@ -1,0 +1,7 @@
+,Model,Lag half-hours,Correlation
+0,Base OLS,1,0.6634744606790692
+1,Base OLS,2,0.449931377892752
+2,Base OLS,48,0.6063151383977509
+3,Add demand history,1,0.09401632963755137
+4,Add demand history,2,0.08555582962405081
+5,Add demand history,48,0.3401936335799007

@@ -1,0 +1,14 @@
+{
+  "source_pv_rows": 70117,
+  "pv_timestamps_with_multiple_records": 34983,
+  "pv_timestamps_with_different_nonmissing_values": 18919,
+  "missing_values_on_complete_grid": {
+    "OPERATIONAL_DEMAND_MW": 1,
+    "ROOFTOP_PV_MW": 2,
+    "MAX_TEMP_C": 96,
+    "SOLAR_EXPOSURE_MJ_M2": 48
+  },
+  "training_start": "2024-08-01 00:00:00",
+  "test_start": "2025-08-01 00:00:00",
+  "test_end_exclusive": "2026-08-01 00:00:00"
+}
