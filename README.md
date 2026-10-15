@@ -1,4 +1,4 @@
-# Welcome to ZZSC9020 GitHub repository for group [GROUP-NAME]
+# Welcome to ZZSC9020 GitHub repository for Group A
 
 This GitHub repository is the main point of access for students and lecturers of the ZZSC9020 capstone course. 
 
@@ -9,15 +9,16 @@ Complete the information below regarding your group.
 ## Group and project information
 
 ### Group members and zIDs
-- Member 1 (zID1) - Group leader
-- Member 2 (zID2) - role
-- Member 3 (zID3) - role
-- Member 4 (zID4) - role
-- Member 5 (zID5) - role
+- Swapnil Shinde (z5118116) - Team Leader
+- Kelly Hamilton (z552890) - Data Science Researcher
+- Daniel Cao (z5267347) - Machine Learning Engineer
+- Faiza Mumtaz (z5657874) - Data Scientist
+- Xavier Sun (z5647547) - Product Manager
+- Arman Hajisafi (z3542724) - Data Engineer
 
 ### Brief project description
 
-Describe your project in one paragraph.
+Which forecasting models perform best for medium to long term electricity demand in New South Wales when evaluated across seasonal variation, temperature changes and differing demand levels? 
 
 ## Repository structure
 

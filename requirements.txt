@@ -1,0 +1,12 @@
+# Required library for ZZSC9020 Group DS Project
+numpy>=1.26
+pandas>=2.2,<3.0
+matplotlib>=3.8
+seaborn>=0.13
+statsmodels>=0.14
+scikit-learn>=1.4
+xgboost>=2.0
+lightgbm>=4.3
+tensorflow>=2.16
+jupyter>=1.0
+ipykernel>=6.29

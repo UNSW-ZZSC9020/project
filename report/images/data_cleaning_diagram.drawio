@@ -1,0 +1,132 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="NSW Demand Pipeline" id="nsw-pipeline">
+    <mxGraphModel dx="1734" dy="995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="band1" parent="1" style="rounded=1;arcSize=6;fillColor=#ECF0EC;strokeColor=#C9D1CB;" value="" vertex="1">
+          <mxGeometry height="410" width="280" x="35" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="band2" parent="1" style="rounded=1;arcSize=6;fillColor=#ECF0EC;strokeColor=#C9D1CB;" value="" vertex="1">
+          <mxGeometry height="410" width="280" x="380" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="band3" parent="1" style="rounded=1;arcSize=6;fillColor=#ECF0EC;strokeColor=#C9D1CB;" value="" vertex="1">
+          <mxGeometry height="410" width="280" x="725" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr1" parent="1" style="text;align=center;fontStyle=1;fontSize=12;fontColor=#5B6660;" value="TEMPERATURE" vertex="1">
+          <mxGeometry height="20" width="250" x="50" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr2" parent="1" style="text;align=center;fontStyle=1;fontSize=12;fontColor=#5B6660;" value="TOTAL DEMAND" vertex="1">
+          <mxGeometry height="20" width="250" x="395" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr3" parent="1" style="text;align=center;fontStyle=1;fontSize=12;fontColor=#5B6660;" value="FORECAST DEMAND" vertex="1">
+          <mxGeometry height="20" width="250" x="740" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="1" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="temperature_nsw.csv.zip" vertex="1">
+          <mxGeometry height="56" width="250" x="50" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="1" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="totaldemand_nsw.csv.zip" vertex="1">
+          <mxGeometry height="56" width="250" x="395" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="forecastdemand_nsw.csv.zip.partaa&#xa;forecastdemand_nsw.csv.zip.partab" vertex="1">
+          <mxGeometry height="56" width="250" x="740" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="temperature_nsw.csv&#xa;220,326 rows&#xa;1 station in Bankstown" vertex="1">
+          <mxGeometry height="84" width="250" x="50" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="totaldemand_nsw.csv&#xa;196,513 rows&#xa;region NSW1" vertex="1">
+          <mxGeometry height="84" width="250" x="395" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="forecastdemand_nsw.csv&#xa;10,906,019 rows (~740 MB)&#xa;~55 forecasts per timestamp" vertex="1">
+          <mxGeometry height="84" width="250" x="740" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="cleaned&#xa;220,313 rows&#xa;" vertex="1">
+          <mxGeometry height="72" width="250" x="50" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="cleaned&#xa;196,513 rows&#xa;" vertex="1">
+          <mxGeometry height="72" width="250" x="395" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;" value="cleaned&#xa;196,513 rows × 3 cols&#xa;closest · 12h prior · day prior" vertex="1">
+          <mxGeometry height="72" width="250" x="740" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="badge1" parent="1" style="rounded=1;arcSize=50;fillColor=#A8402F;strokeColor=none;fontColor=#FFFFFF;fontSize=11;" value="13 duplicates removed" vertex="1">
+          <mxGeometry height="20" width="118" x="188" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="badge2" parent="1" style="rounded=1;arcSize=50;fillColor=#2E7A56;strokeColor=none;fontColor=#FFFFFF;fontSize=11;" value="0 rows removed" vertex="1">
+          <mxGeometry height="20" width="118" x="461" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="badge3" parent="1" style="rounded=1;arcSize=50;fillColor=#A8402F;strokeColor=none;fontColor=#FFFFFF;fontSize=11;" value="~55 → 3 per timestamp" vertex="1">
+          <mxGeometry height="20" width="156" x="787" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="bar" parent="1" style="rounded=0;fillColor=#C1701F;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="4" width="860" x="90" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="merge" parent="1" style="rounded=1;arcSize=6;fillColor=#FFFFFF;strokeColor=#C9D1CB;fontSize=13;fontStyle=0;verticalAlign=middle;" value="First, total demand and forecast demand are joined on the exact 30-minute timestamp, they already line up perfectly.&#xa;&#xa;Temperature is then joined in using the closest available reading, since its timestamps don&#39;t line up as neatly (using a merge_asof)&#xa;&#xa;This picks the reading nearest to each existing timestamp (left join style, no duplicates), rather than building a new time grid and interpolating.&#xa;&#xa;196,513 rows × 8 columns" vertex="1">
+          <mxGeometry height="130" width="860" x="90" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="chk1" parent="1" style="rounded=1;arcSize=8;fillColor=#ECF0EC;strokeColor=#C9D1CB;fontSize=12;" value="✓ Coverage: &#xa;196,513 / 196,513 half hourly slots since 2010-01-01, 0 gaps&#xa;" vertex="1">
+          <mxGeometry height="80" width="420" x="90" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="chk2" parent="1" style="rounded=1;arcSize=8;fillColor=#ECF0EC;strokeColor=#C9D1CB;fontSize=12;" value="✓ Missing values:&#xa;0 across every column" vertex="1">
+          <mxGeometry height="80" width="420" x="530" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="chk3" parent="1" style="rounded=1;arcSize=8;fillColor=#ECF0EC;strokeColor=#C9D1CB;fontSize=12;" value="✓ Duplicate rows:&#xa;0 full row and 0 duplicate timestamps" vertex="1">
+          <mxGeometry height="80" width="420" x="90" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="chk4" parent="1" style="rounded=1;arcSize=8;fillColor=#ECF0EC;strokeColor=#C9D1CB;fontSize=12;" value="✓ Data types:&#xa;exactly one consistent type per column" vertex="1">
+          <mxGeometry height="80" width="420" x="530" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="out" parent="1" style="rounded=1;arcSize=10;fillColor=#FBEEDD;strokeColor=#C1701F;strokeWidth=2;fontSize=14;fontStyle=1;" value="nsw_cleaned.csv&#xa;196,513 rows × 8 columns" vertex="1">
+          <mxGeometry height="56" width="280" x="380" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="a1" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontStyle=2;strokeColor=#5B6660;" target="b1" value="unzip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="a2" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontStyle=2;strokeColor=#5B6660;" target="b2" value="unzip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="a3" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontStyle=2;strokeColor=#5B6660;" target="b3" value="combine parts + unzip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="b1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#5B6660;" target="c1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="b2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#5B6660;" target="c2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="b3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#5B6660;" target="c3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="c1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#C1701F;strokeWidth=1.5;" target="merge" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="174.94" y="480.06" />
+              <mxPoint x="400" y="480.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="c2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#C1701F;strokeWidth=1.5;" target="merge" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="c3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#C1701F;strokeWidth=1.5;" target="merge" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="865.06" y="480.06" />
+              <mxPoint x="680" y="480.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="merge" style="strokeColor=#5B6660;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="686" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" style="strokeColor=#C1701F;strokeWidth=1.5;" target="out" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="874" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
